@@ -1,9 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
-   
+    <div className="containerGrid">
+      <div className="header"></div>
+      <div className="sidebar"></div>
+      <div className="content"></div>
+    </div>
   );
 }
 
