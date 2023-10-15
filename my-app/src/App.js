@@ -1,5 +1,7 @@
 import "./App.css";
 import raster from "./assets/Raster.png";
+import profile from "./assets/profile.jpeg";
+import profileImage from "./assets/profileImage.jpg";
 
 function App() {
   return (
@@ -38,21 +40,51 @@ function App() {
       </div>
       <div className="content">
         <div className="content__preview">
-          ffff
-          <img src="" alt="" />
+          <img src={profile} alt="/#" />
         </div>
         <div className="content__profile">
-          <div className="content__profile__image"></div>
-          <div className="content__profile__description"></div>
+          <div className="profile__image">
+            {" "}
+            <img src={profileImage} alt="/#" />{" "}
+          </div>
+          <div className="profile__description">
+            <p>Dmitry K.</p>
+            <p>
+              Date of Birth: 2 january City: Minsk Education: BSU '11 Web Site:
+              https://samuraijs.com
+            </p>
+          </div>
         </div>
         <div className="content__posts">
-          <div className="my__posts">myposts</div>
-          <div className="my__poststextarea">textarea</div>
-          <div className="my__postssend">send</div>
+          <div className="my__posts">
+            <p>My posts</p>
+          </div>
+          <div className="my__poststextarea">
+            <textarea name="assasasa" id="" cols="10" rows="5">
+              your newssqqsqsqsqs
+            </textarea>
+          </div>
+          <div className="my__postssendbutton">
+            <button>Send</button>
+          </div>
         </div>
         <div className="content__footer">
-          <div className="item__one"></div>
-          <div className="item__two"></div>
+          <div className="item__one">
+            <div className="item__one__image">
+              {/* <img src="" alt="/#" /> */}
+            </div>
+            <div className="item__one__comment">
+              <span>Hey, why nobody love me?</span>
+            </div>
+          </div>
+          <div className="item__one">
+            <div className="item__one__image">
+              {/* <img src="" alt="/#" /> */}
+            </div>
+            <div className="item__one__comment">
+              <span>Hey, why nobody love me?</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
