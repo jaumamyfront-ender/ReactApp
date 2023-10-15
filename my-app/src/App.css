@@ -157,5 +157,45 @@ h6 {
 }
 
 .content {
+  height: 1080px;
   grid-area: content;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, 500px));
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "preview preview preview"
+    "profile profile"
+    "post post post post post"
+    "footer";
+  grid-auto-flow: none;
+  grid-auto-rows: 0px;
+  grid-auto-columns: 0px;
+}
+
+.content__preview {
+  grid-area: preview;
+  display: grid;
+}
+.content__profile {
+  grid-area: profile;
+}
+.content__profile__image {
+}
+.content__profile__description {
+}
+.content__posts {
+  grid-area: post;
+}
+.my__posts {
+}
+.my__poststextarea {
+}
+.my__postssend {
+}
+.content__footer {
+  grid-area: footer;
+}
+.item__one {
+}
+.item__two {
 }

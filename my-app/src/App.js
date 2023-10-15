@@ -36,7 +36,25 @@ function App() {
           <div className="users__name">fdsfsd</div>
         </div>
       </div>
-      <div className="content">content</div>
+      <div className="content">
+        <div className="content__preview">
+          ffff
+          <img src="" alt="" />
+        </div>
+        <div className="content__profile">
+          <div className="content__profile__image"></div>
+          <div className="content__profile__description"></div>
+        </div>
+        <div className="content__posts">
+          <div className="my__posts">myposts</div>
+          <div className="my__poststextarea">textarea</div>
+          <div className="my__postssend">send</div>
+        </div>
+        <div className="content__footer">
+          <div className="item__one"></div>
+          <div className="item__two"></div>
+        </div>
+      </div>
     </div>
   );
 }
