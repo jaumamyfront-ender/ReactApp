@@ -1,0 +1,67 @@
+.wrapper {
+  display: grid;
+  max-height: 1080px;
+  max-width: 900px;
+  grid-auto-columns: 0px;
+  grid-auto-rows: 0px;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "tl tl tl"
+    "usr com com";
+}
+.descriptionTitle {
+  display: grid;
+  grid-area: tl;
+  grid-column-start: span 3;
+  grid-row-start: span 1;
+}
+.descriptionTitle p {
+  color: #47525e;
+  font-family: Lato;
+  font-size: 36px;
+  line-height: 33px;
+  text-align: left;
+  font-weight: 500;
+}
+.followUsers {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 130px;
+  justify-items: center;
+  align-items: center;
+}
+.followUserImage {
+  background-color: #aeaaaa;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 15px;
+}
+.followUserButton button {
+  width: 100px;
+  height: 35px;
+  background-color: green;
+  color: #ffffff;
+  font-family: Lato;
+  font-size: 26px;
+  line-height: 33px;
+  text-align: center;
+}
+.UserComments {
+  width: 700px;
+  height: 100px;
+}
+.UserComments textarea {
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 1px solid rgb(193, 29, 29);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  font-size: 27px;
+  color: #000000;
+  width: 100%;
+  min-height: 124px;
+}
