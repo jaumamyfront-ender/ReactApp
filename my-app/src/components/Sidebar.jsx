@@ -1,31 +1,31 @@
 import React from "react";
+import classes from "./sidebar.module.css";
 const Sidebar = () => {
   return (
-    <div className="sidebar">
-      <div className="sidebar__list">
-        {" "}
+    <div className={classes.sidebar}>
+      <div className={classes.sidebar__list}>
         <a href="/#">Profile</a>
         <a href="/#">Messages</a>
         <a href="/#">News</a>
         <a href="/#">Music</a>
         <a href="/#">Settings</a>
       </div>
-      <div className="sidebar__friends">
-        <a href="/#" alt="/#" className="qqq">
+      <div className={classes.sidebar__friends}>
+        <a href="/#" alt="/#" className={classes.qqq}>
           Friends
         </a>
-        <div className="userspictures one">
+        <div className={classes.userspictures}>
           <img></img>
         </div>
-        <div className="userspictures second">
+        <div className={classes.userspictures}>
           <img></img>
         </div>
-        <div className="userspictures three">
+        <div className={classes.userspictures}>
           <img></img>
         </div>
-        <div className="users__name">sdfsd</div>
-        <div className="users__name">fdsfs</div>
-        <div className="users__name">fdsfsd</div>
+        <div className={classes.users__name}>sdfsd</div>
+        <div className={classes.users__name}>fdsfs</div>
+        <div className={classes.users__name}>fdsfsd</div>
       </div>
     </div>
   );
