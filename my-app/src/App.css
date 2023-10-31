@@ -98,21 +98,7 @@ h6 {
   grid-auto-columns: 0px;
   grid-auto-rows: 0px;
 }
-.header {
-  grid-area: header;
-  background-color: rgb(0, 0, 0);
-}
-.headerImage {
-  width: 90px;
-  height: 90px;
-  margin-left: 40px;
-  margin-top: 30px;
-}
-.headerImage img {
-  object-fit: cover;
-  width: 90px;
-  height: 90px;
-}
+
 .sidebar {
   height: 1080px;
   display: grid;
