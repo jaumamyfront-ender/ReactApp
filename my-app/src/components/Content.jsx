@@ -1,6 +1,7 @@
 import React from "react";
 import profile from "../assets/profile.jpeg";
 import profileImage from "../assets/profileImage.jpg";
+import ContentFooter from "./sub-componentsContentFooter";
 const Content = () => {
   return (
     <div className="content">
@@ -33,24 +34,7 @@ const Content = () => {
           <button>Send</button>
         </div>
       </div>
-      <div className="content__footer">
-        <div className="item__one">
-          <div className="item__one__image">
-            {/* <img src="" alt="/#" /> */}
-          </div>
-          <div className="item__one__comment">
-            <span>Hey, why nobody love me?</span>
-          </div>
-        </div>
-        <div className="item__one">
-          <div className="item__one__image">
-            {/* <img src="" alt="/#" /> */}
-          </div>
-          <div className="item__one__comment">
-            <span>Hey, why nobody love me?</span>
-          </div>
-        </div>
-      </div>
+      <ContentFooter message="eeee joooooou" age="Hey,why nobody love me" />
     </div>
   );
 };

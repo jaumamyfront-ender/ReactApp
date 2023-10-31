@@ -24,6 +24,9 @@
   grid-template-rows: 80px 90px 25px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "qqq qqq qqq";
+  max-width: 600px;
+  justify-self: center;
+  gap: 10px;
 }
 .qqq {
   display: grid;
