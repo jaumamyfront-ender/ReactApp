@@ -1,6 +1,6 @@
 import React from "react";
-import profile from "../assets/profile.jpeg";
-import profileImage from "../assets/profileImage.jpg";
+import profile from "../../assets/profile.jpeg";
+import profileImage from "../../assets/profileImage.jpg";
 import ContentFooter from "./sub-componentsContentFooter";
 const Content = () => {
   return (
