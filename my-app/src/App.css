@@ -87,6 +87,13 @@ h6 {
   font-size: inherit;
   font-weight: inherit;
 }
+a {
+  color: rgb(8, 11, 11);
+}
+
+.active__link {
+  color: #f10a0a;
+}
 .container {
   display: grid;
   grid-template-rows: 150px 100%;

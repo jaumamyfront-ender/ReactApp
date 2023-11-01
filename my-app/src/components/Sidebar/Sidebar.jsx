@@ -1,19 +1,45 @@
 import React from "react";
 import classes from "./sidebar.module.css";
+import { NavLink, Link, Outlet } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div className={classes.sidebar}>
       <div className={classes.sidebar__list}>
-        <a href="content">Profile</a>
-        <a href="messages">Messages</a>
-        <a href="/#">News</a>
-        <a href="/#">Music</a>
-        <a href="/#">Settings</a>
+        <NavLink
+          to="content"
+          className={({ isActive }) => (isActive ? "active__link" : "")}
+        >
+          Profile
+        </NavLink>
+        <NavLink
+          to="messages"
+          className={({ isActive }) => (isActive ? "active__link" : "")}
+        >
+          Messages
+        </NavLink>
+        <NavLink
+          to="/#"
+          className={({ isActive }) => (isActive ? "active__link" : "")}
+        >
+          News
+        </NavLink>
+        <NavLink
+          to="/#"
+          className={({ isActive }) => (isActive ? "active__link" : "")}
+        >
+          Music
+        </NavLink>
+        <NavLink
+          to="/#"
+          className={({ isActive }) => (isActive ? "active__link" : "")}
+        >
+          Settings
+        </NavLink>
       </div>
       <div className={classes.sidebar__friends}>
-        <a href="/#" alt="/#" className={classes.qqq}>
+        <NavLink to="/#" alt="/#" className={classes.qqq}>
           Friends
-        </a>
+        </NavLink>
         <div className={classes.userspictures}>
           <img></img>
         </div>

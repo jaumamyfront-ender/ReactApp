@@ -14,8 +14,8 @@
 .sidebar__list a {
   font-size: 40px;
   font-weight: 600;
-  color: rgb(231, 34, 34);
 }
+
 .sidebar__list a:last-child {
   margin-top: 50px;
 }
