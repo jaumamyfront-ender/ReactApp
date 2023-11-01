@@ -4,8 +4,8 @@ const Sidebar = () => {
   return (
     <div className={classes.sidebar}>
       <div className={classes.sidebar__list}>
-        <a href="/#">Profile</a>
-        <a href="/#">Messages</a>
+        <a href="content">Profile</a>
+        <a href="messages">Messages</a>
         <a href="/#">News</a>
         <a href="/#">Music</a>
         <a href="/#">Settings</a>

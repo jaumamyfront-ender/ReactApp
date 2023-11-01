@@ -1,16 +1,15 @@
+import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header.jsx";
 import Sidebar from "./components/Sidebar/Sidebar";
-// import Content from "./components/Content/Content";
-import Messages from "./components/Messages/Messages";
+import MainRoutes from "./components/Routes/Routes";
 
 function App() {
   return (
-    <div className="containerGrid">
+    <div className="container">
       <Header />
       <Sidebar />
-
-      <Messages />
+      <MainRoutes />
     </div>
   );
 }
