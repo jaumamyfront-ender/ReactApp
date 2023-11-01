@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./dialogs.module.css";
-// import userImage from "../../assets/";
 const Dialogs = () => {
   return (
     <div className={classes.wrapper}>
@@ -14,7 +13,13 @@ const Dialogs = () => {
         </div>
       </div>
       <div className={classes.UserComments}>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <div className={classes.comment__area}>
+          <p>text text text text</p>
+        </div>
+        <div className={classes.info__container}>
+          <div className={classes.info__card}></div>
+          <div className={classes.info__about__User}></div>
+        </div>
       </div>
     </div>
   );

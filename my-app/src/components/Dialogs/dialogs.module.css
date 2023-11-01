@@ -1,20 +1,21 @@
 .wrapper {
-  display: grid;
+  display: flex;
   max-height: 1080px;
   max-width: 900px;
-  grid-auto-columns: 0px;
+  flex-direction: column;
+  /* grid-auto-columns: 0px;
   grid-auto-rows: 0px;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: repeat(6, 150px);
   grid-template-areas:
     "tl tl tl"
-    "usr com com";
+    "usr com com"; */
 }
 .descriptionTitle {
-  display: grid;
+  /* display: grid;
   grid-area: tl;
   grid-column-start: span 3;
-  grid-row-start: span 1;
+  grid-row-start: span 1; */
 }
 .descriptionTitle p {
   color: #47525e;
@@ -25,12 +26,14 @@
   font-weight: 500;
 }
 .followUsers {
+  grid-area: usr;
   display: flex;
   flex-direction: column;
   width: 100px;
   height: 130px;
   justify-items: center;
   align-items: center;
+  justify-self: center;
 }
 .followUserImage {
   background-color: #aeaaaa;
@@ -52,8 +55,9 @@
 .UserComments {
   width: 700px;
   height: 100px;
+  grid-area: com;
 }
-.UserComments textarea {
+/* .UserComments textarea {
   box-sizing: border-box;
   background-color: transparent;
   border: 1px solid rgb(193, 29, 29);
@@ -64,4 +68,34 @@
   color: #000000;
   width: 100%;
   min-height: 124px;
+} */
+.UserComments {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 1px solid rgb(193, 29, 29);
+  border-radius: 10px;
+  max-width: 450px;
+}
+.comment__area {
+  width: 100%;
+}
+.info__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.info__card {
+  width: 150px;
+  height: 70px;
+  background-color: black;
+  align-self: flex-start;
+  border-radius: 10px;
+}
+.info__about__User {
+  border-radius: 10px;
+  width: 150px;
+  height: 70px;
+  background-color: rgb(189, 54, 54);
 }
