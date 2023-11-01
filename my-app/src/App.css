@@ -94,6 +94,7 @@ a {
 .active__link {
   color: #f10a0a;
 }
+
 .container {
   display: grid;
   grid-template-rows: 150px 100%;

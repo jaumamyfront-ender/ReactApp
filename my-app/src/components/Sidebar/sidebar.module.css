@@ -28,12 +28,17 @@
   justify-self: center;
   gap: 10px;
 }
+.sidebar__friends a:hover {
+  color: rgb(244, 7, 165);
+}
+
 .qqq {
   display: grid;
   grid-area: qqq;
   justify-self: center;
   font-size: 50px;
 }
+
 .userspictures {
   width: 78px;
   height: 78px;
