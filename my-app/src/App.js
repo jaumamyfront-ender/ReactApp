@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./components/Header/Header.jsx";
 import Sidebar from "./components/Sidebar/Sidebar";
 // import Content from "./components/Content/Content";
-import Dialogs from "./components/Dialogs/Dialogs";
+import Messages from "./components/Messages/Messages";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Sidebar />
 
-      <Dialogs />
+      <Messages />
     </div>
   );
 }
