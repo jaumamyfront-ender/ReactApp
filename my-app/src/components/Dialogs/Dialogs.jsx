@@ -44,7 +44,7 @@ export default function Dialogs() {
         </div>
         <div className={classes.Barrier}></div>
         <div className={`${classes.SideBar} ${classes.RightWrapper}`}>
-          <div className={classes.rightwrapper__items}>
+          <div className={`${classes.rightwrapper__items} ${classes.friend}`}>
             <div className={classes.user__info}>
               <div className={classes.user__picture}></div>
               <div className={classes.user__name}>
@@ -53,6 +53,39 @@ export default function Dialogs() {
             </div>
             <div className={classes.user__message}>
               <p>im your Friends</p>
+            </div>
+          </div>
+          <div className={`${classes.rightwrapper__items} ${classes.user}`}>
+            <div className={classes.user__info}>
+              <div className={classes.user__picture}></div>
+              <div className={classes.user__name}>
+                <p>Me</p>
+              </div>
+            </div>
+            <div className={`${classes.user__message} ${classes.me}`}>
+              <textarea name="" id="" cols="20" rows="10"></textarea>
+            </div>
+          </div>
+          <div className={`${classes.rightwrapper__items} ${classes.friend}`}>
+            <div className={classes.user__info}>
+              <div className={classes.user__picture}></div>
+              <div className={classes.user__name}>
+                <p>Andrey</p>
+              </div>
+            </div>
+            <div className={classes.user__message}>
+              <p>im your Friends</p>
+            </div>
+          </div>
+          <div className={`${classes.rightwrapper__items} ${classes.user}`}>
+            <div className={classes.user__info}>
+              <div className={classes.user__picture}></div>
+              <div className={classes.user__name}>
+                <p>Me</p>
+              </div>
+            </div>
+            <div className={`${classes.user__message} ${classes.me}`}>
+              <textarea name="" id="" cols="20" rows="10"></textarea>
             </div>
           </div>
         </div>

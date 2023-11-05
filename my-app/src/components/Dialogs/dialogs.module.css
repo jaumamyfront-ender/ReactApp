@@ -37,13 +37,12 @@
 }
 .RightWrapper {
   grid-area: sr;
-  background-color: rgb(160, 160, 204);
 }
 .Barrier {
   grid-area: bb;
-  width: 9px;
+  width: 3px;
   background-color: rgb(235, 19, 19);
-  height: 680px;
+  height: 780px;
   border: 1px solid #7e55f3;
   align-self: center;
 }
@@ -71,33 +70,58 @@
 .RightWrapper {
   display: flex;
   flex-direction: column;
+
+  justify-content: space-between;
+  max-height: 550px;
 }
 .rightwrapper__items {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 500px;
+  max-width: 450px;
   height: 100px;
+  margin-left: 100px;
 }
 .user__info {
   display: flex;
   flex-direction: column;
   width: 70px;
   height: 90px;
+  align-items: center;
 }
 .user__picture {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background-color: #8190a5;
 }
 .user__name {
-  font-size: 15px;
+  font-size: 20px;
   color: #8190a5;
+  margin-top: 5px;
 }
 .user__message {
-  width: 250px;
+  width: 350px;
   height: 90px;
-  border-radius: 10%;
-  border: 1px solid rgb(193, 29, 29);
+  border-radius: 10px;
+  border: 2px solid rgb(81, 64, 64);
+}
+.user__message p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.me {
+  color: #080b0c;
+}
+.me textarea {
+  max-width: 350px;
+  max-height: 90px;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 18px;
 }
