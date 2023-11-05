@@ -9,8 +9,8 @@ const Sidebar = () => {
         <NavLink to="content" className={setActive}>
           Profile
         </NavLink>
-        <NavLink to="messages" className={setActive}>
-          Messages
+        <NavLink to="friends" className={setActive}>
+          Friends
         </NavLink>
         <NavLink to="/#" className={setActive}>
           News

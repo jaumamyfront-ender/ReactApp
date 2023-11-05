@@ -1,6 +1,6 @@
 import React from "react";
-import classes from "./messages.module.css";
-const Messages = () => {
+import classes from "./friends.module.css";
+const Friends = () => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.descriptionTitle}>
@@ -102,4 +102,4 @@ const Messages = () => {
     </div>
   );
 };
-export default Messages;
+export default Friends;
