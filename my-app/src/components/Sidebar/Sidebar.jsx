@@ -5,27 +5,10 @@ import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
 const setActive = ({ isActive }) => (isActive ? "active__link" : "");
 
 const Sidebar = () => {
-  const { pathname } = useLocation();
-  console.log("pathname", pathname);
   return (
     <div className={classes.sidebar}>
       <div className={classes.sidebar__list}>
-        {/* <NavLink
-          to="content"
-          style={{ color: pathname.includes("content") ? "green" : "white" }}
-        >
-          Profile
-        </NavLink> */}
-        {/* <NavLink
-          to="content"
-          className={`${pathname.includes("content") && "active__link"}`}
-        >
-          Profile
-        </NavLink> */}
-        <NavLink
-          to="content"
-          className={`${pathname === "content" && "active__link"}`}
-        >
+        <NavLink to="content" className={setActive}>
           Profile
         </NavLink>
         <NavLink to="friends" className={setActive}>
