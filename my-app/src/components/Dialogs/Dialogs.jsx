@@ -44,10 +44,12 @@ export default function Dialogs() {
         </div>
         <div className={classes.Barrier}></div>
         <div className={`${classes.SideBar} ${classes.RightWrapper}`}>
-          <div className={classes.rightWrapper__items}>
+          <div className={classes.rightwrapper__items}>
             <div className={classes.user__info}>
               <div className={classes.user__picture}></div>
-              <div className={classes.user__name}></div>
+              <div className={classes.user__name}>
+                <p>Andrey</p>
+              </div>
             </div>
             <div className={classes.user__message}>
               <p>im your Friends</p>
