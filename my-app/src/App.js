@@ -10,8 +10,8 @@ function App() {
     <div className="container">
       <Header />
       <Sidebar />
-      <MainRoutes />
-      {/* <Dialogs /> */}
+      {/* <MainRoutes /> */}
+      <Dialogs />
     </div>
   );
 }

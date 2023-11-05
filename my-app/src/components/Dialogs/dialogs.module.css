@@ -62,11 +62,7 @@
   display: inline-block;
   width: 20px;
 }
-.sidebar__items:link:focus {
-  font-size: 30px;
-  font-weight: 600;
-  color: #080b0c;
-}
+
 .RightWrapper {
   display: flex;
   flex-direction: column;
