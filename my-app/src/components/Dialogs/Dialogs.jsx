@@ -4,6 +4,24 @@ import { NavLink, useLocation } from "react-router-dom";
 
 export default function Dialogs() {
   const { pathname } = useLocation();
+  const Dialogitems = (props) => {
+    let path = "/dialogs/" + props.id;
+    return (
+      <NavLink
+        to={path}
+        alt="/#"
+        style={{
+          color: pathname.includes(path) ? "red" : "grey",
+          fontWeight: pathname.includes(path) ? "700" : "300",
+          fontSize: pathname.includes(path) ? "32px" : "22px",
+        }}
+        className={classes.sidebar__items}
+      >
+        Andrew
+      </NavLink>
+    );
+  };
+
   return (
     <div className="Wrapper">
       <div className={classes.Container}>
@@ -11,126 +29,16 @@ export default function Dialogs() {
           <p>Dialogs</p>
         </div>
         <div className={`${classes.SideBar} ${classes.LeftWrapper}`}>
-          <NavLink
-            to="/dialogs/1"
-            alt="/#"
-            style={{
-              color: pathname.includes("dialogs/1") ? "red" : "grey",
-              fontWeight: pathname.includes("dialogs/1") ? "700" : "300",
-              fontSize: pathname.includes("dialogs/1") ? "32px" : "22px",
-            }}
-            className={classes.sidebar__items}
-          >
-            Andrew
-          </NavLink>
-          <NavLink
-            to="/dialogs/2"
-            alt="/#"
-            style={{
-              color: pathname.includes("dialogs/2") ? "red" : "grey",
-              fontWeight: pathname.includes("dialogs/2") ? "700" : "300",
-              fontSize: pathname.includes("dialogs/2") ? "32px" : "22px",
-            }}
-            className={classes.sidebar__items}
-          >
-            Andrew
-          </NavLink>
-          <NavLink
-            to="/dialogs/3"
-            alt="/#"
-            style={{
-              color: pathname.includes("dialogs/3") ? "red" : "grey",
-              fontWeight: pathname.includes("dialogs/3") ? "700" : "300",
-              fontSize: pathname.includes("dialogs/3") ? "32px" : "22px",
-            }}
-            className={classes.sidebar__items}
-          >
-            Andrew
-          </NavLink>
-          <NavLink
-            to="/dialogs/4"
-            alt="/#"
-            style={{
-              color: pathname.includes("dialogs/4") ? "red" : "grey",
-              fontWeight: pathname.includes("dialogs/4") ? "700" : "300",
-              fontSize: pathname.includes("dialogs/4") ? "32px" : "22px",
-            }}
-            className={classes.sidebar__items}
-          >
-            Andrew
-          </NavLink>
-          <NavLink
-            to="/dialogs/5"
-            alt="/#"
-            style={{
-              color: pathname.includes("dialogs/5") ? "red" : "grey",
-              fontWeight: pathname.includes("dialogs/5") ? "700" : "300",
-              fontSize: pathname.includes("dialogs/5") ? "32px" : "22px",
-            }}
-            className={classes.sidebar__items}
-          >
-            Andrew
-          </NavLink>
-          <NavLink
-            to="/dialogs/6"
-            alt="/#"
-            style={{
-              color: pathname.includes("dialogs/6") ? "red" : "grey",
-              fontWeight: pathname.includes("dialogs/6") ? "700" : "300",
-              fontSize: pathname.includes("dialogs/6") ? "32px" : "22px",
-            }}
-            className={classes.sidebar__items}
-          >
-            Andrew
-          </NavLink>
-          <NavLink
-            to="/dialogs/7"
-            alt="/#"
-            style={{
-              color: pathname.includes("dialogs/7") ? "red" : "grey",
-              fontWeight: pathname.includes("dialogs/7") ? "700" : "300",
-              fontSize: pathname.includes("dialogs/7") ? "32px" : "22px",
-            }}
-            className={classes.sidebar__items}
-          >
-            Andrew
-          </NavLink>
-          <NavLink
-            to="/dialogs/8"
-            alt="/#"
-            style={{
-              color: pathname.includes("dialogs/8") ? "red" : "grey",
-              fontWeight: pathname.includes("dialogs/8") ? "700" : "300",
-              fontSize: pathname.includes("dialogs/8") ? "32px" : "22px",
-            }}
-            className={classes.sidebar__items}
-          >
-            Andrew
-          </NavLink>
-          <NavLink
-            to="/dialogs/9"
-            alt="/#"
-            style={{
-              color: pathname.includes("dialogs/9") ? "red" : "grey",
-              fontWeight: pathname.includes("dialogs/9") ? "700" : "300",
-              fontSize: pathname.includes("dialogs/9") ? "32px" : "22px",
-            }}
-            className={classes.sidebar__items}
-          >
-            Andrew
-          </NavLink>
-          <NavLink
-            to="/dialogs/12"
-            alt="/#"
-            style={{
-              color: pathname.includes("dialogs/12") ? "red" : "grey",
-              fontWeight: pathname.includes("dialogs/12") ? "700" : "300",
-              fontSize: pathname.includes("dialogs/12") ? "32px" : "22px",
-            }}
-            className={classes.sidebar__items}
-          >
-            sasha
-          </NavLink>
+          <Dialogitems name="dima" id="1" />
+          <Dialogitems name="sasha" id="2" />
+          <Dialogitems name="ola" id="3" />
+          <Dialogitems name="sveta" id="4" />
+          <Dialogitems name="andrey" id="5" />
+          <Dialogitems name="dalbaeb" id="6" />
+          <Dialogitems name="huesos" id="7" />
+          <Dialogitems name="idiot" id="8" />
+          <Dialogitems name="srakoliz" id="9" />
+          <Dialogitems name="debil" id="0" />
         </div>
         <div className={classes.Barrier}></div>
         <div className={`${classes.SideBar} ${classes.RightWrapper}`}>

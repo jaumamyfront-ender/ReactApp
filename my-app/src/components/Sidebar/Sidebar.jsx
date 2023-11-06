@@ -14,8 +14,8 @@ const Sidebar = () => {
         <NavLink to="friends" className={setActive}>
           Friends
         </NavLink>
-        <NavLink to="/#" className={setActive}>
-          News
+        <NavLink to="dialogs" className={setActive}>
+          Messages
         </NavLink>
         <NavLink to="/#" className={setActive}>
           Music
