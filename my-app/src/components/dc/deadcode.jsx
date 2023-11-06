@@ -107,4 +107,30 @@
           >
             sasha
           </NavLink> */
-}
+// }
+//           <Dialogitems name="sasha" id="2" />
+//           <Dialogitems name="ola" id="3" />
+//           <Dialogitems name="sveta" id="4" />
+//           <Dialogitems name="andrey" id="5" />
+//           <Dialogitems name="dalbaeb" id="6" />
+//           <Dialogitems name="huesos" id="7" />
+//           <Dialogitems name="idiot" id="8" />
+//           <Dialogitems name="srakoliz" id="9" />
+//           <Dialogitems name="debil" id="0" />
+
+
+div
+div
+
+
+
+
+          <div className={classes.user__info}>
+              <div className={classes.user__picture}></div>
+              <div className={classes.user__name}>
+                <p>Andrey</p>
+              </div>
+            </div>
+                  <div className={classes.user__message}>
+        <p>{props.message}</p>
+      </div>
