@@ -1,56 +1,37 @@
 import React from "react";
 import classes from "./dialogs.module.css";
 import { NavLink, useLocation } from "react-router-dom";
-let dialogsdata = [
-  { id: 1, name: "dimych" },
-  { id: 2, name: "sveta" },
-  { id: 3, name: "tanja" },
-  { id: 4, name: "andrey" },
-  { id: 5, name: "taras" },
-  { id: 6, name: "bogdan" },
-  { id: 7, name: "vera" },
-  { id: 8, name: "lera" },
-  { id: 9, name: "sergei" },
-  { id: 0, name: "danil" },
-];
-let dialogsDataMessageUser = [
-  { id: 0, message: "i am your friend,bro,what are you thinking about this" },
-  { id: 1, message: "yoooooooooooooooooooooo" },
-];
+// import UserMessage from "./UserMessage";
+
 export default function Dialogs() {
   const { pathname } = useLocation();
-  const Dialogitems = (props) => {
-    let path = "/dialogs/" + props.id;
-    return (
-      <NavLink
-        to={path}
-        alt="/#"
-        style={{
-          color: pathname.includes(path) ? "red" : "grey",
-          fontWeight: pathname.includes(path) ? "700" : "300",
-          fontSize: pathname.includes(path) ? "32px" : "22px",
-        }}
-        className={classes.sidebar__items}
-      >
-        {props.name}
-      </NavLink>
-    );
-  };
-  const UserMessage = (props) => {
-    return (
-      <div className={`${classes.rightwrapper__items} ${classes.friend}`}>
-        <div className={classes.user__info}>
-          <div className={classes.user__picture}></div>
-          <div className={classes.user__name}>
-            <p>Andrey</p>
-          </div>
-        </div>
-        <div className={classes.user__message}>
-          <p>{props.message}</p>
-        </div>
-      </div>
-    );
-  };
+
+  let dialogsdata = [
+    { id: 1, name: "dimych" },
+    { id: 2, name: "sveta" },
+    { id: 3, name: "tanja" },
+    { id: 4, name: "andrey" },
+    { id: 5, name: "taras" },
+    { id: 6, name: "bogdan" },
+    { id: 7, name: "vera" },
+    { id: 8, name: "lera" },
+    { id: 9, name: "sergei" },
+    { id: 0, name: "danil" },
+  ];
+  let dialogsdataelements = dialogsdata.map((dialog) => (
+    <Dialogitems name={dialog.name} id={dialog.id} pathname={pathname} />
+  ));
+  let dialogsDataMessageUser = [
+    {
+      id: 0,
+      message: "i am your friend,bro,what are you thinking about this",
+      name: "dimon",
+    },
+    { id: 1, message: "yoooooooooooooooooooooo", name: "andrew" },
+  ];
+  let usermessagee = dialogsDataMessageUser.map((dialogggg) => (
+    <UserMessage message={dialogggg.message} name={dialogggg.name} />
+  ));
 
   return (
     <div className="Wrapper">
@@ -59,32 +40,11 @@ export default function Dialogs() {
           <p>Dialogs</p>
         </div>
         <div className={`${classes.SideBar} ${classes.LeftWrapper}`}>
-          <Dialogitems name={dialogsdata[0].name} id={dialogsdata[0].id} />
-          <Dialogitems name={dialogsdata[1].name} id={dialogsdata[1].id} />
-          <Dialogitems name={dialogsdata[2].name} id={dialogsdata[2].id} />
-          <Dialogitems name={dialogsdata[3].name} id={dialogsdata[3].id} />
-          <Dialogitems name={dialogsdata[4].name} id={dialogsdata[4].id} />
-          <Dialogitems name={dialogsdata[5].name} id={dialogsdata[5].id} />
-          <Dialogitems name={dialogsdata[6].name} id={dialogsdata[6].id} />
-          <Dialogitems name={dialogsdata[7].name} id={dialogsdata[7].id} />
-          <Dialogitems name={dialogsdata[8].name} id={dialogsdata[8].id} />
-          <Dialogitems name={dialogsdata[9].name} id={dialogsdata[9].id} />
+          {dialogsdataelements}
         </div>
         <div className={classes.Barrier}></div>
         <div className={`${classes.SideBar} ${classes.RightWrapper}`}>
-          <UserMessage
-            message={dialogsDataMessageUser[0].message}
-            id={dialogsDataMessageUser[0].id}
-          />
-          <UserMessage
-            message={dialogsDataMessageUser[1].message}
-            id={dialogsDataMessageUser[1].id}
-          />
-          <UserMessage
-            message={dialogsDataMessageUser[0].message}
-            id={dialogsDataMessageUser[0].id}
-          />
-
+          {usermessagee}
           <div className={`${classes.rightwrapper__items} ${classes.user}`}>
             <div className={classes.user__info}>
               <div className={classes.user__picture}></div>
@@ -101,3 +61,38 @@ export default function Dialogs() {
     </div>
   );
 }
+const Dialogitems = (props) => {
+  let path = "/dialogs/" + props.id;
+  let isSelectPath = props.pathname.includes(path);
+  return (
+    <NavLink
+      to={path}
+      alt="/#"
+      style={{
+        color: isSelectPath ? "red" : "grey",
+        fontWeight: isSelectPath ? "700" : "300",
+        fontSize: isSelectPath ? "32px" : "22px",
+      }}
+      className={classes.sidebar__items}
+    >
+      {props.name}
+    </NavLink>
+  );
+};
+const UserMessage = (props) => {
+  return (
+    <div className={`${classes.rightwrapper__items} ${classes.friend}`}>
+      <div className={classes.user__info}>
+        <div className={classes.user__picture}></div>
+
+        <div className={classes.user__name}>
+          <p>{props.name}</p>
+        </div>
+      </div>
+
+      <div className={classes.user__message}>
+        <p>{props.message}</p>
+      </div>
+    </div>
+  );
+};
