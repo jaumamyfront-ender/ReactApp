@@ -5,9 +5,16 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import MainRoutes from "./components/Routes/Routes";
 
 function App() {
+  const dataforHeader = [
+    {
+      message: "its data and its work",
+      age: 21,
+      name: "dimych",
+    },
+  ];
   return (
     <div className="container">
-      <Header />
+      <Header data={dataforHeader} />
       <Sidebar />
       <MainRoutes />
     </div>

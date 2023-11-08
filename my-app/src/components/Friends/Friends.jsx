@@ -33,7 +33,7 @@ const BlockFriends = (props) => {
         </div>
         <div className={classes.info__container}>
           <div className={classes.info__card}>
-            <p>{props.countryUser}</p>
+            <p>{props.userCountry}</p>
           </div>
         </div>
       </div>

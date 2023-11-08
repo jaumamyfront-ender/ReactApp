@@ -4,7 +4,12 @@ import Friends from "../Friends/Friends";
 import Content from "../Content/Content";
 import Dialogs from "../Dialogs/Dialogs";
 
-export default function MainRoutes() {
+// let somecomponent = () => {
+//   <Friends />;
+// };
+// render = {somecomponent}
+// render ={()=> <Friends/> }
+export default function MainRoutes(props) {
   return (
     <Routes>
       <Route path="/friends" element={<Friends />} />
