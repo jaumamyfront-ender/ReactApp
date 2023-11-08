@@ -97,19 +97,20 @@
 }
 .info__container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /* border-radius: 10px; */
+  /* flex-direction: column;
+  justify-content: space-between; */
 }
 .info__card {
   width: 150px;
-  height: 70px;
-  background-color: black;
-  align-self: flex-start;
   border-radius: 10px;
+  background-color: rgb(151, 31, 31);
+  /* align-self: flex-start; */
+  /* height: 70px; */
 }
-.info__about__User {
+/* /* .info__about__User {
   border-radius: 10px;
   width: 150px;
   height: 70px;
   background-color: rgb(189, 54, 54);
-}
+}  */

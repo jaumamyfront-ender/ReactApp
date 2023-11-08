@@ -7,99 +7,36 @@ const Friends = () => {
         <p>Users</p>
       </div>
       <div className={classes.ContainerMessages}>
-        {" "}
-        <div className={classes.BlockDialogsWrapper}>
-          {" "}
-          <div className={classes.followUsers}>
-            <div className={classes.followUserImage}></div>
-            <div className={classes.followUserButton}>
-              <button>Follow</button>
-            </div>
-          </div>
-          <div className={classes.UserComments}>
-            <div className={classes.comment__area}>
-              <p>text text text text</p>
-            </div>
-            <div className={classes.info__container}>
-              <div className={classes.info__card}></div>
-              <div className={classes.info__about__User}></div>
-            </div>
-          </div>
+        <BlockFriends />
+        <BlockFriends />
+        <BlockFriends />
+        <BlockFriends />
+      </div>
+    </div>
+  );
+};
+export default Friends;
+const BlockFriends = (props) => {
+  return (
+    <div className={classes.BlockDialogsWrapper}>
+      <div className={classes.followUsers}>
+        <div className={classes.followUserImage}>
+          {/* <img src={props.imageUser} alt="/#" /> */}
         </div>
-        <div className={classes.BlockDialogsWrapper}>
-          {" "}
-          <div className={classes.followUsers}>
-            <div className={classes.followUserImage}></div>
-            <div className={classes.followUserButton}>
-              <button>Follow</button>
-            </div>
-          </div>
-          <div className={classes.UserComments}>
-            <div className={classes.comment__area}>
-              <p>text text text text</p>
-            </div>
-            <div className={classes.info__container}>
-              <div className={classes.info__card}></div>
-              <div className={classes.info__about__User}></div>
-            </div>
-          </div>
+        <div className={classes.followUserButton}>
+          <button>{props.button}Follow</button>
         </div>
-        <div className={classes.BlockDialogsWrapper}>
-          {" "}
-          <div className={classes.followUsers}>
-            <div className={classes.followUserImage}></div>
-            <div className={classes.followUserButton}>
-              <button>Follow</button>
-            </div>
-          </div>
-          <div className={classes.UserComments}>
-            <div className={classes.comment__area}>
-              <p>text text text text</p>
-            </div>
-            <div className={classes.info__container}>
-              <div className={classes.info__card}></div>
-              <div className={classes.info__about__User}></div>
-            </div>
-          </div>
+      </div>
+      <div className={classes.UserComments}>
+        <div className={classes.comment__area}>
+          <p>{props.comment}</p>
         </div>
-        <div className={classes.BlockDialogsWrapper}>
-          {" "}
-          <div className={classes.followUsers}>
-            <div className={classes.followUserImage}></div>
-            <div className={classes.followUserButton}>
-              <button>Follow</button>
-            </div>
-          </div>
-          <div className={classes.UserComments}>
-            <div className={classes.comment__area}>
-              <p>text text text text</p>
-            </div>
-            <div className={classes.info__container}>
-              <div className={classes.info__card}></div>
-              <div className={classes.info__about__User}></div>
-            </div>
-          </div>
-        </div>
-        <div className={classes.BlockDialogsWrapper}>
-          {" "}
-          <div className={classes.followUsers}>
-            <div className={classes.followUserImage}></div>
-            <div className={classes.followUserButton}>
-              <button>Follow</button>
-            </div>
-          </div>
-          <div className={classes.UserComments}>
-            <div className={classes.comment__area}>
-              <p>text text text text</p>
-            </div>
-            <div className={classes.info__container}>
-              <div className={classes.info__card}></div>
-              <div className={classes.info__about__User}></div>
-            </div>
+        <div className={classes.info__container}>
+          <div className={classes.info__card}>
+            <p>{props.countryUser}</p>
           </div>
         </div>
       </div>
     </div>
   );
 };
-export default Friends;
