@@ -262,3 +262,10 @@ div
             </div>
           </div>
         </div> */}
+  //         const receivedData = props.data.map((receivedUnpackedData) => (
+  //   <p>
+  //     {receivedUnpackedData.message}
+  //     {receivedUnpackedData.age}
+  //     {receivedUnpackedData.name}
+  //   </p>
+  // ));

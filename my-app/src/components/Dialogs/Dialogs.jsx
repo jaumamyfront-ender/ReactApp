@@ -1,35 +1,15 @@
 import React from "react";
 import classes from "./dialogs.module.css";
 import { NavLink, useLocation } from "react-router-dom";
-// import UserMessage from "./UserMessage";
 
-export default function Dialogs() {
+export default function Dialogs(props) {
   const { pathname } = useLocation();
 
-  let dialogsdata = [
-    { id: 1, name: "dimych" },
-    { id: 2, name: "sveta" },
-    { id: 3, name: "tanja" },
-    { id: 4, name: "andrey" },
-    { id: 5, name: "taras" },
-    { id: 6, name: "bogdan" },
-    { id: 7, name: "vera" },
-    { id: 8, name: "lera" },
-    { id: 9, name: "sergei" },
-    { id: 0, name: "danil" },
-  ];
-  let dialogsdataelements = dialogsdata.map((dialog) => (
+  let dialogsdataelements = props.data.map((dialog) => (
     <Dialogitems name={dialog.name} id={dialog.id} pathname={pathname} />
   ));
-  let dialogsDataMessageUser = [
-    {
-      id: 0,
-      message: "i am your friend,bro,what are you thinking about this",
-      name: "dimon",
-    },
-    { id: 1, message: "yoooooooooooooooooooooo", name: "andrew" },
-  ];
-  let usermessagee = dialogsDataMessageUser.map((dialogggg) => (
+
+  let usermessagee = props.messages.map((dialogggg) => (
     <UserMessage message={dialogggg.message} name={dialogggg.name} />
   ));
 

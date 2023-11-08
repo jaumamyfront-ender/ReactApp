@@ -14,7 +14,10 @@ export default function MainRoutes(props) {
     <Routes>
       <Route path="/friends" element={<Friends />} />
       <Route path="/content" element={<Content />} />
-      <Route path="/dialogs/*" element={<Dialogs />} />
+      <Route
+        path="/dialogs/*"
+        element={<Dialogs data={props.data} messages={props.DataMessages} />}
+      />
       {/* <Route path="*" element={<Navigate to="/content" replace />} /> */}
     </Routes>
   );
