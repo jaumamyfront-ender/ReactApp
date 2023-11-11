@@ -9,7 +9,10 @@ function App(props) {
     <div className="container">
       <Header />
       <Sidebar />
-      <MainRoutes data={props.dialogs} DataMessages={props.DataMessages} />
+      <MainRoutes
+        data={props.dialogs.MessagesPage.dialogsDataUsersList}
+        DataMessages={props.DataMessages.MessagesPage.dialogsDataUsersMessage}
+      />
     </div>
   );
 }
