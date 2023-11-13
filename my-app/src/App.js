@@ -12,6 +12,8 @@ function App(props) {
       <MainRoutes
         data={props.dialogs.MessagesPage.dialogsDataUsersList}
         DataMessages={props.DataMessages.MessagesPage.dialogsDataUsersMessage}
+        addMessage={props.addMessage}
+        usrpost={props.userpost.Profile.AddProfilePost}
       />
     </div>
   );

@@ -2,7 +2,15 @@ import React from "react";
 import profile from "../../assets/profile.jpeg";
 import profileImage from "../../assets/profileImage.jpg";
 import ContentFooter from "./sub-componentsContentFooter";
-const Content = () => {
+
+const Content = (props) => {
+  let GetValueFromRef = React.createRef();
+
+  let addtext = () => {
+    let valueelement = GetValueFromRef.current.value;
+    props.addMessage(valueelement);
+  };
+
   return (
     <div className="content">
       <div className="content__preview">
@@ -26,15 +34,21 @@ const Content = () => {
           <p>My posts</p>
         </div>
         <div className="my__poststextarea">
-          <textarea name="assasasa" id="" cols="10" rows="5">
-            your newssqqsqsqsqs
+          <textarea
+            name="assasasa"
+            id=""
+            cols="10"
+            rows="5"
+            ref={GetValueFromRef}
+          >
+            your
           </textarea>
         </div>
         <div className="my__postssendbutton">
-          <button>Send</button>
+          <button onClick={addtext}>Send</button>
         </div>
       </div>
-      <ContentFooter message="eeee joooooou" age="Hey,why nobody love me" />
+      <ContentFooter userpost={props.userPost} />
     </div>
   );
 };

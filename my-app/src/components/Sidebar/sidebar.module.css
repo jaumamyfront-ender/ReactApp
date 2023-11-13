@@ -1,5 +1,6 @@
 .sidebar {
-  height: 1080px;
+  max-height: 1080px;
+  /* max-width: 30%; */
   display: grid;
   grid-auto-flow: row;
   grid-area: sidebar;

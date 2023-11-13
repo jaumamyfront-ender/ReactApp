@@ -7,7 +7,7 @@ let state = {
       { id: 4, name: "andrey" },
       { id: 5, name: "taras" },
       { id: 6, name: "bogdan" },
-      { id: 7, name: "vera" },
+      { id: 7, name: "veraa" },
       { id: 8, name: "lera" },
       { id: 9, name: "sergei" },
       { id: 0, name: "danil" },
@@ -22,5 +22,16 @@ let state = {
       { id: 1, message: "yoooooooooooooooooooooo", name: "andrew" },
     ],
   },
+  Profile: {
+    AddProfilePost: [{ message: "" }],
+  },
+};
+
+export let addPost = (PostMessage) => {
+  let newPost = {
+    message: PostMessage,
+  };
+  state.MessagesPage.dialogsDataUsersMessage.push(newPost);
+  state.Profile.AddProfilePost.push(newPost);
 };
 export default state;

@@ -289,3 +289,9 @@ div
 //   },
 //   { id: 1, message: "yoooooooooooooooooooooo", name: "andrew" },
 // ];
+
+// let somecomponent = () => {
+//   <Friends />;
+// };
+// render = {somecomponent}
+// render ={()=> <Friends/> }
