@@ -5,14 +5,12 @@ import ContentFooter from "./sub-componentsContentFooter";
 import { updateNewPostText } from "../../Redux/State";
 
 const Content = (props) => {
-  console.log(props.TextArea);
-
   let GetValueFromRef = React.createRef();
 
   let addPost = () => {
     let valueelement = GetValueFromRef.current.value;
     props.addMessage(valueelement);
-    // props.updateNewPostText(""); //ZEROING TEXTAREA
+    props.updateNewPostText(""); //ZEROING TEXTAREA
   };
 
   let onPostChange = () => {

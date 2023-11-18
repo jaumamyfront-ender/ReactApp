@@ -1,5 +1,3 @@
-import { RerenderEntireTree } from "../reder/reder";
-
 let state = {
   MessagesPage: {
     dialogsDataUsersList: [
@@ -42,6 +40,12 @@ export let addPost = (PostMessage) => {
 export let updateNewPostText = (newText) => {
   state.Profile.NewPostText = newText;
   RerenderEntireTree(state);
+};
+let RerenderEntireTree = () => {
+  console.log("rerender god");
+};
+export const Rerender = (observer) => {
+  RerenderEntireTree = observer;
 };
 
 export default state;
