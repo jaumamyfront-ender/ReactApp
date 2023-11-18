@@ -1,3 +1,5 @@
+import { RerenderEntireTree } from "../reder/reder";
+
 let state = {
   MessagesPage: {
     dialogsDataUsersList: [
@@ -24,14 +26,22 @@ let state = {
   },
   Profile: {
     AddProfilePost: [{ message: "" }],
+    NewPostText: "what",
   },
 };
-
+//this function push the value from UI to state
 export let addPost = (PostMessage) => {
   let newPost = {
     message: PostMessage,
   };
-  state.MessagesPage.dialogsDataUsersMessage.push(newPost);
+  // state.MessagesPage.dialogsDataUsersMessage.push(newPost);
   state.Profile.AddProfilePost.push(newPost);
+  RerenderEntireTree(state);
 };
+
+export let updateNewPostText = (newText) => {
+  state.Profile.NewPostText = newText;
+  RerenderEntireTree(state);
+};
+
 export default state;

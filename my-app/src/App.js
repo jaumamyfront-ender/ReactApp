@@ -14,6 +14,8 @@ function App(props) {
         DataMessages={props.DataMessages.MessagesPage.dialogsDataUsersMessage}
         addMessage={props.addMessage}
         usrpost={props.userpost.Profile.AddProfilePost}
+        TextArea={props.TextAreaValue.Profile.NewPostText}
+        updateNewPostText={props.updateNewPostText}
       />
     </div>
   );

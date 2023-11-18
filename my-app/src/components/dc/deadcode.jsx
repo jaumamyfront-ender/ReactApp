@@ -295,3 +295,41 @@ div
 // };
 // render = {somecomponent}
 // render ={()=> <Friends/> }
+
+    // <div className="content__footer">
+    //   <div className="item__one">
+    //     <div className="item__one__image">{/* <img src="" alt="/#" /> */}</div>
+    //     <div className="item__one__comment">
+    //       <span>{receivedData}</span>
+    //     </div>
+    //   </div>
+    //   <div className="item__one">
+    //     <div className="item__one__image">{/* <img src="" alt="/#" /> */}</div>
+    //     <div className="item__one__comment">{receivedData}</div>
+    //   </div>
+    // </div>
+
+// import React from "react";
+// import ReactDOM from "react-dom/client";
+// import "./index.css";
+// import App from "./App";
+// import { BrowserRouter } from "react-router-dom";
+// import { addPost } from "./Redux/State.js";
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+//   <React.StrictMode>
+//     <BrowserRouter>
+//       <App
+//         dialogs={state}
+//         DataMessages={state}
+//         addMessage={addPost}
+//         userpost={state}
+//       />
+//     </BrowserRouter>
+//   </React.StrictMode>
+// );
+//1.render(not rerender)ok(function callback is very low levelmust be in other function)
+//2.folder render(not read)(fuck this shit)
+//3.how to unpack value from props for Set value textarea(how to write and not working)(ok its work but i diont know how to write this shit)
+//4.the problem of drawing one element

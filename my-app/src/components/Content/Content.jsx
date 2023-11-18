@@ -2,13 +2,22 @@ import React from "react";
 import profile from "../../assets/profile.jpeg";
 import profileImage from "../../assets/profileImage.jpg";
 import ContentFooter from "./sub-componentsContentFooter";
+import { updateNewPostText } from "../../Redux/State";
 
 const Content = (props) => {
+  console.log(props.TextArea);
+
   let GetValueFromRef = React.createRef();
 
-  let addtext = () => {
+  let addPost = () => {
     let valueelement = GetValueFromRef.current.value;
     props.addMessage(valueelement);
+    // props.updateNewPostText(""); //ZEROING TEXTAREA
+  };
+
+  let onPostChange = () => {
+    let valueelement = GetValueFromRef.current.value;
+    props.updateNewPostText(valueelement);
   };
 
   return (
@@ -31,7 +40,7 @@ const Content = (props) => {
       </div>
       <div className="content__posts">
         <div className="my__posts">
-          <p>My posts</p>
+          <p>My Post</p>
         </div>
         <div className="my__poststextarea">
           <textarea
@@ -39,17 +48,18 @@ const Content = (props) => {
             id=""
             cols="10"
             rows="5"
+            value={props.TextArea}
             ref={GetValueFromRef}
-          >
-            your
-          </textarea>
+            onChange={onPostChange}
+          ></textarea>
         </div>
         <div className="my__postssendbutton">
-          <button onClick={addtext}>Send</button>
+          <button onClick={addPost}>Send</button>
         </div>
       </div>
       <ContentFooter userpost={props.userPost} />
     </div>
   );
 };
+
 export default Content;

@@ -4,15 +4,15 @@ import { NavLink, useLocation } from "react-router-dom";
 
 export default function Dialogs(props) {
   const { pathname } = useLocation();
-
+  //left side (users list)
   let dialogsdataelements = props.data.map((dialog) => (
     <Dialogitems name={dialog.name} id={dialog.id} pathname={pathname} />
   ));
-
+  //get the users friendsmessage from Bll(user message)
   let usermessagee = props.messages.map((dialogggg) => (
     <UserMessage message={dialogggg.message} name={dialogggg.name} />
   ));
-
+  //all site
   return (
     <div className="Wrapper">
       <div className={classes.Container}>
@@ -41,6 +41,7 @@ export default function Dialogs(props) {
     </div>
   );
 }
+//return links users and color onchange
 const Dialogitems = (props) => {
   let path = "/dialogs/" + props.id;
   let isSelectPath = props.pathname.includes(path);
@@ -59,6 +60,7 @@ const Dialogitems = (props) => {
     </NavLink>
   );
 };
+//return block of users message history
 const UserMessage = (props) => {
   return (
     <div className={`${classes.rightwrapper__items} ${classes.friend}`}>
