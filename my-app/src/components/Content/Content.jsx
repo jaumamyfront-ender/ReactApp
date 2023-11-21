@@ -2,7 +2,7 @@ import React from "react";
 import profile from "../../assets/profile.jpeg";
 import profileImage from "../../assets/profileImage.jpg";
 import ContentFooter from "./sub-componentsContentFooter";
-import { updateNewPostText } from "../../Redux/State";
+// import { updateNewPostText } from "../../Redux/State";
 
 const Content = (props) => {
   let GetValueFromRef = React.createRef();

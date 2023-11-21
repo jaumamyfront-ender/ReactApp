@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import MainRoutes from "./components/Routes/Routes";
 
 function App(props) {
+  debugger;
   return (
     <div className="container">
       <Header />

@@ -1,11 +1,13 @@
+// import state from "./Redux/State";//f pr
+// import { addPost, updateNewPostText, Rerender } from "../src/Redux/State.js"; //f pr
 import reportWebVitals from "./reportWebVitals";
-import state from "./Redux/State";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.js";
-import { BrowserRouter } from "react-router-dom";
-import { addPost, updateNewPostText, Rerender } from "../src/Redux/State.js";
+import store from "./Redux/State.js";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 let RerenderEntireTree = (state) => {
@@ -15,18 +17,18 @@ let RerenderEntireTree = (state) => {
         <App
           dialogs={state}
           DataMessages={state}
-          addMessage={addPost}
+          addMessage={store.addPost.bind(store)}
           userpost={state}
           TextAreaValue={state}
-          updateNewPostText={updateNewPostText}
+          updateNewPostText={store.updateNewPostText.bind(store)}
         />
       </BrowserRouter>
     </React.StrictMode>
   );
 };
 
-RerenderEntireTree(state);
-Rerender(RerenderEntireTree);
+RerenderEntireTree(store.getState());
+store.Rerender(RerenderEntireTree);
 reportWebVitals();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
