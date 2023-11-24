@@ -81,7 +81,7 @@ let store = {
 
     Profile: {
       AddProfilePost: [{ message: "1" }],
-      NewPostText: [{ message: "whatt" }],
+      NewPostText: [{ message: "" }],
     },
   },
   getState() {
@@ -97,7 +97,7 @@ let store = {
   },
   updateNewPostText(newText) {
     this._state.Profile.NewPostText = newText;
-    this._RerenderEntireTree(this.state);
+    this._RerenderEntireTree(this._state);
   },
   _RerenderEntireTree() {
     console.log("rerender god");

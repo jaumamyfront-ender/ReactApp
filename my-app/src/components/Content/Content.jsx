@@ -10,7 +10,7 @@ const Content = (props) => {
   let addPost = () => {
     let valueelement = GetValueFromRef.current.value;
     props.addMessage(valueelement);
-    props.updateNewPostText(""); //ZEROING TEXTAREA
+    props.updateNewPostText("");
   };
 
   let onPostChange = () => {
@@ -49,7 +49,9 @@ const Content = (props) => {
             value={props.TextArea}
             ref={GetValueFromRef}
             onChange={onPostChange}
-          ></textarea>
+          >
+            .
+          </textarea>
         </div>
         <div className="my__postssendbutton">
           <button onClick={addPost}>Send</button>
