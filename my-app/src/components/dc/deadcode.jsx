@@ -345,3 +345,8 @@ div
   //   this._state.Profile.NewPostText = newText;
   //   this._RerenderEntireTree(this._state);
   // },
+
+    // props.dispatch({ type: "ADD-POST", PostMessage: valueelement });
+    // props.dispatch({ type: "UpdateNewPostText", newText: "" });
+       // props.dispatch({ type: "UpdateNewPostText", newText: valueelement });
+    // let action = ActionCreatorUpdate(valueelement);

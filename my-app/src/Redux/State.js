@@ -53,7 +53,24 @@
 //function style
 //oop style
 //this object-->
-
+export let ActionCreatorAdd = (valueelement) => {
+  return {
+    type: "ADD-POST",
+    PostMessage: valueelement,
+  };
+};
+export let ActionCreatorDelete = () => {
+  return {
+    type: "UpdateNewPostText",
+    newText: "",
+  };
+};
+export let ActionCreatorUpdate = (valueelement) => {
+  return {
+    type: "UpdateNewPostText",
+    newText: valueelement,
+  };
+};
 let store = {
   _state: {
     MessagesPage: {
@@ -94,6 +111,7 @@ let store = {
   Rerender(observer) {
     this._RerenderEntireTree = observer;
   },
+
   dispatch(action) {
     if (action.type === "ADD-POST") {
       let newPost = {

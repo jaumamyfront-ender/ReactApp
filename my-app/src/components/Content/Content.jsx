@@ -2,20 +2,25 @@ import React from "react";
 import profile from "../../assets/profile.jpeg";
 import profileImage from "../../assets/profileImage.jpg";
 import ContentFooter from "./sub-componentsContentFooter";
+import {
+  ActionCreatorAdd,
+  ActionCreatorDelete,
+  ActionCreatorUpdate,
+} from "../../Redux/State";
 
 const Content = (props) => {
   let GetValueFromRef = React.createRef();
 
   let addPost = () => {
     let valueelement = GetValueFromRef.current.value;
-    props.dispatch({ type: "ADD-POST", PostMessage: valueelement });
-
-    props.dispatch({ type: "UpdateNewPostText", newText: "" });
+    props.dispatch(ActionCreatorAdd(valueelement));
+    props.dispatch(ActionCreatorDelete());
   };
 
   let onPostChange = () => {
     let valueelement = GetValueFromRef.current.value;
-    props.dispatch({ type: "UpdateNewPostText", newText: valueelement });
+
+    props.dispatch(ActionCreatorUpdate(valueelement));
   };
 
   return (
