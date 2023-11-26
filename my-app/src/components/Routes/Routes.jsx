@@ -12,10 +12,11 @@ export default function MainRoutes(props) {
         path="/content"
         element={
           <Content
-            addMessage={props.addMessage}
+            // addMessage={props.addMessage}
+            // updateNewPostText={props.updateNewPostText}
+            dispatch={props.dispatch}
             userPost={props.usrpost}
             TextArea={props.TextArea}
-            updateNewPostText={props.updateNewPostText}
           />
         }
       />

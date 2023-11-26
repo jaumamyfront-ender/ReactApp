@@ -333,3 +333,15 @@ div
 //2.folder render(not read)(fuck this shit)
 //3.how to unpack value from props for Set value textarea(how to write and not working)(ok its work but i diont know how to write this shit)
 //4.the problem of drawing one element
+
+ // addPost(PostMessage) {
+  //   let newPost = {
+  //     message: PostMessage,
+  //   };
+  //   this._state.Profile.AddProfilePost.push(newPost);
+  //   this._RerenderEntireTree(this._state);
+  // },
+  // updateNewPostText(newText) {
+  //   this._state.Profile.NewPostText = newText;
+  //   this._RerenderEntireTree(this._state);
+  // },

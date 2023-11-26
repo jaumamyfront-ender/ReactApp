@@ -10,12 +10,13 @@ function App(props) {
       <Header />
       <Sidebar />
       <MainRoutes
-        data={props.dialogs.MessagesPage.dialogsDataUsersList}
-        DataMessages={props.DataMessages.MessagesPage.dialogsDataUsersMessage}
-        addMessage={props.addMessage}
-        usrpost={props.userpost.Profile.AddProfilePost}
-        TextArea={props.TextAreaValue.Profile.NewPostText}
-        updateNewPostText={props.updateNewPostText}
+        data={props.state.MessagesPage.dialogsDataUsersList}
+        DataMessages={props.state.MessagesPage.dialogsDataUsersMessage}
+        usrpost={props.state.Profile.AddProfilePost}
+        TextArea={props.state.Profile.NewPostText}
+        // updateNewPostText={props.updateNewPostText}
+        // addMessage={props.addMessage}
+        dispatch={props.dispatch}
       />
     </div>
   );

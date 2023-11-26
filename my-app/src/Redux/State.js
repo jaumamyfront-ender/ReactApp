@@ -80,7 +80,7 @@ let store = {
     },
 
     Profile: {
-      AddProfilePost: [{ message: "1" }],
+      AddProfilePost: [{ message: "" }],
       NewPostText: [{ message: "" }],
     },
   },
@@ -88,22 +88,26 @@ let store = {
     return this._state;
   },
 
-  addPost(PostMessage) {
-    let newPost = {
-      message: PostMessage,
-    };
-    this._state.Profile.AddProfilePost.push(newPost);
-    this._RerenderEntireTree(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.Profile.NewPostText = newText;
-    this._RerenderEntireTree(this._state);
-  },
   _RerenderEntireTree() {
     console.log("rerender god");
   },
   Rerender(observer) {
     this._RerenderEntireTree = observer;
   },
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      let newPost = {
+        message: action.PostMessage,
+      };
+      this._state.Profile.AddProfilePost.push(newPost);
+      this._RerenderEntireTree(this._state);
+    } else if (action.type === "UpdateNewPostText") {
+      {
+        this._state.Profile.NewPostText = action.newText;
+        this._RerenderEntireTree(this._state);
+      }
+    }
+  },
 };
+
 export default store;

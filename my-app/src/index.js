@@ -15,12 +15,14 @@ let RerenderEntireTree = (state) => {
     <React.StrictMode>
       <BrowserRouter>
         <App
-          dialogs={state}
-          DataMessages={state}
-          addMessage={store.addPost.bind(store)}
-          userpost={state}
-          TextAreaValue={state}
-          updateNewPostText={store.updateNewPostText.bind(store)}
+          // dialogs={state}
+          // DataMessages={state}
+          dispatch={store.dispatch.bind(store)}
+          // addMessage={store.addPost.bind(store)}
+          // updateNewPostText={store.updateNewPostText.bind(store)}
+          // userpost={state}
+          // TextAreaValue={state}
+          state={state}
         />
       </BrowserRouter>
     </React.StrictMode>
