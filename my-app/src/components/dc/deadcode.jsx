@@ -448,3 +448,37 @@ div
 //     </div>
 //   );
 // };
+
+// else if (action.type === "UPDATE_NEW_MESSAGE_BODY") {
+//       {
+//         this._state.MessagesPage.NewMessageBody = action.newobjectmessage;
+//         this._RerenderEntireTree(this._state);
+//       }
+//     } else if (action.type === "SEND_MESSAGE") {
+//       let body = this._state.MessagesPage.NewMessageBody;
+//       // this._state.MessagesPage.NewMessageBody = "";
+//       this._state.MessagesPage.dialogsDataUsersMessage.push([
+//         {
+//           message: body,
+//         },
+//       ]);
+//       this._RerenderEntireTree(this._state);
+//     }
+// let receivedData = props.state.MessagesPage.dialogsDataUsersMessage.map(
+//   (receivedUnpackedData) => <span>{receivedUnpackedData.message}</span>
+// );
+
+// state.MessagesPage.dialogsDataUsersMessage
+
+ //   let receivedData = props.state.MessagesPage.dialogsDataUsersMessage.map(
+  //     (receivedUnpackedData) => <span>{receivedUnpackedData.message}</span>
+  //   );
+
+  // let newobjectmessage = GetValueFromRef.current.value;
+   // let newobjectmessage = GetValueFromRef.current.value;
+    let GetValueFromRef = React.createRef();
+     let GetValueFromRef = React.createRef();
+     state.MessagesPage.NewMessageBody
+
+       // addMessage={props.addMessage}
+            // updateNewPostText={props.updateNewPostText}

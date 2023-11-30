@@ -110,13 +110,12 @@ let store = {
         this._RerenderEntireTree(this._state);
       }
     } else if (action.type === "SEND_MESSAGE") {
-      let body = this._state.MessagesPage.NewMessageBody;
-      // this._state.MessagesPage.NewMessageBody = "";
-      this._state.MessagesPage.dialogsDataUsersMessage.push([
-        {
-          message: body,
-        },
-      ]);
+      let PushPost = {
+        messages: action.newobjectmessage,
+      };
+      // let body = this._state.MessagesPage.NewMessageBody;
+      this._state.MessagesPage.NewMessageBody = "";
+      this._state.MessagesPage.dialogsDataUsersMessage.push(PushPost);
       this._RerenderEntireTree(this._state);
     }
   },

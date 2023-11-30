@@ -9,25 +9,19 @@ import UserMessage from "./UserMessage";
 
 export default function Dialogs(props) {
   const { pathname } = useLocation();
-  // {props.state.MessagesPage.NewMessageBody}
-
   let GetValueFromRef = React.createRef();
-  // let state = props.state.getState().MessagesPage;
-  //left side (users list)
+  let valuefromstatetotextareareading = props.state.MessagesPage.NewMessageBody;
+
   let dialogsdataelements = props.data.map((dialog) => (
     <Dialogitems name={dialog.name} id={dialog.id} pathname={pathname} />
   ));
-
-  //all site
 
   let onSendMessageClick = () => {
     let newobjectmessage = GetValueFromRef.current.value;
     props.dispatch(ActionCreatorAddMessage(newobjectmessage));
   };
-  //read new value FROM STATE to textarea and read new value FROM TEXTAREA and send to state
-  let valuefortextarea = props.state.MessagesPage.NewMessageBody;
-  let onNewMessageChange = (e) => {
-    // let newobjectmessage = e.target.value;
+
+  let onNewMessageChange = () => {
     let newobjectmessage = GetValueFromRef.current.value;
     props.dispatch(ActionCreatorReadMessage(newobjectmessage));
   };
@@ -43,8 +37,7 @@ export default function Dialogs(props) {
         </div>
         <div className={classes.Barrier}></div>
         <div className={`${classes.SideBar} ${classes.RightWrapper}`}>
-          {/* {usermessagee} */}
-          <UserMessage state={props.state} />
+          <UserMessage messages={props.messages} />
           <div className={`${classes.rightwrapper__items} ${classes.user}`}>
             <div className={classes.user__info}>
               <div className={classes.user__picture}></div>
@@ -58,9 +51,9 @@ export default function Dialogs(props) {
                 id=""
                 cols="20"
                 rows="10"
-                value={valuefortextarea}
-                onChange={onNewMessageChange}
+                value={valuefromstatetotextareareading}
                 ref={GetValueFromRef}
+                onChange={onNewMessageChange}
               ></textarea>
             </div>
             <button

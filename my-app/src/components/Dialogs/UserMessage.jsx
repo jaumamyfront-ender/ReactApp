@@ -1,12 +1,14 @@
 import React from "react";
 import classes from "./dialogs.module.css";
 
-export default function UserMessageBox(props) {
-  let newbox = props.state.MessagesPage.dialogsDataUsersMessage.map(
-    (dialogggg) => <Userbox object={dialogggg.messages} />
-  );
+let UserMessageBox = (props) => {
+  console.log(props);
+  let newbox = props.messages.map((dialogggg) => (
+    <Userbox object={dialogggg.messages} />
+  ));
   return <div>{newbox}</div>;
-}
+};
+
 let Userbox = (props) => {
   return (
     <div className={`${classes.rightwrapper__items} ${classes.friend}`}>
@@ -19,8 +21,9 @@ let Userbox = (props) => {
       </div>
 
       <div className={classes.user__message}>
-        <p>{props.messages}</p>
+        <p>{props.object}</p>
       </div>
     </div>
   );
 };
+export default UserMessageBox;
