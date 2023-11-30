@@ -22,7 +22,14 @@ export default function MainRoutes(props) {
       />
       <Route
         path="/dialogs/*"
-        element={<Dialogs data={props.data} messages={props.DataMessages} />}
+        element={
+          <Dialogs
+            data={props.data}
+            messages={props.DataMessages}
+            dispatch={props.dispatch}
+            state={props.state}
+          />
+        }
       />
       {/* <Route path="*" element={<Navigate to="/content" replace />} /> */}
     </Routes>

@@ -70,7 +70,7 @@
   display: flex;
   flex-direction: column;
 
-  justify-content: space-between;
+  /* justify-content: space-between; */
   max-height: 550px;
 }
 .rightwrapper__items {
@@ -80,6 +80,12 @@
   max-width: 450px;
   height: 100px;
   margin-left: 100px;
+}
+.user {
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .user__info {
@@ -105,6 +111,8 @@
   height: 90px;
   border-radius: 10px;
   border: 2px solid rgb(81, 64, 64);
+  display: flex;
+  color: #080b0c;
 }
 .user__message p {
   font-family: "Courier New", Courier, monospace;
@@ -112,6 +120,7 @@
   font-weight: 600;
   margin-left: 10px;
   margin-top: 10px;
+  color: #080b0c;
 }
 .me {
   color: #080b0c;
@@ -124,4 +133,17 @@
   font-size: 18px;
   line-height: 22px;
   padding: 18px;
+}
+.sendMessageFromUser {
+  width: 85px;
+  height: 40px;
+  background-color: #0cb658;
+  align-self: flex-start;
+  justify-self: flex-end;
+  margin-left: 370px;
+  border-radius: 10%;
+  color: #ffffff;
+  font-family: Lato;
+  font-size: 22px;
+  line-height: 33px;
 }

@@ -350,3 +350,101 @@ div
     // props.dispatch({ type: "UpdateNewPostText", newText: "" });
        // props.dispatch({ type: "UpdateNewPostText", newText: valueelement });
     // let action = ActionCreatorUpdate(valueelement);
+
+     {
+          id: 0,
+          message: "i am your friend,bro,what are you thinking about this",
+          name: "dimon ",
+        },
+        { id: 1, message: "yoooooooooooooooooooooo", name: "andrew" },
+
+                  // addMessage={store.addPost.bind(store)}
+          // updateNewPostText={store.updateNewPostText.bind(store)}
+          // userpost={state}
+          // TextAreaValue={state}
+
+
+               // dialogs={state}
+          // DataMessages={state}
+                  // updateNewPostText={props.updateNewPostText}
+        // addMessage={props.addMessage}
+
+        //  props.state.MessagesPage.dialogsDataUsersMessage.map(
+//     (dialogggg) => <UserMessage messages={dialogggg.messages} />
+// const receivedData = props.state.MessagesPage.dialogsDataUsersMessage.map(
+//   (receivedUnpackedData) => <p>{receivedUnpackedData.message}</p>
+// );
+//get the users friendsmessage from Bll(user message)
+
+// export default function UserMessageBox(props) {
+//   debugger;
+//   let ReceivedData = props.state.MessagesPage.dialogsDataUsersMessage.map(
+//     (dialogggg) => <UserMessage object={dialogggg.messages} />
+//   );
+
+//   return <div>{ReceivedData}</div>;
+// }
+
+// let UserMessage = (props) => {
+//   return (
+//     <div className={`${classes.rightwrapper__items} ${classes.friend}`}>
+//       <div className={classes.user__info}>
+//         <div className={classes.user__picture}></div>
+
+//         <div className={classes.user__name}>
+//           <p></p>
+//         </div>
+//       </div>
+
+//       <div className={classes.user__message}>
+//         <p>{props.object}</p>
+//       </div>
+//     </div>
+//   );
+// };
+  //v2
+//   export default function UserMessageBox(props) {
+//   return props.state.MessagesPage.dialogsDataUsersMessage.map((dialogggg) => (
+//     <div>
+//       {" "}
+//       <div className={`${classes.rightwrapper__items} ${classes.friend}`}>
+//         <div className={classes.user__info}>
+//           <div className={classes.user__picture}></div>
+
+//           <div className={classes.user__name}>
+//             <p></p>
+//           </div>
+//         </div>
+
+//         <div className={classes.user__message}>
+//           <p>{dialogggg.messages}</p>
+//         </div>
+//       </div>
+//     </div>
+//   ));
+// }
+
+// v1
+// export default function UserMessageBox(props) {
+//   let newbox = props.state.MessagesPage.dialogsDataUsersMessage.map(
+//     (dialogggg) => <Userbox object={dialogggg.messages} />
+//   );
+//   return <div>{newbox}</div>;
+// }
+// let Userbox = (props) => {
+//   return (
+//     <div className={`${classes.rightwrapper__items} ${classes.friend}`}>
+//       <div className={classes.user__info}>
+//         <div className={classes.user__picture}></div>
+
+//         <div className={classes.user__name}>
+//           <p></p>
+//         </div>
+//       </div>
+
+//       <div className={classes.user__message}>
+//         <p>{props.messages}</p>
+//       </div>
+//     </div>
+//   );
+// };
