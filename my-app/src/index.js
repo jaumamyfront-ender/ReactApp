@@ -11,6 +11,7 @@ import store from "./Redux/State.js";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 let RerenderEntireTree = (state) => {
+  console.log(state);
   root.render(
     <React.StrictMode>
       <BrowserRouter>

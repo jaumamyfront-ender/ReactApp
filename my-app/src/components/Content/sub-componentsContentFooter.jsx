@@ -1,6 +1,5 @@
 import React from "react";
 const ContentFooter = (props) => {
-  console.log(props);
   const receivedData = props.userpost.map((receivedUnpackedData) => (
     <PostItems mycomment={receivedUnpackedData.message} />
   ));
