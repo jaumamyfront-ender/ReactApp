@@ -11,8 +11,8 @@ const ProfileContentReducer = (state, action) => {
     {
       state.NewPostText = action.newText;
     }
-    return state;
   }
+  return state;
 };
 export let ActionCreatorAdd = (valueelement) => {
   return {

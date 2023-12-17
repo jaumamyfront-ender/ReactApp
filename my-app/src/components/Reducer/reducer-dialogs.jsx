@@ -13,6 +13,7 @@ const ReducerMessage = (state, action) => {
     state.NewMessageBody = "";
     state.dialogsDataUsersMessage.push(PushPost);
   }
+  return state;
 };
 
 export let ActionCreatorAddMessage = (newobjectmessage) => {

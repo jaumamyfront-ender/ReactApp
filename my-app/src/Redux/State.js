@@ -30,7 +30,7 @@ let store = {
   },
   //METHOD OF RERENDER IF SOME CHANGES
   _RerenderEntireTree() {
-    console.log("rerender god");
+    console.log("rerenderr god");
   },
   //METHOD GET THE ALL SITE FROM INDEX
   Rerender(observer) {
