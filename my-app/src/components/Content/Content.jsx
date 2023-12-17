@@ -9,12 +9,12 @@ import {
 } from "../Reducer/reducer-content";
 
 const Content = (props) => {
-  let GetValueFromRef = React.createRef();
+  let GetValueFromRef = React.createRef("12");
 
   let addPost = () => {
     let valueelement = GetValueFromRef.current.value;
     props.dispatch(ActionCreatorAdd(valueelement));
-    props.dispatch(ActionCreatorDelete());
+    // dispatch(ActionCreatorDelete());
   };
 
   let onPostChange = () => {

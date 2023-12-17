@@ -1,7 +1,10 @@
 const ADD_POST = "ADD-POST";
 const UpdateNewPostText = "UpdateNewPostText";
-const ProfileContentReducer = (state, action) => {
-  console.log(state);
+let initialState = {
+  AddProfilePost: [{ message: "1" }],
+  NewPostText: [{ message: "" }],
+};
+const ProfileContentReducer = (state = initialState, action) => {
   if (action.type === "ADD-POST") {
     let newPost = {
       message: state.NewPostText,
