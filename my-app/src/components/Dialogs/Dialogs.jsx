@@ -4,7 +4,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import {
   ActionCreatorAddMessage,
   ActionCreatorReadMessage,
-} from "../Reducer/reducer-dialogs";
+} from "../Redux/reducer-dialogs";
 import UserMessage from "./UserMessage";
 
 export default function Dialogs(props) {

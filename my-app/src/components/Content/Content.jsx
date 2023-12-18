@@ -6,7 +6,7 @@ import {
   ActionCreatorAdd,
   ActionCreatorDelete,
   ActionCreatorUpdate,
-} from "../Reducer/reducer-content";
+} from "../Redux/reducer-content";
 
 const Content = (props) => {
   let GetValueFromRef = React.createRef("12");

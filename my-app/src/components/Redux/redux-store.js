@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import ProfileContentReducer from "../components/Reducer/reducer-content";
-import ReducerMessage from "../components/Reducer/reducer-dialogs";
+import ProfileContentReducer from "../Redux/reducer-content";
+import ReducerMessage from "../Redux/reducer-dialogs.jsx";
 let reducer = combineReducers({
   Profile: ProfileContentReducer,
   MessagesPage: ReducerMessage,
