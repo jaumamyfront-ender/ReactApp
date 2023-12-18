@@ -1,5 +1,5 @@
-import ProfileContentReducer from "../components/Reducer/reducer-content.jsx";
-import ReducerMessage from "../components/Reducer/reducer-dialogs.jsx";
+import ProfileContentReducer from "./reducer-content.jsx";
+import ReducerMessage from "./reducer-dialogs.jsx";
 
 let store = {
   _state: {
