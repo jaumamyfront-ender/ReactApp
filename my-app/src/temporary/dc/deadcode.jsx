@@ -1,5 +1,4 @@
-{
-  /* <NavLink
+/* <NavLink
             to="/dialogs/2"
             alt="/#"
             style={{
@@ -118,24 +117,20 @@
 //           <Dialogitems name="srakoliz" id="9" />
 //           <Dialogitems name="debil" id="0" />
 
+// div
+// div
 
-div
-div
+//     <div className={classes.user__info}>
+//         <div className={classes.user__picture}></div>
+//         <div className={classes.user__name}>
+//           <p>Andrey</p>
+//         </div>
+//       </div>
+//             <div className={classes.user__message}>
+//   <p>{props.message}</p>
+// </div>
 
-
-
-
-      //     <div className={classes.user__info}>
-      //         <div className={classes.user__picture}></div>
-      //         <div className={classes.user__name}>
-      //           <p>Andrey</p>
-      //         </div>
-      //       </div>
-      //             <div className={classes.user__message}>
-      //   <p>{props.message}</p>
-      // </div>
-
-      // export default function UserMessage (props) => {
+// export default function UserMessage (props) => {
 //     let dialogsDataMessageUser = [
 //   { id: 0, message: "i am your friend,bro,what are you thinking about this" },
 //   { id: 1, message: "yoooooooooooooooooooooo" },
@@ -157,7 +152,8 @@ div
 //     </div>
 //   );
 // };
-          {/* <UserMessage
+{
+  /* <UserMessage
             message={dialogsDataMessageUser[0].message}
             id={dialogsDataMessageUser[0].id}
           />
@@ -169,82 +165,86 @@ div
           <UserMessage
             message={dialogsDataMessageUser[0].message}
             id={dialogsDataMessageUser[0].id}
-          /> */}
-          {/* {UserMessage} */}
+          /> */
+}
+{
+  /* {UserMessage} */
+}
 
-        //    <div className={classes.BlockDialogsWrapper}>
-        //   {" "}
-        //   <div className={classes.followUsers}>
-        //     <div className={classes.followUserImage}></div>
-        //     <div className={classes.followUserButton}>
-        //       <button>Follow</button>
-        //     </div>
-        //   </div>
-        //   <div className={classes.UserComments}>
-        //     <div className={classes.comment__area}>
-        //       <p>text text text text</p>
-        //     </div>
-        //     <div className={classes.info__container}>
-        //       <div className={classes.info__card}></div>
-        //       <div className={classes.info__about__User}></div>
-        //     </div>
-        //   </div>
-        // </div>
-        // <div className={classes.BlockDialogsWrapper}>
-        //   {" "}
-        //   <div className={classes.followUsers}>
-        //     <div className={classes.followUserImage}></div>
-        //     <div className={classes.followUserButton}>
-        //       <button>Follow</button>
-        //     </div>
-        //   </div>
-        //   <div className={classes.UserComments}>
-        //     <div className={classes.comment__area}>
-        //       <p>text text text text</p>
-        //     </div>
-        //     <div className={classes.info__container}>
-        //       <div className={classes.info__card}></div>
-        //       <div className={classes.info__about__User}></div>
-        //     </div>
-        //   </div>
-        // </div>
-        // <div className={classes.BlockDialogsWrapper}>
-        //   {" "}
-        //   <div className={classes.followUsers}>
-        //     <div className={classes.followUserImage}></div>
-        //     <div className={classes.followUserButton}>
-        //       <button>Follow</button>
-        //     </div>
-        //   </div>
-        //   <div className={classes.UserComments}>
-        //     <div className={classes.comment__area}>
-        //       <p>text text text text</p>
-        //     </div>
-        //     <div className={classes.info__container}>
-        //       <div className={classes.info__card}></div>
-        //       <div className={classes.info__about__User}></div>
-        //     </div>
-        //   </div>
-        // </div>
-        // <div className={classes.BlockDialogsWrapper}>
-        //   {" "}
-        //   <div className={classes.followUsers}>
-        //     <div className={classes.followUserImage}></div>
-        //     <div className={classes.followUserButton}>
-        //       <button>Follow</button>
-        //     </div>
-        //   </div>
-        //   <div className={classes.UserComments}>
-        //     <div className={classes.comment__area}>
-        //       <p>text text text text</p>
-        //     </div>
-        //     <div className={classes.info__container}>
-        //       <div className={classes.info__card}></div>
-        //       <div className={classes.info__about__User}></div>
-        //     </div>
-        //   </div>
-        // </div>
-        {/* <div className={classes.BlockDialogsWrapper}>
+//    <div className={classes.BlockDialogsWrapper}>
+//   {" "}
+//   <div className={classes.followUsers}>
+//     <div className={classes.followUserImage}></div>
+//     <div className={classes.followUserButton}>
+//       <button>Follow</button>
+//     </div>
+//   </div>
+//   <div className={classes.UserComments}>
+//     <div className={classes.comment__area}>
+//       <p>text text text text</p>
+//     </div>
+//     <div className={classes.info__container}>
+//       <div className={classes.info__card}></div>
+//       <div className={classes.info__about__User}></div>
+//     </div>
+//   </div>
+// </div>
+// <div className={classes.BlockDialogsWrapper}>
+//   {" "}
+//   <div className={classes.followUsers}>
+//     <div className={classes.followUserImage}></div>
+//     <div className={classes.followUserButton}>
+//       <button>Follow</button>
+//     </div>
+//   </div>
+//   <div className={classes.UserComments}>
+//     <div className={classes.comment__area}>
+//       <p>text text text text</p>
+//     </div>
+//     <div className={classes.info__container}>
+//       <div className={classes.info__card}></div>
+//       <div className={classes.info__about__User}></div>
+//     </div>
+//   </div>
+// </div>
+// <div className={classes.BlockDialogsWrapper}>
+//   {" "}
+//   <div className={classes.followUsers}>
+//     <div className={classes.followUserImage}></div>
+//     <div className={classes.followUserButton}>
+//       <button>Follow</button>
+//     </div>
+//   </div>
+//   <div className={classes.UserComments}>
+//     <div className={classes.comment__area}>
+//       <p>text text text text</p>
+//     </div>
+//     <div className={classes.info__container}>
+//       <div className={classes.info__card}></div>
+//       <div className={classes.info__about__User}></div>
+//     </div>
+//   </div>
+// </div>
+// <div className={classes.BlockDialogsWrapper}>
+//   {" "}
+//   <div className={classes.followUsers}>
+//     <div className={classes.followUserImage}></div>
+//     <div className={classes.followUserButton}>
+//       <button>Follow</button>
+//     </div>
+//   </div>
+//   <div className={classes.UserComments}>
+//     <div className={classes.comment__area}>
+//       <p>text text text text</p>
+//     </div>
+//     <div className={classes.info__container}>
+//       <div className={classes.info__card}></div>
+//       <div className={classes.info__about__User}></div>
+//     </div>
+//   </div>
+// </div>
+{
+  /* <div className={classes.BlockDialogsWrapper}>
           {" "}
           <div className={classes.followUsers}>
             <div className={classes.followUserImage}></div>
@@ -261,15 +261,16 @@ div
               <div className={classes.info__about__User}></div>
             </div>
           </div>
-        </div> */}
-  //         const receivedData = props.data.map((receivedUnpackedData) => (
-  //   <p>
-  //     {receivedUnpackedData.message}
-  //     {receivedUnpackedData.age}
-  //     {receivedUnpackedData.name}
-  //   </p>
-  // ));
-  // let dialogsDataUsersList = [
+        </div> */
+}
+//         const receivedData = props.data.map((receivedUnpackedData) => (
+//   <p>
+//     {receivedUnpackedData.message}
+//     {receivedUnpackedData.age}
+//     {receivedUnpackedData.name}
+//   </p>
+// ));
+// let dialogsDataUsersList = [
 //   { id: 1, name: "dimych" },
 //   { id: 2, name: "sveta" },
 //   { id: 3, name: "tanja" },
@@ -296,18 +297,18 @@ div
 // render = {somecomponent}
 // render ={()=> <Friends/> }
 
-    // <div className="content__footer">
-    //   <div className="item__one">
-    //     <div className="item__one__image">{/* <img src="" alt="/#" /> */}</div>
-    //     <div className="item__one__comment">
-    //       <span>{receivedData}</span>
-    //     </div>
-    //   </div>
-    //   <div className="item__one">
-    //     <div className="item__one__image">{/* <img src="" alt="/#" /> */}</div>
-    //     <div className="item__one__comment">{receivedData}</div>
-    //   </div>
-    // </div>
+// <div className="content__footer">
+//   <div className="item__one">
+//     <div className="item__one__image">{/* <img src="" alt="/#" /> */}</div>
+//     <div className="item__one__comment">
+//       <span>{receivedData}</span>
+//     </div>
+//   </div>
+//   <div className="item__one">
+//     <div className="item__one__image">{/* <img src="" alt="/#" /> */}</div>
+//     <div className="item__one__comment">{receivedData}</div>
+//   </div>
+// </div>
 
 // import React from "react";
 // import ReactDOM from "react-dom/client";
@@ -334,42 +335,41 @@ div
 //3.how to unpack value from props for Set value textarea(how to write and not working)(ok its work but i diont know how to write this shit)
 //4.the problem of drawing one element
 
- // addPost(PostMessage) {
-  //   let newPost = {
-  //     message: PostMessage,
-  //   };
-  //   this._state.Profile.AddProfilePost.push(newPost);
-  //   this._RerenderEntireTree(this._state);
-  // },
-  // updateNewPostText(newText) {
-  //   this._state.Profile.NewPostText = newText;
-  //   this._RerenderEntireTree(this._state);
-  // },
+// addPost(PostMessage) {
+//   let newPost = {
+//     message: PostMessage,
+//   };
+//   this._state.Profile.AddProfilePost.push(newPost);
+//   this._RerenderEntireTree(this._state);
+// },
+// updateNewPostText(newText) {
+//   this._state.Profile.NewPostText = newText;
+//   this._RerenderEntireTree(this._state);
+// },
 
-    // props.dispatch({ type: "ADD-POST", PostMessage: valueelement });
-    // props.dispatch({ type: "UpdateNewPostText", newText: "" });
-       // props.dispatch({ type: "UpdateNewPostText", newText: valueelement });
-    // let action = ActionCreatorUpdate(valueelement);
+// props.dispatch({ type: "ADD-POST", PostMessage: valueelement });
+// props.dispatch({ type: "UpdateNewPostText", newText: "" });
+// props.dispatch({ type: "UpdateNewPostText", newText: valueelement });
+// let action = ActionCreatorUpdate(valueelement);
 
-     {
-          id: 0,
-          message: "i am your friend,bro,what are you thinking about this",
-          name: "dimon ",
-        },
-        { id: 1, message: "yoooooooooooooooooooooo", name: "andrew" },
+//  {
+//       id: 0,
+//       message: "i am your friend,bro,what are you thinking about this",
+//       name: "dimon ",
+//     },
+//     { id: 1, message: "yoooooooooooooooooooooo", name: "andrew" },
 
-                  // addMessage={store.addPost.bind(store)}
-          // updateNewPostText={store.updateNewPostText.bind(store)}
-          // userpost={state}
-          // TextAreaValue={state}
+// addMessage={store.addPost.bind(store)}
+// updateNewPostText={store.updateNewPostText.bind(store)}
+// userpost={state}
+// TextAreaValue={state}
 
+// dialogs={state}
+// DataMessages={state}
+// updateNewPostText={props.updateNewPostText}
+// addMessage={props.addMessage}
 
-               // dialogs={state}
-          // DataMessages={state}
-                  // updateNewPostText={props.updateNewPostText}
-        // addMessage={props.addMessage}
-
-        //  props.state.MessagesPage.dialogsDataUsersMessage.map(
+//  props.state.MessagesPage.dialogsDataUsersMessage.map(
 //     (dialogggg) => <UserMessage messages={dialogggg.messages} />
 // const receivedData = props.state.MessagesPage.dialogsDataUsersMessage.map(
 //   (receivedUnpackedData) => <p>{receivedUnpackedData.message}</p>
@@ -402,7 +402,7 @@ div
 //     </div>
 //   );
 // };
-  //v2
+//v2
 //   export default function UserMessageBox(props) {
 //   return props.state.MessagesPage.dialogsDataUsersMessage.map((dialogggg) => (
 //     <div>
@@ -470,21 +470,20 @@ div
 
 // state.MessagesPage.dialogsDataUsersMessage
 
- //   let receivedData = props.state.MessagesPage.dialogsDataUsersMessage.map(
-  //     (receivedUnpackedData) => <span>{receivedUnpackedData.message}</span>
-  //   );
+//   let receivedData = props.state.MessagesPage.dialogsDataUsersMessage.map(
+//     (receivedUnpackedData) => <span>{receivedUnpackedData.message}</span>
+//   );
 
-  // let newobjectmessage = GetValueFromRef.current.value;
-   // let newobjectmessage = GetValueFromRef.current.value;
-    // let GetValueFromRef = React.createRef();
-    //  let GetValueFromRef = React.createRef();
-    //  state.MessagesPage.NewMessageBody
+// let newobjectmessage = GetValueFromRef.current.value;
+// let newobjectmessage = GetValueFromRef.current.value;
+// let GetValueFromRef = React.createRef();
+//  let GetValueFromRef = React.createRef();
+//  state.MessagesPage.NewMessageBody
 
-       // addMessage={props.addMessage}
-            // updateNewPostText={props.updateNewPostText}
+// addMessage={props.addMessage}
+// updateNewPostText={props.updateNewPostText}
 
-
-            // let state = {
+// let state = {
 //   MessagesPage: {
 //     dialogsDataUsersList: [
 //       { id: 1, name: "dimych" },
@@ -540,4 +539,59 @@ div
 //oop style
 //this object-->
 
-React.createRef();
+// React.createRef();
+
+// import reportWebVitals from "./reportWebVitals";
+// import React from "react";
+// import ReactDOM from "react-dom/client";
+// import { BrowserRouter } from "react-router-dom";
+// import "./index.css";
+// import App from "./App.js";
+// import store from "./components/Redux/State.js";
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// let RerenderEntireTree = (state) => {
+//   root.render(
+//     <React.StrictMode>
+//       <BrowserRouter>
+//         <App dispatch={store.dispatch.bind(store)} state={state} /> //it switch and light dispatch
+//       </BrowserRouter>
+//     </React.StrictMode>
+//   );
+// };
+
+// RerenderEntireTree(store.getState());
+// store.Rerender(RerenderEntireTree);
+// reportWebVitals();
+// import state from "./Redux/State";//f pr
+// import { addPost, updateNewPostText, Rerender } from "../src/Redux/State.js"; //f pr
+import reportWebVitals from "./reportWebVitals";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import "./index.css";
+import App from "./App.js";
+// import store from "./components/Redux/redux-store.js";
+import store from "./components/Redux/State.js";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+let RerenderEntireTree = (state) => {
+  root.render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <App dispatch={store.dispatch.bind(store)} state={state} />
+        ////not switch iisue
+      </BrowserRouter>
+    </React.StrictMode>
+  );
+};
+
+RerenderEntireTree(store.getState());
+store.Rerender(RerenderEntireTree);
+
+reportWebVitals();
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
