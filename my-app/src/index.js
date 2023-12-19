@@ -16,13 +16,14 @@ let RerenderEntireTree = (store) => {
   root.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App state={store} dispatch={store.dispatch} />
+        <App state={store} dispatch={store.dispatch.bind(store)} />
       </BrowserRouter>
     </React.StrictMode>
   );
 };
 
 RerenderEntireTree(store.getState());
+store.Rerender(RerenderEntireTree);
 
 reportWebVitals();
 // If you want to start measuring performance in your app, pass a function
