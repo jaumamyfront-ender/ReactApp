@@ -6,7 +6,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.js";
-import store from "./components/Redux/redux-store.js";
+// import store from "./components/Redux/redux-store.js";
+import store from "./components/Redux/State.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -15,7 +16,7 @@ let RerenderEntireTree = (store) => {
   root.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App state={store} />
+        <App state={store} dispatch={store.dispatch} />
       </BrowserRouter>
     </React.StrictMode>
   );
@@ -27,7 +28,3 @@ reportWebVitals();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// store.Rerender(RerenderEntireTree);
-// dispatch={store.dispatch.bind(store)}
-// RerenderEntireTree(store);
-// import store from "./Redux/State.js";
