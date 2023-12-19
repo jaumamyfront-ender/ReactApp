@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.js";
-import store from "./components/Redux/State.js";
+import store from "./components/Redux/redux-store.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -18,6 +18,9 @@ let RerenderEntireTree = (state) => {
   );
 };
 
-RerenderEntireTree(store.getState());
-store.Rerender(RerenderEntireTree);
+RerenderEntireTree(store.getState()); //первый вызов функции с вызовом метода для получения данных и их сл.передачи дальше
+store.subscribe(() => {
+  let state = store.getState();
+  RerenderEntireTree(state);
+});
 reportWebVitals();
