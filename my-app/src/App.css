@@ -239,3 +239,6 @@ textarea {
   text-align: center;
   margin-left: 12px;
 }
+body > iframe {
+  display: none;
+}
