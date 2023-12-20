@@ -7,20 +7,25 @@ import {
   ActionCreatorDelete,
   ActionCreatorUpdate,
 } from "../Redux/reducer-content";
+import { useDispatch, useSelector } from "react-redux";
 
 const Content = (props) => {
-  let GetValueFromRef = React.createRef("12");
+  let GetValueFromRef = React.createRef();
+  const dispatch = useDispatch();
+  const TextAreaValueContent = useSelector(
+    (state) => state.Profile.NewPostText
+  );
 
   let addPost = () => {
     let valueelement = GetValueFromRef.current.value;
-    props.dispatch(ActionCreatorAdd(valueelement));
+    dispatch(ActionCreatorAdd(valueelement));
     // dispatch(ActionCreatorDelete());
   };
 
   let onPostChange = () => {
     let valueelement = GetValueFromRef.current.value;
 
-    props.dispatch(ActionCreatorUpdate(valueelement));
+    dispatch(ActionCreatorUpdate(valueelement));
   };
 
   return (
@@ -30,7 +35,6 @@ const Content = (props) => {
       </div>
       <div className="content__profile">
         <div className="profile__image">
-          {" "}
           <img src={profileImage} alt="/#" />{" "}
         </div>
         <div className="profile__description">
@@ -51,7 +55,7 @@ const Content = (props) => {
             id=""
             cols="10"
             rows="5"
-            value={props.TextArea}
+            value={TextAreaValueContent}
             ref={GetValueFromRef}
             onChange={onPostChange}
           >
@@ -62,7 +66,7 @@ const Content = (props) => {
           <button onClick={addPost}>Send</button>
         </div>
       </div>
-      <ContentFooter userpost={props.userPost} />
+      <ContentFooter />
     </div>
   );
 };

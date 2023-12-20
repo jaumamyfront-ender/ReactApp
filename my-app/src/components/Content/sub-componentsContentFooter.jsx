@@ -1,6 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 const ContentFooter = (props) => {
-  const receivedData = props.userpost.map((receivedUnpackedData) => (
+  const dataFromReduxProfile = useSelector(
+    (state) => state.Profile.AddProfilePost
+  );
+  const receivedData = dataFromReduxProfile.map((receivedUnpackedData) => (
     <PostItems mycomment={receivedUnpackedData.message} />
   ));
 

@@ -11,14 +11,7 @@ function App(props) {
     <div className="container">
       <Header />
       <Sidebar />
-      <MainRoutes
-        data={props.state.MessagesPage.dialogsDataUsersList}
-        DataMessages={props.state.MessagesPage.dialogsDataUsersMessage}
-        usrpost={props.state.Profile.AddProfilePost}
-        TextArea={props.state.Profile.NewPostText}
-        dispatch={props.dispatch}
-        state={props.state}
-      />
+      <MainRoutes />
     </div>
   );
 }

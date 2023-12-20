@@ -5,22 +5,16 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.js";
 import store from "./components/Redux/redux-store.js";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-let RerenderEntireTree = (state) => {
-  root.render(
-    <React.StrictMode>
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
       <BrowserRouter>
-        <App dispatch={store.dispatch.bind(store)} state={state} />
+        <App />
       </BrowserRouter>
-    </React.StrictMode>
-  );
-};
-
-RerenderEntireTree(store.getState()); //первый вызов функции с вызовом метода для получения данных и их сл.передачи дальше
-store.subscribe(() => {
-  let state = store.getState();
-  RerenderEntireTree(state);
-});
-reportWebVitals();
+    </Provider>
+  </React.StrictMode>
+);

@@ -8,27 +8,8 @@ export default function MainRoutes(props) {
   return (
     <Routes>
       <Route path="/friends" element={<Friends />} />
-      <Route
-        path="/content"
-        element={
-          <Content
-            dispatch={props.dispatch}
-            userPost={props.usrpost}
-            TextArea={props.TextArea}
-          />
-        }
-      />
-      <Route
-        path="/dialogs/*"
-        element={
-          <Dialogs
-            data={props.data}
-            messages={props.DataMessages}
-            dispatch={props.dispatch}
-            state={props.state}
-          />
-        }
-      />
+      <Route path="/content" element={<Content TextArea={props.TextArea} />} />
+      <Route path="/dialogs/*" element={<Dialogs state={props.state} />} />
       {/* <Route path="*" element={<Navigate to="/content" replace />} /> */}
     </Routes>
   );

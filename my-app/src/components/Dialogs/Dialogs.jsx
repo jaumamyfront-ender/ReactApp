@@ -6,24 +6,36 @@ import {
   ActionCreatorReadMessage,
 } from "../Redux/reducer-dialogs";
 import UserMessage from "./UserMessage";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Dialogs(props) {
   const { pathname } = useLocation();
-  let GetValueFromRef = React.createRef();
-  let valuefromstatetotextareareading = props.state.MessagesPage.NewMessageBody;
 
-  let dialogsdataelements = props.data.map((dialog) => (
+  let GetValueFromRef = React.createRef();
+
+  const dataFromReduxTextAreaRefreshFromState = useSelector(
+    (state) => state.MessagesPage.NewMessageBody
+  );
+  let newValueFromStatetoTextArea = dataFromReduxTextAreaRefreshFromState;
+
+  const dataFromReduxUsersList = useSelector(
+    (state) => state.MessagesPage.dialogsDataUsersList
+  );
+
+  const dispatch = useDispatch();
+
+  let dialogsdataelements = dataFromReduxUsersList.map((dialog) => (
     <Dialogitems name={dialog.name} id={dialog.id} pathname={pathname} />
   ));
 
   let onSendMessageClick = () => {
     let newobjectmessage = GetValueFromRef.current.value;
-    props.dispatch(ActionCreatorAddMessage(newobjectmessage));
+    dispatch(ActionCreatorAddMessage(newobjectmessage));
   };
 
   let onNewMessageChange = () => {
     let newobjectmessage = GetValueFromRef.current.value;
-    props.dispatch(ActionCreatorReadMessage(newobjectmessage));
+    dispatch(ActionCreatorReadMessage(newobjectmessage));
   };
 
   return (
@@ -37,7 +49,7 @@ export default function Dialogs(props) {
         </div>
         <div className={classes.Barrier}></div>
         <div className={`${classes.SideBar} ${classes.RightWrapper}`}>
-          <UserMessage messages={props.messages} />
+          <UserMessage />
           <div className={`${classes.rightwrapper__items} ${classes.user}`}>
             <div className={classes.user__info}>
               <div className={classes.user__picture}></div>
@@ -51,7 +63,7 @@ export default function Dialogs(props) {
                 id=""
                 cols="20"
                 rows="10"
-                value={valuefromstatetotextareareading}
+                value={newValueFromStatetoTextArea}
                 ref={GetValueFromRef}
                 onChange={onNewMessageChange}
               ></textarea>

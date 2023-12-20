@@ -1,9 +1,12 @@
 import React from "react";
 import classes from "./dialogs.module.css";
+import { useSelector } from "react-redux";
 
 let UserMessageBox = (props) => {
-  console.log(props);
-  let newbox = props.messages.map((dialogggg) => (
+  const dataFromReduxUserMessage = useSelector(
+    (state) => state.MessagesPage.dialogsDataUsersMessage
+  );
+  let newbox = dataFromReduxUserMessage.map((dialogggg) => (
     <Userbox object={dialogggg.messages} />
   ));
   return <div>{newbox}</div>;
