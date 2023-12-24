@@ -27,7 +27,7 @@ const Content = (props) => {
 
     dispatch(ActionCreatorUpdate(valueelement));
   };
-
+  console.log(TextAreaValueContent);
   return (
     <div className="content">
       <div className="content__preview">

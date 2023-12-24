@@ -243,7 +243,7 @@
 //     </div>
 //   </div>
 // </div>
-{
+
   /* <div className={classes.BlockDialogsWrapper}>
           {" "}
           <div className={classes.followUsers}>
@@ -262,7 +262,7 @@
             </div>
           </div>
         </div> */
-}
+
 //         const receivedData = props.data.map((receivedUnpackedData) => (
 //   <p>
 //     {receivedUnpackedData.message}
@@ -540,6 +540,7 @@
 //this object-->
 
 // React.createRef();
+-------------------------------------------------
 
 // import reportWebVitals from "./reportWebVitals";
 // import React from "react";
@@ -564,34 +565,54 @@
 // RerenderEntireTree(store.getState());
 // store.Rerender(RerenderEntireTree);
 // reportWebVitals();
+----------------------------------------------------
 // import state from "./Redux/State";//f pr
 // import { addPost, updateNewPostText, Rerender } from "../src/Redux/State.js"; //f pr
-import reportWebVitals from "./reportWebVitals";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import "./index.css";
-import App from "./App.js";
-// import store from "./components/Redux/redux-store.js";
-import store from "./components/Redux/State.js";
+// import reportWebVitals from "./reportWebVitals";
+// import React from "react";
+// import ReactDOM from "react-dom/client";
+// import { BrowserRouter } from "react-router-dom";
+// import "./index.css";
+// import App from "./App.js";
+// // import store from "./components/Redux/redux-store.js";
+// import store from "./components/Redux/State.js";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// const root = ReactDOM.createRoot(document.getElementById("root"));
 
-let RerenderEntireTree = (state) => {
-  root.render(
-    <React.StrictMode>
-      <BrowserRouter>
-        <App dispatch={store.dispatch.bind(store)} state={state} />
-        ////not switch iisue
-      </BrowserRouter>
-    </React.StrictMode>
-  );
-};
+// let RerenderEntireTree = (state) => {
+//   root.render(
+//     <React.StrictMode>
+//       <BrowserRouter>
+//         <App dispatch={store.dispatch.bind(store)} state={state} />
+//         ////not switch iisue
+//       </BrowserRouter>
+//     </React.StrictMode>
+//   );
+// };
 
-RerenderEntireTree(store.getState());
-store.Rerender(RerenderEntireTree);
+// RerenderEntireTree(store.getState());
+// store.Rerender(RerenderEntireTree);
 
-reportWebVitals();
+// reportWebVitals();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
+--------------------------------------------------------------------
+// const ReducerMessage = (state = initialState, action) => {
+//   if (action.type === "UPDATE_NEW_MESSAGE_BODY") {
+//     {
+//       state.NewMessageBody = action.newobjectmessage;
+//     }
+//   } else if (action.type === "SEND_MESSAGE") {
+//     let PushPost = {
+//       messages: action.newobjectmessage,
+//     };
+
+//     state.NewMessageBody = "";
+//     state.dialogsDataUsersMessage.push(PushPost);
+//   }
+//   return state;
+// };
+-------------------------------------------------------------------
+
