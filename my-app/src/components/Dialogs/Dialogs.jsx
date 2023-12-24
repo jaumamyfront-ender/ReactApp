@@ -14,7 +14,7 @@ export default function Dialogs(props) {
   let GetValueFromRef = React.createRef();
 
   const dataFromReduxTextAreaRefreshFromState = useSelector(
-    (state) => state.MessagesPage.NewMessageBody
+    (state) => state.MessagesPage.NewMessageBody[0].message
   );
   let newValueFromStatetoTextArea = dataFromReduxTextAreaRefreshFromState;
 
