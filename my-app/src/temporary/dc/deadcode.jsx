@@ -698,3 +698,17 @@
 //   };
 // };
 // export default ReducerMessage;
+
+
+// let initialState = {------------------------styles of arrays
+//   users: [
+//     {
+//       id: 1,
+//       fullName: "igor",
+//       location: { city: "belarus", country: "moscow" },
+//     },
+//   ],
+// };
+// let teststate = [
+//   { id: 1, name: "boa", location: { cityone: "blat", citytwo: "woooa" } },
+// ];
