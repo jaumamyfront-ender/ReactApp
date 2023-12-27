@@ -12,7 +12,7 @@ const FriendsElements = () => {
   };
   let follow = (userID) => {
     console.log("Follow:", userID);
-    console.log();
+
     dispatch(followAC(userID));
   };
 

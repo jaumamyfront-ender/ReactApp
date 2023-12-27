@@ -829,7 +829,7 @@
 //   });
 // };
 
-// const friendReducers = (state = initialState, action) => {===============mychatgptversion
+// const friendReducers = (state = initialState, action) => {===============mychatgptversion(50%)
 //   console.log(action.userID);
 //   return produce(state, (draft) => {
 //     switch (action.type) {
@@ -849,25 +849,26 @@
 
 // export default friendReducers;
 
-// export default friendReducers;==============================chatgpt version
+// export default friendReducers;==============================chatgpt version(dont work)
 
-//  return produce(state, (draft) => {
+// const friendReducers = (state = initialState, action) => {
+//   return produce(state, (draft) => {
 //     switch (action.type) {
-//       case follow:
-//         const userToFollow = draft.users.map((u) => u.id === action.userId);
+//       case "follow":
+//         const userToFollow = draft.users.find((u) => u.id === action.userId);
 //         if (userToFollow) {
 //           userToFollow.followed = true;
 //         }
 //         break;
 
-//       case unfollow:
-//         const userToUnfollow = draft.users.map((u) => u.id === action.userId);
+//       case "unfollow":
+//         const userToUnfollow = draft.users.find((u) => u.id === action.userId);
 //         if (userToUnfollow) {
 //           userToUnfollow.followed = false;
 //         }
 //         break;
 
-//       case setUsers:
+//       case "setUsers":
 //         draft.users.push(...action.users);
 //         break;
 
@@ -876,3 +877,5 @@
 //     }
 //   });
 // };
+
+// export default friendReducers;
