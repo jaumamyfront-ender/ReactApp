@@ -30,7 +30,7 @@ const FriendsElements = () => {
                 follow(u.id);
               }}
             >
-              yes
+              follow
             </button>
           ) : (
             <button
@@ -38,7 +38,7 @@ const FriendsElements = () => {
                 unfollow(u.id);
               }}
             >
-              no
+              unfollow
             </button>
           )}
         </div>
