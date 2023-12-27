@@ -244,7 +244,7 @@
 //   </div>
 // </div>
 
-  /* <div className={classes.BlockDialogsWrapper}>
+/* <div className={classes.BlockDialogsWrapper}>
           {" "}
           <div className={classes.followUsers}>
             <div className={classes.followUserImage}></div>
@@ -540,7 +540,6 @@
 //this object-->
 
 // React.createRef();
--------------------------------------------------
 
 // import reportWebVitals from "./reportWebVitals";
 // import React from "react";
@@ -565,7 +564,7 @@
 // RerenderEntireTree(store.getState());
 // store.Rerender(RerenderEntireTree);
 // reportWebVitals();
-----------------------------------------------------
+
 // import state from "./Redux/State";//f pr
 // import { addPost, updateNewPostText, Rerender } from "../src/Redux/State.js"; //f pr
 // import reportWebVitals from "./reportWebVitals";
@@ -598,7 +597,7 @@
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 
---------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////
 // const ReducerMessage = (state = initialState, action) => {
 //   if (action.type === "UPDATE_NEW_MESSAGE_BODY") {
 //     {
@@ -614,8 +613,8 @@
 //   }
 //   return state;
 // };
--------------------------------------------------------------------
-// const ADD_POST = "ADD-POST";
+
+// const ADD_POST = "ADD-POST";================================================old version string reducer
 // const UpdateNewPostText = "UpdateNewPostText";
 // let initialState = {
 //   AddProfilePost: [{ message: "1" }],
@@ -652,7 +651,7 @@
 //     newText: valueelement,
 //   };
 // };
-// import { produce } from "immer";
+// import { produce } from "immer";===============================================new vwrsion with switch
 // const AddMessage = "SEND_MESSAGE";
 // const UpdateNewMessageText = "UPDATE_NEW_MESSAGE_BODY";
 
@@ -673,7 +672,7 @@
 //   NewMessageBody: [{ messages: "s" }],
 // };
 
-// const ReducerMessage = (state = initialState, action) => {
+// const ReducerMessage = (state = initialState, action) => {=======================new vwrsion with switch
 //   return produce(state, (draft) => {
 //     switch (action.type) {
 //       case UPDATE_NEW_MESSAGE_BODY:
@@ -699,8 +698,7 @@
 // };
 // export default ReducerMessage;
 
-
-// let initialState = {------------------------styles of arrays
+// let initialState = {===========================================================styles of arrays
 //   users: [
 //     {
 //       id: 1,
@@ -712,3 +710,169 @@
 // let teststate = [
 //   { id: 1, name: "boa", location: { cityone: "blat", citytwo: "woooa" } },
 // ];
+
+//  <div className={classes.BlockDialogsWrapper}>==================================rtash
+//       <div className={classes.followUsers}>
+//         <div className={classes.followUserImage}>
+//           <img src={u.photoUrl} alt="/#" />
+//         </div>
+//         <div className={classes.followUserButton}>
+//           {u.followed ? (
+//             <button
+//               onClick={() => {
+//                 dispatch(u.id);
+//               }}
+//             >
+//               follow
+//             </button>
+//           ) : (
+//             <button
+//               onClick={() => {
+//                 dispatch(u.id);
+//               }}
+//             >
+//               follow
+//             </button>
+//           )}
+//         </div>
+//       </div>
+//       <div className={classes.UserComments}>
+//         <div className={classes.comment__area}>
+//           <p>{u.fullName}</p>
+//           <p>{u.comment}</p>
+//         </div>
+//         <div className={classes.info__container}>
+//           <div className={classes.info__card}>
+//             <p>{u.location.country}</p>
+//             <p>{u.location.city}</p>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+
+// const BlockFriends = (props) => {===============================================trash
+//   return (
+//   );
+// };
+// <BlockFriends
+//   key={u.id}
+//   // dispatch={usedispatch}
+//   followed={u.followed}
+// />
+//   country={u.location.country}
+//   city={u.location.city}
+//   name={u.fullName}//   imageUser={u.photoUrl}  //   comment={u.comment}
+// let userID = getIdFromState.map(u.id)
+///////////////////////////////////////////////////////////////////////////////////////
+// const friendReducers = (state = initialState, action) => {=====================old version
+//   switch (action.type) {
+//     case follow:
+//       return {
+//         ...state,
+//         users: state.users.map((u) => {
+//           if (u.id === action.userId) {
+//             return { ...u, followed: true };
+//           }
+//           return u;
+//         }),
+//       };
+//     case unfollow:
+//       return {
+//         ...state,
+//         users: state.users.map((u) => {
+//           if (u.id === action.userId) {
+//             return { ...u, followed: false };
+//           }
+//           return u;
+//         }),
+//       };
+//     case setUsers:
+//       return {
+//         ...state,
+//         users: [...state.users, ...action.users],
+//       };
+//     default:
+//       return state;
+//   }
+// };
+// export default friendReducers;
+
+// const friendReducers = (state = initialState, action) => {==============my incorrect version
+//   return produce(state, (draft) => {
+//     switch (action.type) {
+//       case follow:
+//    draft.users.map((u) => {
+//             if (u.id === action.userId) {
+//               return draft.users.followed= true
+//             }
+
+//           }),
+//         };
+//       case unfollow:
+//         return {
+//           ...state,
+//           users: state.users.map((u) => {
+//             if (u.id === action.userId) {
+//               return { ...u, followed: false };
+//             }
+//             return u;
+//           }),
+//         };
+//       case setUsers:
+//         return {
+//           ...state,
+//           users: [...state.users, ...action.users],
+//         };
+//       default:
+//         return state;
+//     }
+//   });
+// };
+
+// const friendReducers = (state = initialState, action) => {===============mychatgptversion
+//   console.log(action.userID);
+//   return produce(state, (draft) => {
+//     switch (action.type) {
+//       case follow:
+//         draft.users.forEach((u) => {
+//           if (u.id === action.userId) {
+//             u.followed = true;
+//           }
+//         });
+//         break;
+
+//       default:
+//         return state;
+//     }
+//   });
+// };
+
+// export default friendReducers;
+
+// export default friendReducers;==============================chatgpt version
+
+//  return produce(state, (draft) => {
+//     switch (action.type) {
+//       case follow:
+//         const userToFollow = draft.users.map((u) => u.id === action.userId);
+//         if (userToFollow) {
+//           userToFollow.followed = true;
+//         }
+//         break;
+
+//       case unfollow:
+//         const userToUnfollow = draft.users.map((u) => u.id === action.userId);
+//         if (userToUnfollow) {
+//           userToUnfollow.followed = false;
+//         }
+//         break;
+
+//       case setUsers:
+//         draft.users.push(...action.users);
+//         break;
+
+//       default:
+//         break;
+//     }
+//   });
+// };

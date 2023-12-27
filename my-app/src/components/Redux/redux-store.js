@@ -10,4 +10,4 @@ let reducer = combineReducers({
 let store = configureStore({ reducer });
 
 export default store;
-console.log("Current State:", store.getState());
+// console.log("Current State:", store.getState());

@@ -5,7 +5,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import MainRoutes from "./components/Routes/Routes";
 
 function App(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="container">
       <Header />
