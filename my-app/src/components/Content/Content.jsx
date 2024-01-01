@@ -25,7 +25,7 @@ const Content = () => {
     let valueelement = GetValueFromRef.current.value;
     dispatch(ActionCreatorUpdate(valueelement));
   };
-  debugger;
+
   return (
     <div className="content">
       <div className="content__preview">
