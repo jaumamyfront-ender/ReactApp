@@ -10,13 +10,21 @@ let initialState = {
     //   comment: "",
     // },
   ],
+  PagesSize: 10,
+  TotalCount: 30,
+  CurrentPage: 1,
 };
 const follow = "follow";
 const unfollow = "unfollow";
 const setUsers = "pushUsers";
+const setCurrentPage = "currentPage";
 export let followAC = (userID) => ({ type: follow, userId: userID });
 export const unfollowAC = (userID) => ({ type: unfollow, userId: userID });
 export const setUsersAC = (users) => ({ type: setUsers, users: users });
+export const setCurrentPageAC = (CurrentPageFromUI) => ({
+  type: setCurrentPage,
+  CurrentPageFrom: CurrentPageFromUI,
+});
 const friendReducers = (state = initialState, action) => {
   switch (action.type) {
     case follow:
@@ -42,7 +50,12 @@ const friendReducers = (state = initialState, action) => {
     case setUsers:
       return {
         ...state,
-        users: [...state.users, ...action.users],
+        users: [...action.users],
+      };
+    case setCurrentPage:
+      return {
+        ...state,
+        CurrentPage: action.CurrentPageFrom,
       };
     default:
       return state;

@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import { unfollowAC, followAC, setUsersAC } from "../Redux/reducer-friends"; // Замените на ваши action creators
+import {
+  unfollowAC,
+  followAC,
+  setUsersAC,
+  setCurrentPageAC,
+} from "../Redux/reducer-friends"; // Замените на ваши action creators
 import classes from "./friends.module.css"; // Замените на путь к вашему CSS-модулю
 import UserUndefined from "../../assets/userUndefined.png"; // Замените на путь к вашему изображению
 
 class FriendsElements extends Component {
   componentDidMount() {
-    const { users, setUsers } = this.props;
+    const { users, setUsers, setCurrentPage } = this.props;
 
     if (users.length === 0) {
-      console.log("No local users, fetching from server...");
       this.getUsersFromServer();
     }
   }
@@ -18,7 +22,23 @@ class FriendsElements extends Component {
   getUsersFromServer = async () => {
     try {
       const response = await axios.get(
-        "https://social-network.samuraijs.com/api/1.0/users"
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.Current}&count=${this.props.Pages}`
+      );
+      this.props.setUsers(response.data.items);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+    }
+  };
+
+  onPageChanged = (PageNumber) => {
+    this.props.setCurrentPage(PageNumber);
+    this.getUsersForonPageChanged(PageNumber);
+  };
+  getUsersForonPageChanged = (PageNumber) => {
+    try {
+      const response = axios.get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${PageNumber}&count=${this.props.Pages}`
       );
       this.props.setUsers(response.data.items);
       console.log(response.data);
@@ -28,10 +48,31 @@ class FriendsElements extends Component {
   };
 
   render() {
-    const { users, unfollow, follow } = this.props;
-
+    const { users, unfollow, follow, setCurrentPage, Pages, Count, Current } =
+      this.props;
+    let PagesCount = Math.ceil(Count / Pages);
+    let pages = [];
+    let i = 1;
+    for (i = 1; i <= PagesCount; i++) {
+      pages.push(i);
+    }
+    console.log(users);
     return users.map((u) => (
       <div key={u.id} className={classes.BlockDialogsWrapper}>
+        <div className={classes.PagesSize}>
+          {pages.map((p) => {
+            return (
+              <span
+                onClick={(e) => {
+                  this.onPageChanged(p);
+                }}
+                className={Current === p ? classes.selectedPage : ""}
+              >
+                {p}
+              </span>
+            );
+          })}
+        </div>
         <div className={classes.followUsers}>
           <div className={classes.followUserImage}>
             <img
@@ -61,7 +102,7 @@ class FriendsElements extends Component {
         </div>
         <div className={classes.UserComments}>
           <div className={classes.comment__area}>
-            <p>{u.fullName}</p>
+            <p>{u.name}</p>
             <p>{u.comment}</p>
           </div>
           <div className={classes.info__container}>
@@ -78,12 +119,16 @@ class FriendsElements extends Component {
 
 const mapStateToProps = (state) => ({
   users: state.Friends.users,
+  Pages: state.Friends.PagesSize,
+  Count: state.Friends.TotalCount,
+  Current: state.Friends.CurrentPage,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   unfollow: (userID) => dispatch(unfollowAC(userID)),
   follow: (userID) => dispatch(followAC(userID)),
   setUsers: (users) => dispatch(setUsersAC(users)),
+  setCurrentPage: (Current) => dispatch(setCurrentPageAC(Current)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FriendsElements);

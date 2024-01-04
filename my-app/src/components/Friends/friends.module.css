@@ -117,3 +117,15 @@
   color: gray;
   text-transform: capitalize;
 }
+.PagesSize {
+  background-color: #47525e;
+  width: 50px;
+  height: 50px;
+}
+.selectedPage {
+  width: 10px;
+  height: 5px;
+  color: blue;
+  background-color: black;
+  cursor: pointer;
+}
