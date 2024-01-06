@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./friends.module.css";
-// import FriendsElements from "../Friends/friends-sub-component";
-import Classcomponentusers from "./friend-class-component";
+
+import Container from "./firends-container";
 
 const Friends = () => {
   return (
@@ -10,8 +10,7 @@ const Friends = () => {
         <p>Users</p>
       </div>
       <div className={classes.ContainerMessages}>
-        {/* <FriendsElements /> */}
-        <Classcomponentusers />
+        <Container />
       </div>
     </div>
   );

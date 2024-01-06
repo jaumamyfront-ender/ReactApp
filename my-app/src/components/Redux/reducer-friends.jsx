@@ -1,15 +1,6 @@
 import { produce } from "immer";
 let initialState = {
-  users: [
-    // {
-    //   id: 1,
-    //   fullName: "",
-    //   location: { city: "", country: "" },
-    //   followed: true,
-    //   photoUrl: "",
-    //   comment: "",
-    // },
-  ],
+  users: [],
   PagesSize: 10,
   TotalCount: 0,
   CurrentPage: 1,
