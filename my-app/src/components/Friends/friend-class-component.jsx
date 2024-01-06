@@ -7,20 +7,13 @@ import {
   setUsersAC,
   setCurrentPageAC,
   setUsersTotalCountAC,
-} from "../Redux/reducer-friends"; // Замените на ваши action creators
-import classes from "./friends.module.css"; // Замените на путь к вашему CSS-модулю
-import UserUndefined from "../../assets/userUndefined.png"; // Замените на путь к вашему изображению
+} from "../Redux/reducer-friends";
+import classes from "./friends.module.css";
+import UserUndefined from "../../assets/userUndefined.png";
 
 class FriendsElements extends Component {
   componentDidMount() {
-    const {
-      users,
-      setUsers,
-      setCurrentPage,
-      setUsersTotalCount,
-      Current,
-      Pages,
-    } = this.props;
+    const { users } = this.props;
 
     if (users.length === 0) {
       this.getUsersFromServer();
@@ -34,8 +27,6 @@ class FriendsElements extends Component {
       );
       this.props.setUsers(response.data.items);
       this.props.setUsersTotalCount(response.data.totalCount);
-
-      console.log(response.data);
     } catch (error) {
       console.error("Error fetching users:", error);
     }
@@ -52,6 +43,7 @@ class FriendsElements extends Component {
       )
       .then((response) => {
         this.props.setUsers(response.data.items);
+        console.log(response.data);
       });
   };
 
