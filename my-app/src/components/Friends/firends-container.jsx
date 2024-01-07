@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import {
-  unfollowAC,
-  followAC,
-  setUsersAC,
-  setCurrentPageAC,
-  setUsersTotalCountAC,
-  setFetchingAC,
+  unfollow,
+  follow,
+  setUsers,
+  setCurrentPage,
+  setUsersTotalCount,
+  setFetching,
 } from "../Redux/reducer-friends";
 import UsersPresentationComponent from "./friend-class-component";
 import Preloader from "../Preloader/Preloader";
@@ -104,14 +104,22 @@ const mapStateToProps = (state) => ({
   isFetching: state.Friends.isFetching,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  unfollow: (userID) => dispatch(unfollowAC(userID)),
-  follow: (userID) => dispatch(followAC(userID)),
-  setUsers: (users) => dispatch(setUsersAC(users)),
-  setCurrentPage: (Current) => dispatch(setCurrentPageAC(Current)),
-  setUsersTotalCount: (totalCount) =>
-    dispatch(setUsersTotalCountAC(totalCount)),
-  setFetching: (fetchingResult) => dispatch(setFetchingAC(fetchingResult)),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   unfollow: (userID) => dispatch(unfollowAC(userID)),
+//   follow: (userID) => dispatch(followAC(userID)),
+//   setUsers: (users) => dispatch(setUsersAC(users)),
+//   setCurrentPage: (Current) => dispatch(setCurrentPageAC(Current)),
+//   setUsersTotalCount: (totalCount) =>
+//     dispatch(setUsersTotalCountAC(totalCount)),
+//   setFetching: (fetchingResult) => dispatch(setFetchingAC(fetchingResult)),
+// });
+export default connect(mapStateToProps, {
+  unfollow,
+  follow,
+  setUsers,
+  setCurrentPage,
+  setUsersTotalCount,
+  setFetching,
+})(UsersAPI);
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPI);
+// export default connect(mapStateToProps, mapDispatchToProps)(UsersAPI);

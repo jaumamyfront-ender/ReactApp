@@ -7,32 +7,32 @@ let initialState = {
   isFetching: false,
 };
 
-const follow = "follow";
-const unfollow = "unfollow";
-const setUsers = "pushUsers";
-const setCurrentPage = "currentPage";
-const setUsersTotalCount = "userTotalCount";
-const toggleFetching = "toggleFetching";
+const followw = "follow";
+const unfolloww = "unfollow";
+const setUserss = "pushUsers";
+const setCurrentPagee = "currentPage";
+const setUsersTotalCountt = "userTotalCount";
+const toggleFetchingg = "toggleFetching";
 
-export let followAC = (userID) => ({ type: follow, userId: userID });
-export const unfollowAC = (userID) => ({ type: unfollow, userId: userID });
-export const setUsersAC = (users) => ({ type: setUsers, users: users });
-export const setCurrentPageAC = (CurrentPageFromUI) => ({
-  type: setCurrentPage,
+export let follow = (userID) => ({ type: followw, userId: userID });
+export const unfollow = (userID) => ({ type: unfolloww, userId: userID });
+export const setUsers = (users) => ({ type: setUserss, users: users });
+export const setCurrentPage = (CurrentPageFromUI) => ({
+  type: setCurrentPagee,
   CurrentPageFrom: CurrentPageFromUI,
 });
-export const setUsersTotalCountAC = (totalCount) => ({
-  type: setUsersTotalCount,
+export const setUsersTotalCount = (totalCount) => ({
+  type: setUsersTotalCountt,
   totalCount: totalCount,
 });
-export const setFetchingAC = (fetchingResult) => ({
-  type: toggleFetching,
+export const setFetching = (fetchingResult) => ({
+  type: toggleFetchingg,
   fetchingResult: fetchingResult,
 });
 
 const friendReducers = (state = initialState, action) => {
   switch (action.type) {
-    case follow:
+    case followw:
       return {
         ...state,
         users: state.users.map((u) => {
@@ -42,7 +42,7 @@ const friendReducers = (state = initialState, action) => {
           return u;
         }),
       };
-    case unfollow:
+    case unfolloww:
       return {
         ...state,
         users: state.users.map((u) => {
@@ -52,22 +52,22 @@ const friendReducers = (state = initialState, action) => {
           return u;
         }),
       };
-    case setUsers:
+    case setUserss:
       return {
         ...state,
         users: [...action.users],
       };
-    case setCurrentPage:
+    case setCurrentPagee:
       return {
         ...state,
         CurrentPage: action.CurrentPageFrom,
       };
-    case setUsersTotalCount:
+    case setUsersTotalCountt:
       return {
         ...state,
         TotalCount: action.totalCount,
       };
-    case toggleFetching:
+    case toggleFetchingg:
       return {
         ...state,
         isFetching: action.fetchingResult,
