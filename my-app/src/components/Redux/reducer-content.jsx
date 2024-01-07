@@ -24,7 +24,9 @@ export const setUserToStateFromServer = (data) => ({
 let initialState = {
   AddProfilePost: [{ message: "" }],
   NewPostText: [{ message: "123" }],
-  Profile: null,
+  Profile: {
+    photos: {},
+  },
 };
 
 const ProfileContentReducer = (state = initialState, action) => {

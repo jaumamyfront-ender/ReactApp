@@ -32,7 +32,7 @@ const Profile = (props) => {
       </div>
       <div className="content__profile">
         <div className="profile__image">
-          <img src={props.profile.photos.large} alt="/#" />
+          <img src={props.profile.photos.large} alt={profileImage} />
         </div>
         <div className="profile__description">
           <p>Dmitry K.</p>
