@@ -1,7 +1,11 @@
 import React from "react";
 import classes from "./friends.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { followAC, unfollowAC, setUsersAC } from "../Redux/reducer-friends";
+import {
+  followAC,
+  unfollowAC,
+  setUsersAC,
+} from "../components/Redux/reducer-friends";
 import axios from "axios";
 import UserUndefined from "../../assets/userUndefined.png";
 

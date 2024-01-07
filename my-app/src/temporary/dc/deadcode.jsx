@@ -890,139 +890,178 @@
 //         return u;
 //       });
 //     });
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import axios from "axios";
-import {
-  unfollowAC,
-  followAC,
-  setUsersAC,
-  setCurrentPageAC,
-  setUsersTotalCountAC,
-} from "../Redux/reducer-friends";
-import classes from "./friends.module.css";
-import UserUndefined from "../../assets/userUndefined.png";
+// import React, { Component } from "react";
+// import { connect } from "react-redux";
+// import axios from "axios";
+// import {
+//   unfollowAC,
+//   followAC,
+//   setUsersAC,
+//   setCurrentPageAC,
+//   setUsersTotalCountAC,
+// } from "../Redux/reducer-friends";
+// import classes from "./friends.module.css";
+// import UserUndefined from "../../assets/userUndefined.png";
 
-class FriendsElements extends Component {
-  componentDidMount() {
-    const { users } = this.props;
+// class FriendsElements extends Component {
+//   componentDidMount() {
+//     const { users } = this.props;
 
-    if (users.length === 0) {
-      this.getUsersFromServer();
-    }
-  }
+//     if (users.length === 0) {
+//       this.getUsersFromServer();
+//     }
+//   }
 
-  getUsersFromServer = async () => {
-    try {
-      const response = await axios.get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.Current}&count=${this.props.Pages}`
-      );
-      this.props.setUsers(response.data.items);
-      this.props.setUsersTotalCount(response.data.totalCount);
-    } catch (error) {
-      console.error("Error fetching users:", error);
-    }
-  };
+//   getUsersFromServer = async () => {
+//     try {
+//       const response = await axios.get(
+//         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.Current}&count=${this.props.Pages}`
+//       );
+//       this.props.setUsers(response.data.items);
+//       this.props.setUsersTotalCount(response.data.totalCount);
+//     } catch (error) {
+//       console.error("Error fetching users:", error);
+//     }
+//   };
 
-  onPageChanged = (PageNumber) => {
-    this.props.setCurrentPage(PageNumber);
-    this.getUsersForonPageChanged(PageNumber);
-  };
-  getUsersForonPageChanged = (PageNumber) => {
-    let response = axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${PageNumber}&count=${this.props.Pages}`
-      )
-      .then((response) => {
-        this.props.setUsers(response.data.items);
-        console.log(response.data);
-      });
-  };
+//   onPageChanged = (PageNumber) => {
+//     this.props.setCurrentPage(PageNumber);
+//     this.getUsersForonPageChanged(PageNumber);
+//   };
+//   getUsersForonPageChanged = (PageNumber) => {
+//     let response = axios
+//       .get(
+//         `https://social-network.samuraijs.com/api/1.0/users?page=${PageNumber}&count=${this.props.Pages}`
+//       )
+//       .then((response) => {
+//         this.props.setUsers(response.data.items);
+//         console.log(response.data);
+//       });
+//   };
 
-  render() {
-    const { users, unfollow, follow, Pages, Count, Current } = this.props;
-    let PagesCount = Math.ceil(Count / Pages);
-    let pages = [];
-    let i = 1;
-    for (i = 1; i <= PagesCount; i++) {
-      pages.push(i);
-    }
+//   render() {
+//     const { users, unfollow, follow, Pages, Count, Current } = this.props;
+//     let PagesCount = Math.ceil(Count / Pages);
+//     let pages = [];
+//     let i = 1;
+//     for (i = 1; i <= PagesCount; i++) {
+//       pages.push(i);
+//     }
 
-    return users.map((u) => (
-      <div key={u.id} className={classes.BlockDialogsWrapper}>
-        <div className={classes.PagesSize}>
-          {pages.map((p) => {
-            return (
-              <span
-                onClick={(e) => {
-                  this.onPageChanged(p);
-                }}
-                className={Current === p ? classes.selectedPage : ""}
-              >
-                {p}
-              </span>
-            );
-          })}
-        </div>
-        <div className={classes.followUsers}>
-          <div className={classes.followUserImage}>
-            <img
-              src={u.photoUrl != null ? u.photos.small : UserUndefined}
-              alt="/#"
-            />
-          </div>
-          <div className={classes.followUserButton}>
-            {u.followed ? (
-              <button
-                onClick={() => {
-                  follow(u.id);
-                }}
-              >
-                Follow
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  unfollow(u.id);
-                }}
-              >
-                Unfollow
-              </button>
-            )}
-          </div>
-        </div>
-        <div className={classes.UserComments}>
-          <div className={classes.comment__area}>
-            <p>{u.name}</p>
-            <p>{u.comment}</p>
-          </div>
-          <div className={classes.info__container}>
-            <div className={classes.info__card}>
-              <p>{"u.location.country"}</p>
-              <p>{"u.location.city"}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    ));
-  }
+//     return users.map((u) => (
+//       <div key={u.id} className={classes.BlockDialogsWrapper}>
+//         <div className={classes.PagesSize}>
+//           {pages.map((p) => {
+//             return (
+//               <span
+//                 onClick={(e) => {
+//                   this.onPageChanged(p);
+//                 }}
+//                 className={Current === p ? classes.selectedPage : ""}
+//               >
+//                 {p}
+//               </span>
+//             );
+//           })}
+//         </div>
+//         <div className={classes.followUsers}>
+//           <div className={classes.followUserImage}>
+//             <img
+//               src={u.photoUrl != null ? u.photos.small : UserUndefined}
+//               alt="/#"
+//             />
+//           </div>
+//           <div className={classes.followUserButton}>
+//             {u.followed ? (
+//               <button
+//                 onClick={() => {
+//                   follow(u.id);
+//                 }}
+//               >
+//                 Follow
+//               </button>
+//             ) : (
+//               <button
+//                 onClick={() => {
+//                   unfollow(u.id);
+//                 }}
+//               >
+//                 Unfollow
+//               </button>
+//             )}
+//           </div>
+//         </div>
+//         <div className={classes.UserComments}>
+//           <div className={classes.comment__area}>
+//             <p>{u.name}</p>
+//             <p>{u.comment}</p>
+//           </div>
+//           <div className={classes.info__container}>
+//             <div className={classes.info__card}>
+//               <p>{"u.location.country"}</p>
+//               <p>{"u.location.city"}</p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     ));
+//   }
+// }
+
+// const mapStateToProps = (state) => ({
+//   users: state.Friends.users,
+//   Pages: state.Friends.PagesSize,
+//   Count: state.Friends.TotalCount,
+//   Current: state.Friends.CurrentPage,
+// });
+
+// const mapDispatchToProps = (dispatch) => ({
+//   unfollow: (userID) => dispatch(unfollowAC(userID)),
+//   follow: (userID) => dispatch(followAC(userID)),
+//   setUsers: (users) => dispatch(setUsersAC(users)),
+//   setCurrentPage: (Current) => dispatch(setCurrentPageAC(Current)),
+//   setUsersTotalCount: (totalCount) =>
+//     dispatch(setUsersTotalCountAC(totalCount)),
+// });
+
+// export default connect(mapStateToProps, mapDispatchToProps)(FriendsElements);
+// const { users, setUsers, unfollow, follow, Pages, Count, Current }
+
+// import React from "react";
+// import { useSelector } from "react-redux";
+// const ContentFooter = (props) => {
+//   const dataFromReduxProfile = useSelector(
+//     (state) => state.Profile.AddProfilePost
+//   );
+//   const receivedData = dataFromReduxProfile.map((receivedUnpackedData) => (
+//     <PostItems mycomment={receivedUnpackedData.message} />
+//   ));
+
+//   return <div>{receivedData}</div>;
+// };
+// const PostItems = (props) => {
+//   return (
+//     <div className="content__footer">
+//       <div className="item__one">
+//         <div className="item__one__image">{/* <img src="" alt="/#" /> */}</div>
+//         <div className="item__one__comment">
+//           <span>{props.mycomment}</span>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ContentFooter;
+{
+  /* <Content TextArea={props.TextArea} /> */
 }
-
-const mapStateToProps = (state) => ({
-  users: state.Friends.users,
-  Pages: state.Friends.PagesSize,
-  Count: state.Friends.TotalCount,
-  Current: state.Friends.CurrentPage,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  unfollow: (userID) => dispatch(unfollowAC(userID)),
-  follow: (userID) => dispatch(followAC(userID)),
-  setUsers: (users) => dispatch(setUsersAC(users)),
-  setCurrentPage: (Current) => dispatch(setCurrentPageAC(Current)),
-  setUsersTotalCount: (totalCount) =>
-    dispatch(setUsersTotalCountAC(totalCount)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(FriendsElements);
-const { users, setUsers, unfollow, follow, Pages, Count, Current } 
+//  state={props.state}
+//  Link, Outlet, useLocation;
+// setUsers,
+//   unfollow,
+//   follow,
+//   Pages,
+//   Count,
+//   Current,
+//   isFetching,

@@ -1,14 +1,13 @@
 import React from "react";
 import profile from "../../assets/profile.jpeg";
 import profileImage from "../../assets/profileImage.jpg";
-import ContentFooter from "./sub-componentsContentFooter";
 import {
   ActionCreatorAdd,
   ActionCreatorUpdate,
 } from "../Redux/reducer-content";
 import { useDispatch, useSelector } from "react-redux";
 
-const Content = () => {
+const Profile = (props) => {
   let GetValueFromRef = React.createRef();
   const dispatch = useDispatch();
   const TextAreaValueContent = useSelector(
@@ -33,7 +32,7 @@ const Content = () => {
       </div>
       <div className="content__profile">
         <div className="profile__image">
-          <img src={profileImage} alt="/#" />{" "}
+          <img src={props.profile.photos.large} alt="/#" />
         </div>
         <div className="profile__description">
           <p>Dmitry K.</p>
@@ -68,5 +67,27 @@ const Content = () => {
     </div>
   );
 };
+const ContentFooter = (props) => {
+  const dataFromReduxProfile = useSelector(
+    (state) => state.Profile.AddProfilePost
+  );
+  const receivedData = dataFromReduxProfile.map((receivedUnpackedData) => (
+    <PostItems mycomment={receivedUnpackedData.message} />
+  ));
 
-export default Content;
+  return <div>{receivedData}</div>;
+};
+const PostItems = (props) => {
+  return (
+    <div className="content__footer">
+      <div className="item__one">
+        <div className="item__one__image">{/* <img src="" alt="/#" /> */}</div>
+        <div className="item__one__comment">
+          <span>{props.mycomment}</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Profile;

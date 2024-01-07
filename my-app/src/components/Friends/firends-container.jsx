@@ -9,20 +9,11 @@ import {
   setUsersTotalCount,
   setFetching,
 } from "../Redux/reducer-friends";
-import UsersPresentationComponent from "./friend-class-component";
+import UsersPresentationComponent from "./friends-presentation";
 import Preloader from "../Preloader/Preloader";
 class UsersAPI extends Component {
   componentDidMount() {
-    const {
-      users,
-      setUsers,
-      unfollow,
-      follow,
-      Pages,
-      Count,
-      Current,
-      isFetching,
-    } = this.props;
+    const { users } = this.props;
 
     if (users.length === 0) {
       this.getUsersFromServer();
@@ -58,20 +49,6 @@ class UsersAPI extends Component {
         this.props.setFetching(false);
       });
   };
-  //   getUsersForonPageChanged = async (PageNumber) => {
-  //     try {
-  //       this.props.setFetching({ fetchingResult: true });
-
-  //       const response = await axios.get(
-  //         `https://social-network.samuraijs.com/api/1.0/users?page=${PageNumber}&count=${this.props.Pages}`
-  //       );
-
-  //       this.props.setUsers(response.data.items);
-  //       this.props.setFetching({ fetchingResult: false });
-  //     } catch (error) {
-  //       console.error("Error fetching users:", error);
-  //     }
-  //   };
 
   render() {
     console.log(this.props.isFetching);
@@ -104,15 +81,6 @@ const mapStateToProps = (state) => ({
   isFetching: state.Friends.isFetching,
 });
 
-// const mapDispatchToProps = (dispatch) => ({
-//   unfollow: (userID) => dispatch(unfollowAC(userID)),
-//   follow: (userID) => dispatch(followAC(userID)),
-//   setUsers: (users) => dispatch(setUsersAC(users)),
-//   setCurrentPage: (Current) => dispatch(setCurrentPageAC(Current)),
-//   setUsersTotalCount: (totalCount) =>
-//     dispatch(setUsersTotalCountAC(totalCount)),
-//   setFetching: (fetchingResult) => dispatch(setFetchingAC(fetchingResult)),
-// });
 export default connect(mapStateToProps, {
   unfollow,
   follow,

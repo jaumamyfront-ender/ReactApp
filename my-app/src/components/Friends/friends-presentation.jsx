@@ -1,6 +1,7 @@
 import classes from "./friends.module.css";
 import UserUndefined from "../../assets/userUndefined.png";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function UsersPresentationComponent(props) {
   let PagesCount = Math.ceil(props.count / props.pages);
@@ -28,10 +29,12 @@ export default function UsersPresentationComponent(props) {
       </div>
       <div className={classes.followUsers}>
         <div className={classes.followUserImage}>
-          <img
-            src={u.photoUrl != null ? u.photos.small : UserUndefined}
-            alt="/#"
-          />
+          <NavLink to={"/content/" + u.id}>
+            <img
+              src={u.photoUrl != null ? u.photos.small : UserUndefined}
+              alt="/#"
+            />
+          </NavLink>
         </div>
         <div className={classes.followUserButton}>
           {u.followed ? (

@@ -8,6 +8,6 @@ let reducer = combineReducers({
   Friends: friendReducers,
 });
 let store = configureStore({ reducer });
-
+window.store = store;
 export default store;
-// console.log("Current State:", store.getState());
+console.log("Current State:", store.getState());

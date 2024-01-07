@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./sidebar.module.css";
-import { NavLink, Link, Outlet, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const setActive = ({ isActive }) => (isActive ? "active__link" : "");
 
@@ -8,7 +8,7 @@ const Sidebar = () => {
   return (
     <div className={classes.sidebar}>
       <div className={classes.sidebar__list}>
-        <NavLink to="content" className={setActive}>
+        <NavLink to="profile" className={setActive}>
           Profile
         </NavLink>
         <NavLink to="friends" className={setActive}>
