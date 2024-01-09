@@ -1065,3 +1065,54 @@
 //   Count,
 //   Current,
 //   isFetching,
+//   componentDidMount = async () => {
+//     try {
+//       const response = await axios.get(
+//         `https://social-network.samuraijs.com/api/1.0/profile/2`
+//       );
+//       this.props.setUserToStateFromServer(response.data);
+//     } catch (error) {
+//       console.error("Error fetching users:", error);
+//     }
+//   };
+
+// У кого не работает, продублирую путь решения
+// 1.  import { useParams } from 'react-router-dom'; - нужно это просто сверху импортировать
+// 2. export function withRouter(Children){
+//      return(props)=>{
+
+//         const match  = {params: useParams()};
+//         return <Children {...props}  match = {match}/>
+//     }
+//   } - добавить это перед классовой компонентой
+// Остальное делаем как Димыч
+// Как я понял, суть решения в том, что мы используем Хук - UseParams, он позволяет достучаться до url
+// Но так как нельзя хуки и классы мешать, мы берем и заворачиваем наш хук в функцию, далее из функции, которая как раз совпадает с нерабочим withRouter
+
+// :import {
+//     useLocation,
+//     useNavigate,
+//     useParams,
+// } from "react-router-dom";
+
+// // wrapper to use react router's v6 hooks in class component(to use HOC pattern, like in router v5)
+// function withRouter(Component) {
+//     function ComponentWithRouterProp(props) {
+//         let location = useLocation();
+//         let navigate = useNavigate();
+//         let params = useParams();
+//         return (
+//             <Component
+//                 {...props}
+//                 router={{ location, navigate, params }}
+//             />
+//         );
+//     }
+
+//     return ComponentWithRouterProp;
+// }
+//  И теперь, эту функцию нужно использовать👇
+// export default connect(mapStateToProps, {setUserProfile})(withRouter(ProfileContainer));
+// Затем, в классе ProfileContainer мы можем получить айдишку пользователя, прописав:
+//         let profileId = this.props.router.params.profileId;
+// И все, дальше меняем URL запроса, и обновляем данные профиля в зависимости от айди пользователя

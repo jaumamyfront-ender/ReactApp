@@ -5,18 +5,11 @@ import { connect } from "react-redux";
 import { setUserToStateFromServer } from "../Redux/reducer-content";
 
 class ProfileContainer extends React.Component {
-  //   componentDidMount = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `https://social-network.samuraijs.com/api/1.0/profile/2`
-  //       );
-  //       this.props.setUserToStateFromServer(response.data);
-  //     } catch (error) {
-  //       console.error("Error fetching users:", error);
-  //     }
-  //   };
-
   componentDidMount = async () => {
+    // if (!userId) {
+    //   userId = 2;
+    // }
+    // debugger;
     await axios
       .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
       .then((response) => {

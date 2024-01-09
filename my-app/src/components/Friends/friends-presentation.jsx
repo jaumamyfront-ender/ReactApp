@@ -2,6 +2,8 @@ import classes from "./friends.module.css";
 import UserUndefined from "../../assets/userUndefined.png";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { getUserAC } from "../Redux/reducer-friends";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function UsersPresentationComponent(props) {
   let PagesCount = Math.ceil(props.count / props.pages);
@@ -10,7 +12,16 @@ export default function UsersPresentationComponent(props) {
   for (i = 1; i <= PagesCount; i++) {
     pages.push(i);
   }
-  console.log(props.users);
+
+  let dsp = useDispatch();
+  let getIdf = useSelector((state) => state.Friends.userId);
+  console.log(getIdf);
+  let getfuckingid = (value) => {
+    dsp(getUserAC(value));
+  };
+  console.log(getIdf);
+  console.log();
+
   return props.users.map((u) => (
     <div key={u.id} className={classes.BlockDialogsWrapper}>
       <div className={classes.PagesSize}>
@@ -29,7 +40,12 @@ export default function UsersPresentationComponent(props) {
       </div>
       <div className={classes.followUsers}>
         <div className={classes.followUserImage}>
-          <NavLink to={"/content/" + u.id}>
+          <NavLink
+            to={"/content/" + u.id}
+            onClick={() => {
+              getfuckingid(u.id);
+            }}
+          >
             <img
               src={u.photoUrl != null ? u.photos.small : UserUndefined}
               alt="/#"

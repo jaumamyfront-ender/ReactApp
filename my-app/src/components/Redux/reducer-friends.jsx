@@ -5,6 +5,7 @@ let initialState = {
   TotalCount: 0,
   CurrentPage: 1,
   isFetching: false,
+  userId: 1,
 };
 
 const followw = "follow";
@@ -13,6 +14,7 @@ const setUserss = "pushUsers";
 const setCurrentPagee = "currentPage";
 const setUsersTotalCountt = "userTotalCount";
 const toggleFetchingg = "toggleFetching";
+const getId = "getId";
 
 export let follow = (userID) => ({ type: followw, userId: userID });
 export const unfollow = (userID) => ({ type: unfolloww, userId: userID });
@@ -29,6 +31,7 @@ export const setFetching = (fetchingResult) => ({
   type: toggleFetchingg,
   fetchingResult: fetchingResult,
 });
+export const getUserAC = (uId) => ({ type: getId, newId: uId });
 
 const friendReducers = (state = initialState, action) => {
   switch (action.type) {
@@ -71,6 +74,11 @@ const friendReducers = (state = initialState, action) => {
       return {
         ...state,
         isFetching: action.fetchingResult,
+      };
+    case getId:
+      return {
+        ...state,
+        userId: action.newId,
       };
     default:
       return state;
