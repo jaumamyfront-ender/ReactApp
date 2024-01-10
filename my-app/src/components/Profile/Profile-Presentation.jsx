@@ -24,7 +24,7 @@ const Profile = (props) => {
     let valueelement = GetValueFromRef.current.value;
     dispatch(ActionCreatorUpdate(valueelement));
   };
-
+  console.log(props);
   return (
     <div className="content">
       <div className="content__preview">
@@ -35,7 +35,7 @@ const Profile = (props) => {
           <img src={props.profile.photos.large} alt={profileImage} />
         </div>
         <div className="profile__description">
-          <p>Dmitry K.</p>
+          <p>{props.profile.fullName}</p>
           <p>
             Date of Birth: 2 january City: Minsk Education: BSU '11 Web Site:
             https://samuraijs.com

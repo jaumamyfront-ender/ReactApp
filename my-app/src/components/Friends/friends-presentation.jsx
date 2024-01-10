@@ -41,7 +41,7 @@ export default function UsersPresentationComponent(props) {
       <div className={classes.followUsers}>
         <div className={classes.followUserImage}>
           <NavLink
-            to={"/content/" + u.id}
+            to={"/profile?"}
             onClick={() => {
               getfuckingid(u.id);
             }}

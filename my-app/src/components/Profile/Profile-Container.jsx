@@ -6,12 +6,15 @@ import { setUserToStateFromServer } from "../Redux/reducer-content";
 
 class ProfileContainer extends React.Component {
   componentDidMount = async () => {
-    // if (!userId) {
-    //   userId = 2;
-    // }
-    // debugger;
+    console.log(this.props);
+    let userId = this.props.userId;
+    console.log(userId);
+    if (!userId) {
+      userId = 2;
+    }
+
     await axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
       .then((response) => {
         this.props.setUserToStateFromServer(response.data);
       });
@@ -23,6 +26,7 @@ class ProfileContainer extends React.Component {
 }
 let mapStateToProps = (state) => ({
   userProfile: state.Profile.Profile,
+  userId: state.Friends.userId,
 });
 
 export default connect(mapStateToProps, { setUserToStateFromServer })(

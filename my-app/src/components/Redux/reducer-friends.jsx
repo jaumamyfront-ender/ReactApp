@@ -5,7 +5,7 @@ let initialState = {
   TotalCount: 0,
   CurrentPage: 1,
   isFetching: false,
-  userId: 1,
+  userId: 2,
 };
 
 const followw = "follow";

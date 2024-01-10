@@ -8,7 +8,7 @@ export default function MainRoutes(props) {
   return (
     <Routes>
       <Route path="/friends/" element={<Friends />} />
-      <Route path="/profile/:userId?" element={<ProfileContainer />} />
+      <Route path="/profile?" element={<ProfileContainer />} />
       <Route path="/dialogs/*" element={<Dialogs />} />
       {/* <Route path="*" element={<Navigate to="/content" replace />} /> */}
     </Routes>
