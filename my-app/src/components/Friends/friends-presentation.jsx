@@ -4,6 +4,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { getUserAC } from "../Redux/reducer-friends";
 import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
 
 export default function UsersPresentationComponent(props) {
   let PagesCount = Math.ceil(props.count / props.pages);
@@ -12,15 +13,10 @@ export default function UsersPresentationComponent(props) {
   for (i = 1; i <= PagesCount; i++) {
     pages.push(i);
   }
-
   let dsp = useDispatch();
-  let getIdf = useSelector((state) => state.Friends.userId);
-  console.log(getIdf);
   let getfuckingid = (value) => {
     dsp(getUserAC(value));
   };
-  console.log(getIdf);
-  console.log();
 
   return props.users.map((u) => (
     <div key={u.id} className={classes.BlockDialogsWrapper}>
@@ -56,18 +52,48 @@ export default function UsersPresentationComponent(props) {
           {u.followed ? (
             <button
               onClick={() => {
-                props.follow(u.id);
+                axios
+                  .delete(
+                    `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+
+                    {
+                      withCredentials: true,
+                      headers: {
+                        "API-KEY": "f0f817fb-ae87-4732-8be4-12afaeaa4531",
+                      },
+                    }
+                  )
+                  .then((response) => {
+                    if (response.data.resultCode === 0) {
+                      props.unfollow(u.id);
+                    }
+                  });
               }}
             >
-              Follow
+              Unfollow
             </button>
           ) : (
             <button
               onClick={() => {
-                props.unfollow(u.id);
+                axios
+                  .post(
+                    `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                    {},
+                    {
+                      withCredentials: true,
+                      headers: {
+                        "API-KEY": "f0f817fb-ae87-4732-8be4-12afaeaa4531",
+                      },
+                    }
+                  )
+                  .then((response) => {
+                    if (response.data.resultCode === 0) {
+                      props.follow(u.id);
+                    }
+                  });
               }}
             >
-              Unfollow
+              Follow
             </button>
           )}
         </div>

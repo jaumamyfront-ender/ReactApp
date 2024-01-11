@@ -24,7 +24,8 @@ class UsersAPI extends Component {
     try {
       this.props.setFetching(true);
       const response = await axios.get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.Current}&count=${this.props.Pages}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.Current}&count=${this.props.Pages}`,
+        { withCredentials: true }
       );
       this.props.setUsers(response.data.items);
       this.props.setUsersTotalCount(response.data.totalCount);
@@ -42,7 +43,8 @@ class UsersAPI extends Component {
     this.props.setFetching(true);
     let response = axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${PageNumber}&count=${this.props.Pages}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${PageNumber}&count=${this.props.Pages}`,
+        { withCredentials: true }
       )
       .then((response) => {
         this.props.setUsers(response.data.items);
@@ -51,7 +53,6 @@ class UsersAPI extends Component {
   };
 
   render() {
-    console.log(this.props.isFetching);
     return (
       <>
         {this.props.isFetching ? (
