@@ -1116,3 +1116,16 @@
 // Затем, в классе ProfileContainer мы можем получить айдишку пользователя, прописав:
 //         let profileId = this.props.router.params.profileId;
 // И все, дальше меняем URL запроса, и обновляем данные профиля в зависимости от айди пользователя
+// ветвление.условие.цикл
+// getUsersForOnPageChanged = (PageNumber) => {
+//   this.props.setFetching(true);
+//   let response = axios
+//     .get(
+//       `https://social-network.samuraijs.com/api/1.0/users?page=${PageNumber}&count=${this.props.Pages}`,
+//       { withCredentials: true }
+//     )
+//     .then((response) => {
+//       this.props.setUsers(response.data.items);
+//       this.props.setFetching(false);
+//     });
+// };

@@ -11,45 +11,44 @@ import {
 } from "../Redux/reducer-friends";
 import UsersPresentationComponent from "./friends-presentation";
 import Preloader from "../Preloader/Preloader";
+
+import { GetUsersForPageChanged, GetUsers } from "../../api/api";
+
 class UsersAPI extends Component {
   componentDidMount() {
     const { users } = this.props;
-
     if (users.length === 0) {
       this.getUsersFromServer();
     }
   }
-
   getUsersFromServer = async () => {
+    this.props.setFetching(true);
     try {
-      this.props.setFetching(true);
-      const response = await axios.get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.Current}&count=${this.props.Pages}`,
-        { withCredentials: true }
-      );
-      this.props.setUsers(response.data.items);
-      this.props.setUsersTotalCount(response.data.totalCount);
-      this.props.setFetching(false);
+      const data = await GetUsers(this.props.Current, this.props.Pages);
+      this.props.setUsers(data.items);
+      this.props.setUsersTotalCount(data.totalCount);
     } catch (error) {
-      console.error("Error fetching users:", error);
+      console.error("Error fetching user data:", error);
+    } finally {
+      this.props.setFetching(false);
     }
   };
-
   onPageChanged = (PageNumber) => {
-    this.props.setCurrentPage(PageNumber);
-    this.getUsersForonPageChanged(PageNumber);
+    let PNR = PageNumber;
+    this.props.setCurrentPage(PNR);
+    this.getUsersOnNewPage(PNR);
   };
-  getUsersForonPageChanged = (PageNumber) => {
+
+  getUsersOnNewPage = async (PNR) => {
     this.props.setFetching(true);
-    let response = axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${PageNumber}&count=${this.props.Pages}`,
-        { withCredentials: true }
-      )
-      .then((response) => {
-        this.props.setUsers(response.data.items);
-        this.props.setFetching(false);
-      });
+    try {
+      const data1 = await GetUsersForPageChanged(PNR, this.props.Pages);
+      this.props.setUsers(data1.items);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    } finally {
+      this.props.setFetching(false);
+    }
   };
 
   render() {
