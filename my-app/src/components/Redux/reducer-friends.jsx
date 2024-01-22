@@ -6,7 +6,7 @@ let initialState = {
   CurrentPage: 1,
   isFetching: false,
   userId: 2,
-  isButtonDisabled: false,
+  isButtonDisabled: [],
 };
 
 const followw = "follow";
@@ -34,9 +34,10 @@ export const setFetching = (fetchingResult) => ({
   fetchingResult: fetchingResult,
 });
 export const getUserAC = (uId) => ({ type: getId, newId: uId });
-export const isFetchingButton = (fz) => ({
+export const isFetchingButton = (FetchingButton, userid) => ({
   type: buttonSwitchDisabler,
-  fz: fz,
+  FetchingButton: FetchingButton,
+  userid: userid,
 });
 
 const friendReducers = (state = initialState, action) => {
@@ -89,7 +90,9 @@ const friendReducers = (state = initialState, action) => {
     case buttonSwitchDisabler:
       return {
         ...state,
-        isButtonDisabled: action.fz,
+        isButtonDisabled: action.FetchingButton
+          ? [...state.isButtonDisabled, action.userid]
+          : state.isButtonDisabled.filter((id) => id != action.userid),
       };
     default:
       return state;

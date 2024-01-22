@@ -51,9 +51,9 @@ export default function UsersPresentationComponent(props) {
         <div className={classes.followUserButton}>
           {u.followed ? (
             <button
-              disabled={props.ButtonDisabler}
+              disabled={props.ButtonDisabler.some((id) => id === u.id)}
               onClick={() => {
-                props.isFetchingButton(true);
+                props.isFetchingButton(true, u.id);
                 axios
                   .delete(
                     `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
@@ -69,7 +69,7 @@ export default function UsersPresentationComponent(props) {
                     if (response.data.resultCode === 0) {
                       props.unfollow(u.id);
                     }
-                    props.isFetchingButton(false);
+                    props.isFetchingButton(false, u.id);
                   });
               }}
             >
@@ -77,9 +77,9 @@ export default function UsersPresentationComponent(props) {
             </button>
           ) : (
             <button
-              disabled={props.ButtonDisabler}
+              disabled={props.ButtonDisabler.some((id) => id === u.id)}
               onClick={() => {
-                props.isFetchingButton(true);
+                props.isFetchingButton(true, u.id);
                 axios
                   .post(
                     `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
@@ -95,7 +95,7 @@ export default function UsersPresentationComponent(props) {
                     if (response.data.resultCode === 0) {
                       props.follow(u.id);
                     }
-                    props.isFetchingButton(false);
+                    props.isFetchingButton(false, u.id);
                   });
               }}
             >

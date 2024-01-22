@@ -69,7 +69,7 @@ class UsersAPI extends Component {
           count={this.props.Count}
           current={this.props.Current}
           onPageChanged={this.onPageChanged}
-          ButtonDisabler={this.props.ButtonSwitch}
+          ButtonDisabler={this.props.ButtonDisabler}
         />
       </>
     );
@@ -82,7 +82,7 @@ const mapStateToProps = (state) => ({
   Count: state.Friends.TotalCount,
   Current: state.Friends.CurrentPage,
   isFetching: state.Friends.isFetching,
-  ButtonSwitch: state.Friends.isButtonDisabled,
+  ButtonDisabler: state.Friends.isButtonDisabled,
 });
 
 export default connect(mapStateToProps, {
