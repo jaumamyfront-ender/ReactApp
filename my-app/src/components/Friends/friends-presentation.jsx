@@ -17,7 +17,7 @@ export default function UsersPresentationComponent(props) {
   let getfuckingid = (value) => {
     dsp(getUserAC(value));
   };
-
+  console.log(props);
   return props.users.map((u) => (
     <div key={u.id} className={classes.BlockDialogsWrapper}>
       <div className={classes.PagesSize}>
@@ -51,7 +51,9 @@ export default function UsersPresentationComponent(props) {
         <div className={classes.followUserButton}>
           {u.followed ? (
             <button
+              disabled={props.ButtonDisabler}
               onClick={() => {
+                props.isFetchingButton(true);
                 axios
                   .delete(
                     `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
@@ -67,6 +69,7 @@ export default function UsersPresentationComponent(props) {
                     if (response.data.resultCode === 0) {
                       props.unfollow(u.id);
                     }
+                    props.isFetchingButton(false);
                   });
               }}
             >
@@ -74,7 +77,9 @@ export default function UsersPresentationComponent(props) {
             </button>
           ) : (
             <button
+              disabled={props.ButtonDisabler}
               onClick={() => {
+                props.isFetchingButton(true);
                 axios
                   .post(
                     `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
@@ -90,6 +95,7 @@ export default function UsersPresentationComponent(props) {
                     if (response.data.resultCode === 0) {
                       props.follow(u.id);
                     }
+                    props.isFetchingButton(false);
                   });
               }}
             >

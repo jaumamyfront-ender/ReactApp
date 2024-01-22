@@ -6,6 +6,7 @@ let initialState = {
   CurrentPage: 1,
   isFetching: false,
   userId: 2,
+  isButtonDisabled: false,
 };
 
 const followw = "follow";
@@ -15,6 +16,7 @@ const setCurrentPagee = "currentPage";
 const setUsersTotalCountt = "userTotalCount";
 const toggleFetchingg = "toggleFetching";
 const getId = "getId";
+const buttonSwitchDisabler = "buttonSwitchDisabler";
 
 export let follow = (userID) => ({ type: followw, userId: userID });
 export const unfollow = (userID) => ({ type: unfolloww, userId: userID });
@@ -32,6 +34,10 @@ export const setFetching = (fetchingResult) => ({
   fetchingResult: fetchingResult,
 });
 export const getUserAC = (uId) => ({ type: getId, newId: uId });
+export const isFetchingButton = (fz) => ({
+  type: buttonSwitchDisabler,
+  fz: fz,
+});
 
 const friendReducers = (state = initialState, action) => {
   switch (action.type) {
@@ -79,6 +85,11 @@ const friendReducers = (state = initialState, action) => {
       return {
         ...state,
         userId: action.newId,
+      };
+    case buttonSwitchDisabler:
+      return {
+        ...state,
+        isButtonDisabled: action.fz,
       };
     default:
       return state;

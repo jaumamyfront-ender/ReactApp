@@ -8,6 +8,7 @@ import {
   setCurrentPage,
   setUsersTotalCount,
   setFetching,
+  isFetchingButton,
 } from "../Redux/reducer-friends";
 import UsersPresentationComponent from "./friends-presentation";
 import Preloader from "../Preloader/Preloader";
@@ -63,10 +64,12 @@ class UsersAPI extends Component {
           users={this.props.users}
           follow={this.props.follow}
           unfollow={this.props.unfollow}
+          isFetchingButton={this.props.isFetchingButton}
           pages={this.props.Pages}
           count={this.props.Count}
           current={this.props.Current}
           onPageChanged={this.onPageChanged}
+          ButtonDisabler={this.props.ButtonSwitch}
         />
       </>
     );
@@ -79,6 +82,7 @@ const mapStateToProps = (state) => ({
   Count: state.Friends.TotalCount,
   Current: state.Friends.CurrentPage,
   isFetching: state.Friends.isFetching,
+  ButtonSwitch: state.Friends.isButtonDisabled,
 });
 
 export default connect(mapStateToProps, {
@@ -88,6 +92,7 @@ export default connect(mapStateToProps, {
   setCurrentPage,
   setUsersTotalCount,
   setFetching,
+  isFetchingButton,
 })(UsersAPI);
 
 // export default connect(mapStateToProps, mapDispatchToProps)(UsersAPI);
