@@ -1,4 +1,10 @@
 import { produce } from "immer";
+import {
+  GetUsersForPageChanged,
+  GetUsers,
+  PushUserOnButtonDisabledFollow,
+  DeleteUserOnButtonDisabledUnfollow,
+} from "../../api/api";
 let initialState = {
   users: [],
   PagesSize: 10,
@@ -99,3 +105,34 @@ const friendReducers = (state = initialState, action) => {
   }
 };
 export default friendReducers;
+export const getUsersFromServerThunkCreator = (Pages, Current) => {
+  return (dispatch) => {
+    dispatch(setFetching(true));
+    GetUsers(Current, Pages).then((data) => {
+      dispatch(setUsers(data.items));
+      dispatch(setUsersTotalCount(data.totalCount));
+      dispatch(setFetching(false));
+    });
+  };
+};
+export const getUsersOnNewPageThunkCreator = (PageNumber, Pages) => {
+  return (dispatch) => {
+    dispatch(setCurrentPage(PageNumber));
+    dispatch(setFetching(true));
+
+    GetUsersForPageChanged(PageNumber, Pages)
+      .then((data1) => {
+        dispatch(setUsers(data1.items));
+      })
+      .then(() => dispatch(setFetching(false)))
+      .catch((error) => console.error("Error fetching user data:", error));
+  };
+};
+export let DisabledFollow = (u) => {
+  return (dispatch) => {
+    dispatch(PushUserOnButtonDisabledFollow(u));
+  };
+};
+export let DisabledUnfollow = (u) => {
+  DeleteUserOnButtonDisabledUnfollow(u);
+};

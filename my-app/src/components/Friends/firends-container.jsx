@@ -9,48 +9,21 @@ import {
   setUsersTotalCount,
   setFetching,
   isFetchingButton,
+  getUsersFromServerThunkCreator,
+  getUsersOnNewPageThunkCreator,
+  DisabledFollow,
+  DisabledUnfollow,
 } from "../Redux/reducer-friends";
 import UsersPresentationComponent from "./friends-presentation";
 import Preloader from "../Preloader/Preloader";
-
-import { GetUsersForPageChanged, GetUsers } from "../../api/api";
-
 class UsersAPI extends Component {
   componentDidMount() {
     const { users } = this.props;
     if (users.length === 0) {
-      this.getUsersFromServer();
+      this.props.getUsersFromServerThunkCreator();
     }
+    this.props.getUsersOnNewPageThunkCreator();
   }
-  getUsersFromServer = async () => {
-    this.props.setFetching(true);
-    try {
-      const data = await GetUsers(this.props.Current, this.props.Pages);
-      this.props.setUsers(data.items);
-      this.props.setUsersTotalCount(data.totalCount);
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    } finally {
-      this.props.setFetching(false);
-    }
-  };
-  onPageChanged = (PageNumber) => {
-    let PNR = PageNumber;
-    this.props.setCurrentPage(PNR);
-    this.getUsersOnNewPage(PNR);
-  };
-
-  getUsersOnNewPage = async (PNR) => {
-    this.props.setFetching(true);
-    try {
-      const data1 = await GetUsersForPageChanged(PNR, this.props.Pages);
-      this.props.setUsers(data1.items);
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    } finally {
-      this.props.setFetching(false);
-    }
-  };
 
   render() {
     return (
@@ -62,14 +35,16 @@ class UsersAPI extends Component {
         )}
         <UsersPresentationComponent
           users={this.props.users}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
-          isFetchingButton={this.props.isFetchingButton}
           pages={this.props.Pages}
           count={this.props.Count}
           current={this.props.Current}
-          onPageChanged={this.onPageChanged}
           ButtonDisabler={this.props.ButtonDisabler}
+          follow={this.props.follow}
+          unfollow={this.props.unfollow}
+          isFetchingButton={this.props.isFetchingButton}
+          onPageChanged={this.props.getUsersOnNewPageThunkCreator}
+          DisabledFollow={this.props.DisabledFollow}
+          DisabledUnfollow={this.props.DisabledUnfollow}
         />
       </>
     );
@@ -88,11 +63,9 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   unfollow,
   follow,
-  setUsers,
-  setCurrentPage,
-  setUsersTotalCount,
-  setFetching,
   isFetchingButton,
+  getUsersFromServerThunkCreator,
+  getUsersOnNewPageThunkCreator,
+  DisabledFollow,
+  DisabledUnfollow,
 })(UsersAPI);
-
-// export default connect(mapStateToProps, mapDispatchToProps)(UsersAPI);

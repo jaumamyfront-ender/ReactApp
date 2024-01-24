@@ -1129,3 +1129,49 @@
 //       this.props.setFetching(false);
 //     });
 // };
+////////////////////////////before thunk///////////////////
+// getUsersFromServer = async () => {
+//   this.props.setFetching(true);
+//   try {
+//     const data = await GetUsers(this.props.Current, this.props.Pages);
+//     this.props.setUsers(data.items);
+//     this.props.setUsersTotalCount(data.totalCount);
+//   } catch (error) {
+//     console.error("Error fetching user data:", error);
+//   } finally {
+//     this.props.setFetching(false);
+//   }
+// };
+// onPageChanged = (PageNumber) => {
+//   let PNR = PageNumber;
+//   this.props.setCurrentPage(PNR);
+//   this.getUsersOnNewPage(PNR);
+// };
+
+// getUsersOnNewPage = async (PNR) => {
+//   this.props.setFetching(true);
+//   try {
+//     const data1 = await GetUsersForPageChanged(PNR, this.props.Pages);
+//     this.props.setUsers(data1.items);
+//   } catch (error) {
+//     console.error("Error fetching user data:", error);
+//   } finally {
+//     this.props.setFetching(false);
+//   }
+// };
+//// export default connect(mapStateToProps, mapDispatchToProps)(UsersAPI);before use a short syntax like that
+// export default connect(mapStateToProps, {
+//   unfollow,
+//   follow,
+//   setUsers,
+//   setCurrentPage,
+//   setUsersTotalCount,
+//   setFetching,
+//   isFetchingButton,
+//   getUsersFromServerThunkCreator,
+//   getUsersOnNewPageThunkCreator,
+// })(UsersAPI);
+// setUsers,
+// setCurrentPage,
+// setUsersTotalCount,
+// setFetching,

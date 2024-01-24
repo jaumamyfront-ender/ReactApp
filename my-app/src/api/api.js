@@ -22,3 +22,13 @@ export let GetUsersForPageChanged = async (PageNumber, Pages) => {
       return response.data;
     });
 };
+export let DeleteUserOnButtonDisabledUnfollow = async (u) => {
+  return await instance.delete(
+    `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`
+  );
+};
+export let PushUserOnButtonDisabledFollow = async (u) => {
+  return await instance.post(
+    `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`
+  );
+};

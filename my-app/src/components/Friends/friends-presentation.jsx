@@ -80,23 +80,13 @@ export default function UsersPresentationComponent(props) {
               disabled={props.ButtonDisabler.some((id) => id === u.id)}
               onClick={() => {
                 props.isFetchingButton(true, u.id);
-                axios
-                  .post(
-                    `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                    {},
-                    {
-                      withCredentials: true,
-                      headers: {
-                        "API-KEY": "f0f817fb-ae87-4732-8be4-12afaeaa4531",
-                      },
-                    }
-                  )
-                  .then((response) => {
-                    if (response.data.resultCode === 0) {
-                      props.follow(u.id);
-                    }
-                    props.isFetchingButton(false, u.id);
-                  });
+
+                props.DisabledFollow(u.id).then((response) => {
+                  if (response.data.resultCode === 0) {
+                    props.follow(u.id);
+                  }
+                  props.isFetchingButton(false, u.id);
+                });
               }}
             >
               Follow
