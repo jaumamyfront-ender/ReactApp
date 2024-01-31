@@ -105,6 +105,7 @@ const friendReducers = (state = initialState, action) => {
   }
 };
 export default friendReducers;
+
 export const getUsersFromServerThunkCreator = (Pages, Current) => {
   return (dispatch) => {
     dispatch(setFetching(true));
@@ -115,6 +116,7 @@ export const getUsersFromServerThunkCreator = (Pages, Current) => {
     });
   };
 };
+
 export const getUsersOnNewPageThunkCreator = (PageNumber, Pages) => {
   return (dispatch) => {
     dispatch(setCurrentPage(PageNumber));
@@ -128,11 +130,25 @@ export const getUsersOnNewPageThunkCreator = (PageNumber, Pages) => {
       .catch((error) => console.error("Error fetching user data:", error));
   };
 };
-export let DisabledFollow = (u) => {
+export const DisabledFollow = (userId) => {
   return (dispatch) => {
-    dispatch(PushUserOnButtonDisabledFollow(u));
+    dispatch(isFetchingButton(true, userId));
+    PushUserOnButtonDisabledFollow(userId).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(follow(userId));
+      }
+      dispatch(isFetchingButton(false, userId));
+    });
   };
 };
-export let DisabledUnfollow = (u) => {
-  DeleteUserOnButtonDisabledUnfollow(u);
+export const DisabledUnfollow = (userId) => {
+  return (dispatch) => {
+    dispatch(isFetchingButton(true, userId));
+    DeleteUserOnButtonDisabledUnfollow(userId).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(unfollow(userId));
+      }
+      dispatch(isFetchingButton(false, userId));
+    });
+  };
 };

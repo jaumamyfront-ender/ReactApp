@@ -9,7 +9,6 @@ import friendReducers from "./reducer-friends.jsx";
 import Auth from "./reducer-auth.jsx";
 import { thunk } from "redux-thunk";
 
-// import { applyMiddleware } from "redux";
 let reducer = combineReducers({
   Profile: ProfileContentReducer,
   MessagesPage: ReducerMessage,
@@ -19,4 +18,5 @@ let reducer = combineReducers({
 let store = configureStore({ reducer }, applyMiddleware(thunk));
 window.store = store;
 export default store;
+
 console.log("Current State:", store.getState());

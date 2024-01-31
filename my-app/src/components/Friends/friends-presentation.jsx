@@ -2,9 +2,12 @@ import classes from "./friends.module.css";
 import UserUndefined from "../../assets/userUndefined.png";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { getUserAC } from "../Redux/reducer-friends";
-import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
+import {
+  DisabledFollow,
+  DisabledUnfollow,
+  getUserAC,
+} from "../Redux/reducer-friends";
+import { useDispatch } from "react-redux";
 
 export default function UsersPresentationComponent(props) {
   let PagesCount = Math.ceil(props.count / props.pages);
@@ -13,11 +16,11 @@ export default function UsersPresentationComponent(props) {
   for (i = 1; i <= PagesCount; i++) {
     pages.push(i);
   }
-  let dsp = useDispatch();
+  let dispatch = useDispatch();
   let getfuckingid = (value) => {
-    dsp(getUserAC(value));
+    dispatch(getUserAC(value));
   };
-  console.log(props);
+
   return props.users.map((u) => (
     <div key={u.id} className={classes.BlockDialogsWrapper}>
       <div className={classes.PagesSize}>
@@ -53,24 +56,16 @@ export default function UsersPresentationComponent(props) {
             <button
               disabled={props.ButtonDisabler.some((id) => id === u.id)}
               onClick={() => {
-                props.isFetchingButton(true, u.id);
-                axios
-                  .delete(
-                    `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                props.DisabledUnfollow(u.id);
+                // console.log(u.id);
+                // props.isFetchingButton(true, u.id);
 
-                    {
-                      withCredentials: true,
-                      headers: {
-                        "API-KEY": "f0f817fb-ae87-4732-8be4-12afaeaa4531",
-                      },
-                    }
-                  )
-                  .then((response) => {
-                    if (response.data.resultCode === 0) {
-                      props.unfollow(u.id);
-                    }
-                    props.isFetchingButton(false, u.id);
-                  });
+                // props.DisabledUnfollow(u.id).then((response) => {
+                //   if (response.data.resultCode === 0) {
+                //     props.unfollow(u.id);
+                //   }
+                //   props.isFetchingButton(false, u.id);
+                // });
               }}
             >
               Unfollow
@@ -79,14 +74,15 @@ export default function UsersPresentationComponent(props) {
             <button
               disabled={props.ButtonDisabler.some((id) => id === u.id)}
               onClick={() => {
-                props.isFetchingButton(true, u.id);
+                props.DisabledFollow(u.id);
+                // props.isFetchingButton(true, u.id);
 
-                props.DisabledFollow(u.id).then((response) => {
-                  if (response.data.resultCode === 0) {
-                    props.follow(u.id);
-                  }
-                  props.isFetchingButton(false, u.id);
-                });
+                // props.DisabledFollow(u.id).then((response) => {
+                //   if (response.data.resultCode === 0) {
+                //     props.follow(u.id);
+                //   }
+                //   props.isFetchingButton(false, u.id);
+                // });
               }}
             >
               Follow

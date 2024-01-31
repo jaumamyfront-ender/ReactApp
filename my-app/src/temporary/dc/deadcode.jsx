@@ -1175,3 +1175,13 @@
 // setCurrentPage,
 // setUsersTotalCount,
 // setFetching,
+//  axios.delete(
+//    `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+
+//    {
+//      withCredentials: true,
+//      headers: {
+//        "API-KEY": "f0f817fb-ae87-4732-8be4-12afaeaa4531",
+//      },
+//    }
+//  );

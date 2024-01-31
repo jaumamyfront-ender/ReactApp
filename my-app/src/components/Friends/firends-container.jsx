@@ -34,17 +34,17 @@ class UsersAPI extends Component {
           console.log(this.props.isFetching)
         )}
         <UsersPresentationComponent
-          users={this.props.users}
-          pages={this.props.Pages}
-          count={this.props.Count}
-          current={this.props.Current}
-          ButtonDisabler={this.props.ButtonDisabler}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
-          isFetchingButton={this.props.isFetchingButton}
-          onPageChanged={this.props.getUsersOnNewPageThunkCreator}
-          DisabledFollow={this.props.DisabledFollow}
-          DisabledUnfollow={this.props.DisabledUnfollow}
+          users={this.props.users} //user for UI
+          pages={this.props.Pages} //Properties for UI
+          count={this.props.Count} //
+          current={this.props.Current} //
+          ButtonDisabler={this.props.ButtonDisabler} //BUTTON DISABLER
+          // follow={this.props.follow} //UI Buton (function is show you follow or unfollow)
+          // unfollow={this.props.unfollow} //UI
+          // isFetchingButton={this.props.isFetchingButton} //(loading preivew (if uses is loading))
+          onPageChanged={this.props.getUsersOnNewPageThunkCreator} //get users(page changed)
+          DisabledFollow={this.props.DisabledFollow} //subscribe to user(bll-dal-apiSer)
+          DisabledUnfollow={this.props.DisabledUnfollow} //subscribe
         />
       </>
     );
@@ -61,9 +61,9 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  unfollow,
-  follow,
-  isFetchingButton,
+  // unfollow,
+  // follow,
+  // isFetchingButton,
   getUsersFromServerThunkCreator,
   getUsersOnNewPageThunkCreator,
   DisabledFollow,
