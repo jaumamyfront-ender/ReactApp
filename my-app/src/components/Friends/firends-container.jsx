@@ -2,13 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import {
-  unfollow,
-  follow,
-  setUsers,
-  setCurrentPage,
-  setUsersTotalCount,
-  setFetching,
-  isFetchingButton,
   getUsersFromServerThunkCreator,
   getUsersOnNewPageThunkCreator,
   DisabledFollow,
@@ -16,6 +9,7 @@ import {
 } from "../Redux/reducer-friends";
 import UsersPresentationComponent from "./friends-presentation";
 import Preloader from "../Preloader/Preloader";
+
 class UsersAPI extends Component {
   componentDidMount() {
     const { users } = this.props;
@@ -39,9 +33,6 @@ class UsersAPI extends Component {
           count={this.props.Count} //
           current={this.props.Current} //
           ButtonDisabler={this.props.ButtonDisabler} //BUTTON DISABLER
-          // follow={this.props.follow} //UI Buton (function is show you follow or unfollow)
-          // unfollow={this.props.unfollow} //UI
-          // isFetchingButton={this.props.isFetchingButton} //(loading preivew (if uses is loading))
           onPageChanged={this.props.getUsersOnNewPageThunkCreator} //get users(page changed)
           DisabledFollow={this.props.DisabledFollow} //subscribe to user(bll-dal-apiSer)
           DisabledUnfollow={this.props.DisabledUnfollow} //subscribe
@@ -61,9 +52,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
-  // unfollow,
-  // follow,
-  // isFetchingButton,
   getUsersFromServerThunkCreator,
   getUsersOnNewPageThunkCreator,
   DisabledFollow,

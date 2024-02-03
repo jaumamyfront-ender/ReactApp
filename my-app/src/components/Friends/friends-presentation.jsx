@@ -2,24 +2,13 @@ import classes from "./friends.module.css";
 import UserUndefined from "../../assets/userUndefined.png";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {
-  DisabledFollow,
-  DisabledUnfollow,
-  getUserAC,
-} from "../Redux/reducer-friends";
-import { useDispatch } from "react-redux";
+import Pages from "./some-logic/Page-Counter";
+import { Get } from "./some-logic/Page-Counter";
+// import { useDispatch } from "react-redux";
+// import { getUserAC } from "../Redux/reducer-friends";
 
 export default function UsersPresentationComponent(props) {
-  let PagesCount = Math.ceil(props.count / props.pages);
-  let pages = [];
-  let i = 1;
-  for (i = 1; i <= PagesCount; i++) {
-    pages.push(i);
-  }
-  let dispatch = useDispatch();
-  let getfuckingid = (value) => {
-    dispatch(getUserAC(value));
-  };
+  let { pages } = Pages(props);
 
   return props.users.map((u) => (
     <div key={u.id} className={classes.BlockDialogsWrapper}>
@@ -42,7 +31,7 @@ export default function UsersPresentationComponent(props) {
           <NavLink
             to={"/profile?"}
             onClick={() => {
-              getfuckingid(u.id);
+              Get(u.id);
             }}
           >
             <img
@@ -57,15 +46,6 @@ export default function UsersPresentationComponent(props) {
               disabled={props.ButtonDisabler.some((id) => id === u.id)}
               onClick={() => {
                 props.DisabledUnfollow(u.id);
-                // console.log(u.id);
-                // props.isFetchingButton(true, u.id);
-
-                // props.DisabledUnfollow(u.id).then((response) => {
-                //   if (response.data.resultCode === 0) {
-                //     props.unfollow(u.id);
-                //   }
-                //   props.isFetchingButton(false, u.id);
-                // });
               }}
             >
               Unfollow
@@ -75,14 +55,6 @@ export default function UsersPresentationComponent(props) {
               disabled={props.ButtonDisabler.some((id) => id === u.id)}
               onClick={() => {
                 props.DisabledFollow(u.id);
-                // props.isFetchingButton(true, u.id);
-
-                // props.DisabledFollow(u.id).then((response) => {
-                //   if (response.data.resultCode === 0) {
-                //     props.follow(u.id);
-                //   }
-                //   props.isFetchingButton(false, u.id);
-                // });
               }}
             >
               Follow

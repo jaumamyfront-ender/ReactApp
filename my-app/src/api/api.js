@@ -27,12 +27,14 @@ export let GetUsersForPageChanged = async (PageNumber, Pages) => {
     });
 };
 export let DeleteUserOnButtonDisabledUnfollow = async (userId) => {
-  console.log(userId);
   return await instance.delete(
     `https://social-network.samuraijs.com/api/1.0/follow/${userId}`
   );
 };
 export let PushUserOnButtonDisabledFollow = async (userId) => {
-  console.log(userId);
   return await instance.post(`follow/${userId}`);
+};
+
+export let HeaderLogIn = async () => {
+  return await instance.get(`auth/me`);
 };

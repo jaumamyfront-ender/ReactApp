@@ -1,3 +1,4 @@
+import { HeaderLogIn } from "../../api/api";
 let initialState = {
   Id: null,
   email: null,
@@ -23,3 +24,15 @@ const Auth = (state = initialState, action) => {
   }
 };
 export default Auth;
+
+export const AuthTHC = () => {
+  return (dispatch) => {
+    HeaderLogIn().then((response) => {
+      let { id, login, email } = response.data.data;
+
+      if (response.data.resultCode === 0) {
+        dispatch(setUserAuthAC(id, login, email));
+      }
+    });
+  };
+};
