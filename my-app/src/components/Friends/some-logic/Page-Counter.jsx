@@ -13,19 +13,7 @@ export default function Pages(props) {
   return { pages };
 }
 
-// export const Get = (value) => {
-//   let dispatch = useDispatch();
-//   let getfuckingid = (value) => {
-//     dispatch(getUserAC(value));
-//   };
-//   debugger;
-//   return getfuckingid(value);
-// };
 export const Get = (value) => {
   let dispatch = useDispatch();
-
-  let fuckyoudispatch = (value) => {
-    dispatch(getUserAC(value));
-  };
-  return fuckyoudispatch(value);
+  dispatch(getUserAC(value));
 };

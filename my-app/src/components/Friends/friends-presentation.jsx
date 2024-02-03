@@ -3,12 +3,13 @@ import UserUndefined from "../../assets/userUndefined.png";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Pages from "./some-logic/Page-Counter";
-import { Get } from "./some-logic/Page-Counter";
+import useGetID from "./some-logic/GetID";
 // import { useDispatch } from "react-redux";
 // import { getUserAC } from "../Redux/reducer-friends";
 
 export default function UsersPresentationComponent(props) {
   let { pages } = Pages(props);
+  const GetID = useGetID();
 
   return props.users.map((u) => (
     <div key={u.id} className={classes.BlockDialogsWrapper}>
@@ -31,7 +32,7 @@ export default function UsersPresentationComponent(props) {
           <NavLink
             to={"/profile?"}
             onClick={() => {
-              Get(u.id);
+              GetID(u.id);
             }}
           >
             <img
