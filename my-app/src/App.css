@@ -92,13 +92,16 @@ a {
 }
 
 .active__link {
-  color: #dd1e1e;
+  color: #c8811e;
+}
+.unactive__link{
+  color: rgb(16, 68, 152);
 }
 
 .container {
   display: grid;
   grid-template-rows: 150px 100%;
-  grid-template-columns: 10% 90%;
+  grid-template-columns: minmax(250px,400px) 80%;
   grid-template-areas:
     "header header header header "
     "sidebar content content content ";
@@ -123,9 +126,10 @@ a {
   grid-column-start: span 2;
 }
 .content__preview img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: cover;
+  border-radius: 20px;
 }
 .content__profile {
   grid-column-start: span 1;
@@ -150,6 +154,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 20px;
 }
 .profile__description {
   /* grid-area: de; */
@@ -178,7 +183,12 @@ a {
   flex-direction: column;
   flex-basis: 33%;
   justify-content: space-between;
-  width: 90%;
+  
+  /* max-width: 900px;
+  min-width: 100px; */
+  width: 25vw;
+  min-width: 270px;
+  
 }
 /* .my__posts {
 } */
@@ -192,10 +202,12 @@ a {
 } */
 textarea {
   /* margin-top: 20px; */
-  background-color: #e6eeea;
+  background-color: #384153;
   width: 100%;
   height: 100px;
-  color: black;
+  color: rgb(237, 220, 220);
+  font-size: 20px;
+  border-radius: 10px;
 }
 .my__postssendbutton {
   align-self: flex-end;

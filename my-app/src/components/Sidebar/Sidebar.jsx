@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./sidebar.module.css";
 import { NavLink } from "react-router-dom";
 
-const setActive = ({ isActive }) => (isActive ? "color:red;" : console.log(isActive));
+const setActive = ({ isActive }) => (isActive ? "active__link" : "unactive__link");
 
 
 
