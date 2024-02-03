@@ -2,9 +2,13 @@ import React from "react";
 import classes from "./sidebar.module.css";
 import { NavLink } from "react-router-dom";
 
-const setActive = ({ isActive }) => (isActive ? "active__link" : "");
+const setActive = ({ isActive }) => (isActive ? "color:red;" : console.log(isActive));
+
+
+
 
 const Sidebar = () => {
+ 
   return (
     <div className={classes.sidebar}>
       <div className={classes.sidebar__list}>

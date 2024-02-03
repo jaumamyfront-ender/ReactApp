@@ -1,6 +1,6 @@
 .header {
   grid-area: header;
-  background-color: rgb(193, 170, 170);
+  /* background-color: rgb(193, 170, 170); */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
