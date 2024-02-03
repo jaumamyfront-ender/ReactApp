@@ -1,30 +1,12 @@
 import React from "react";
 import profile from "../../assets/profile.jpeg";
 import profileImage from "../../assets/profileImage.jpg";
-import {
-  ActionCreatorAdd,
-  ActionCreatorUpdate,
-} from "../Redux/reducer-content";
-import { useDispatch, useSelector } from "react-redux";
+import Logic from "./some-logic/Some-logic";
+import { useSelector } from "react-redux";
+
 
 const Profile = (props) => {
-  let GetValueFromRef = React.createRef();
-  const dispatch = useDispatch();
-  const TextAreaValueContent = useSelector(
-    (state) => state.Profile.NewPostText[0].message
-  );
-  let TextAreaNewValuefromState = TextAreaValueContent;
-
-  let addPost = () => {
-    let valueelement = GetValueFromRef.current.value;
-    dispatch(ActionCreatorAdd(valueelement));
-  };
-
-  let onPostChange = () => {
-    let valueelement = GetValueFromRef.current.value;
-    dispatch(ActionCreatorUpdate(valueelement));
-  };
-  console.log(props);
+  let {TextAreaNewValuefromState,GetValueFromRef,addPost,onPostChange} = Logic()
   return (
     <div className="content">
       <div className="content__preview">

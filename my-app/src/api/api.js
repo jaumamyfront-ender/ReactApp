@@ -34,3 +34,7 @@ export let PushUserOnButtonDisabledFollow = async (userId) => {
 export let HeaderLogIn = async () => {
   return await instance.get(`auth/me`);
 };
+
+export let GetNewProfileAndShowHim = async (userId) => {
+  return instance.get(`profile/${userId}`);
+};

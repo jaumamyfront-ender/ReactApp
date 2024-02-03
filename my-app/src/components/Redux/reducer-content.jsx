@@ -1,5 +1,6 @@
 // export default ProfileContentReducer;
 import { produce } from "immer";
+import { GetNewProfileAndShowHim } from "../../api/api";
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UpdateNewPostText";
 const UPDATE_USER = "UPDATE_USER";
@@ -50,4 +51,14 @@ const ProfileContentReducer = (state = initialState, action) => {
   });
 };
 
+
 export default ProfileContentReducer;
+
+export const GetUserProfileTHC =(userId)=>{
+  return(dispatch)=>{
+    GetNewProfileAndShowHim(userId).then((response) => 
+        dispatch(setUserToStateFromServer(response.data)));
+      }
+
+  }
+

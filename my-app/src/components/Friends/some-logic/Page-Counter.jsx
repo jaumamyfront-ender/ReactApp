@@ -1,7 +1,3 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { getUserAC } from "../../Redux/reducer-friends";
-
 export default function Pages(props) {
   let PagesCount = Math.ceil(props.count / props.pages);
   let pages = [];
@@ -12,8 +8,3 @@ export default function Pages(props) {
 
   return { pages };
 }
-
-export const Get = (value) => {
-  let dispatch = useDispatch();
-  dispatch(getUserAC(value));
-};

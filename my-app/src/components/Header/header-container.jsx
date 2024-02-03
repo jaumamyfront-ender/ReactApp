@@ -1,7 +1,5 @@
 import React from "react";
-
 import { connect } from "react-redux";
-// import { setUserToStateFromServer } from "../Redux/reducer-content";
 import Header from "./header-presentation";
 import { setUserAuthAC, AuthTHC } from "../Redux/reducer-auth";
 
