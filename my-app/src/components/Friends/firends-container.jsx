@@ -19,6 +19,7 @@ class UsersAPI extends Component {
     this.props.getUsersOnNewPageThunkCreator();
   }
 
+
   render() {
     return (
       <>
@@ -36,6 +37,7 @@ class UsersAPI extends Component {
           onPageChanged={this.props.getUsersOnNewPageThunkCreator} //get users(page changed)
           DisabledFollow={this.props.DisabledFollow} //subscribe to user(bll-dal-apiSer)
           DisabledUnfollow={this.props.DisabledUnfollow} //subscribe
+          isAuth={this.props.isAuth}
         />
       </>
     );
@@ -49,6 +51,7 @@ const mapStateToProps = (state) => ({
   Current: state.Friends.CurrentPage,
   isFetching: state.Friends.isFetching,
   ButtonDisabler: state.Friends.isButtonDisabled,
+  isAuth:state.Auth.isAuth
 });
 
 export default connect(mapStateToProps, {
