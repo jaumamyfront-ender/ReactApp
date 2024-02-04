@@ -1191,14 +1191,14 @@
 
 // function getID(value) {
 //   const dispatch = useDispatch();
-//   dispatch(getUserAC(value));--------must return
+//   dispatch(getUserAC(value));------------------------------------------------------------------------------must return
 // }
 
 // export default getID;   ошибка invalid hook call
 // import ProfileContentReducer from "./reducer-content.jsx";
 // import ReducerMessage from "./reducer-dialogs.jsx";
 
-// let store = {
+// let store = {==============================================================================================very old state
 //   _state: {
 //     Profile: {
 //       AddProfilePost: [{ message: "" }],
@@ -1243,3 +1243,24 @@
 // };
 
 // export default store;
+
+
+// export  const WithAuthRedirect =(Component) =>{================================================workversione
+//      const getAuthStatus = useSelector(
+//        (state) => state.Auth.isAuth
+//      );
+//     class RedirectComponent extends React.Component{
+        
+//         render(){
+//             if (!getAuthStatus) return <Navigate to={"/login/"} />;
+//             return <Component{...this.props}/>
+//         }
+//     }
+
+// }
+
+// import React from "react";
+// import { Navigate } from "react-router-dom";
+// import { useSelector } from "react-redux";
+
+

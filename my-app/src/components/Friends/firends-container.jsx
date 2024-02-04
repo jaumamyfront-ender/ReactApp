@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 import {
   getUsersFromServerThunkCreator,
   getUsersOnNewPageThunkCreator,
@@ -9,6 +8,7 @@ import {
 } from "../Redux/reducer-friends";
 import UsersPresentationComponent from "./friends-presentation";
 import Preloader from "../Preloader/Preloader";
+import { WithAuthRedirect } from "../../highOrderComponent/WithAuthRedirect";
 
 class UsersAPI extends Component {
   componentDidMount() {
@@ -37,12 +37,18 @@ class UsersAPI extends Component {
           onPageChanged={this.props.getUsersOnNewPageThunkCreator} //get users(page changed)
           DisabledFollow={this.props.DisabledFollow} //subscribe to user(bll-dal-apiSer)
           DisabledUnfollow={this.props.DisabledUnfollow} //subscribe
-          isAuth={this.props.isAuth}
+        
         />
       </>
     );
   }
 }
+
+let AuthComponent = WithAuthRedirect(UsersAPI)
+const mapStateToPropsForRedirect = (state)=>({
+  isAuth: state.Auth.isAuth
+})
+AuthComponent = connect(mapStateToPropsForRedirect)(AuthComponent)
 
 const mapStateToProps = (state) => ({
   users: state.Friends.users,
@@ -59,4 +65,4 @@ export default connect(mapStateToProps, {
   getUsersOnNewPageThunkCreator,
   DisabledFollow,
   DisabledUnfollow,
-})(UsersAPI);
+})(AuthComponent);

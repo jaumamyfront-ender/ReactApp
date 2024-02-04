@@ -12,8 +12,6 @@ export default function UsersPresentationComponent(props) {
   let { pages } = Pages(props);
   const GetID = useGetID();
 
-  if (props.isAuth===false) return <Navigate to={"/login/"} />;
-
   return props.users.map((u) => (
     <div key={u.id} className={classes.BlockDialogsWrapper}>
       <div className={classes.PagesSize}>
