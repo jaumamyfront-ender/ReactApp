@@ -9,6 +9,7 @@ import {
 import UsersPresentationComponent from "./friends-presentation";
 import Preloader from "../Preloader/Preloader";
 import { WithAuthRedirect } from "../../highOrderComponent/WithAuthRedirect";
+import { compose } from "redux";
 
 class UsersAPI extends Component {
   componentDidMount() {
@@ -44,11 +45,6 @@ class UsersAPI extends Component {
   }
 }
 
-let AuthComponent = WithAuthRedirect(UsersAPI)
-const mapStateToPropsForRedirect = (state)=>({
-  isAuth: state.Auth.isAuth
-})
-AuthComponent = connect(mapStateToPropsForRedirect)(AuthComponent)
 
 const mapStateToProps = (state) => ({
   users: state.Friends.users,
@@ -57,12 +53,20 @@ const mapStateToProps = (state) => ({
   Current: state.Friends.CurrentPage,
   isFetching: state.Friends.isFetching,
   ButtonDisabler: state.Friends.isButtonDisabled,
-  isAuth:state.Auth.isAuth
+  isAuth: state.Auth.isAuth,
 });
 
-export default connect(mapStateToProps, {
+const mapDispatchToProps = {
   getUsersFromServerThunkCreator,
   getUsersOnNewPageThunkCreator,
   DisabledFollow,
   DisabledUnfollow,
-})(AuthComponent);
+};
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  WithAuthRedirect
+)(UsersAPI);
+
+
+

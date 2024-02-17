@@ -1,8 +1,9 @@
 import React from "react";
 import Profile from "./Profile-Presentation";
 import { connect } from "react-redux";
-import { setUserToStateFromServer } from "../Redux/reducer-content";
+// import { setUserToStateFromServer } from "../Redux/reducer-content";
 import { GetUserProfileTHC } from "../Redux/reducer-content";
+import Status from "./Status"
 
 class ProfileContainer extends React.Component {
   componentDidMount = async () => {
@@ -14,15 +15,16 @@ class ProfileContainer extends React.Component {
   };
 
   render() {
-    return <Profile {...this.props} profile={this.props.userProfile} />;
+    return <Profile profile={this.props.UserImage} status={<Status/>} />;
   }
 }
 let mapStateToProps = (state) => ({
-  userProfile: state.Profile.Profile,
+  UserImage: state.Profile.Profile,
   userId: state.Friends.userId,
 });
 
 export default connect(mapStateToProps, {
-  setUserToStateFromServer,
+  // setUserToStateFromServer,
   GetUserProfileTHC,
 })(ProfileContainer);
+// {...this.props}
