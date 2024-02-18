@@ -36,5 +36,16 @@ export let HeaderLogIn = async () => {
 };
 
 export let GetNewProfileAndShowHim = async (userId) => {
+  console.warn("obsolete method,please use profileAPI object");
   return instance.get(`profile/${userId}`);
+};
+export const ProfileAPI = {
+  getStatus(userId) {
+    console.log(userId);
+    return instance.get(`profile/status/${userId}`);
+  },
+  putStatus(status) {
+    console.log(status);
+    return instance.put(`profile/status/`, { status: status });
+  },
 };

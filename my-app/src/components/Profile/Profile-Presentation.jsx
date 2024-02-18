@@ -22,7 +22,7 @@ const Profile = (props) => {
             Date of Birth: 2 january City: Minsk Education: BSU '11 Web Site:
             https://samuraijs.com
           </p>
-          {props.status}
+          {props.UserStatus}
         </div>
       
       </div>

@@ -3,19 +3,22 @@ import React from "react";
 class ProfileStatus extends React.Component {
   state = {
     editMode: true,
-    textStatus: "123",
+    textStatus: this.props.status,
   };
 
   activeEditMode() {
     this.setState({ editMode: true });
+     this.props.updateStatus(this.state.textStatus);
+   
   }
 
   deactiveEditMode() {
     this.setState({ editMode: false });
+    
   }
 
   setTextStatus(event) {
-    const value = event.target.value;
+    const value = event.currentTarget.value;
     this.setState({ textStatus: value });
   }
 
@@ -25,7 +28,7 @@ class ProfileStatus extends React.Component {
         {this.state.editMode && (
           <div>
             <span onDoubleClick={this.deactiveEditMode.bind(this)}>
-              {this.state.textStatus}
+              {this.props.status|| "-------"}
             </span>
           </div>
         )}
@@ -33,7 +36,9 @@ class ProfileStatus extends React.Component {
           <div>
             <input
               type="text"
-              onBlur={this.activeEditMode.bind(this)}
+              onBlur={() => {
+                this.activeEditMode();
+              }}
               onChange={this.setTextStatus.bind(this)}
               value={this.state.textStatus} // Добавляем значение из состояния в input
             />
@@ -45,5 +50,7 @@ class ProfileStatus extends React.Component {
 }
 
 export default ProfileStatus;
-
+//correct the put request
+//create lock editing input  if user is not me if the user is a stranger
+//create redirect to my profile if was downloaded another profile user
 //ecd the local state learing but first end up the rewrite that code to functional
