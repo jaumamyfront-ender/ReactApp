@@ -1,6 +1,8 @@
 import React from "react";
 import classes from "./sidebar.module.css";
 import { NavLink } from "react-router-dom";
+import { GetUserProfileTHC } from "../Redux/reducer-content";
+import { useDispatch } from "react-redux";
 
 const setActive = ({ isActive }) => (isActive ? "active__link" : "unactive__link");
 
@@ -8,11 +10,17 @@ const setActive = ({ isActive }) => (isActive ? "active__link" : "unactive__link
 
 
 const Sidebar = () => {
+  const ReturnToMyProfile =()=>{
+    let userId = 2
+      const dispatch = useDispatch();
+    dispatch(GetUserProfileTHC(userId));
+    console.log("yes you click on me")
+  }
  
   return (
     <div className={classes.sidebar}>
       <div className={classes.sidebar__list}>
-        <NavLink to="profile" className={setActive}>
+        <NavLink to="profile" className={setActive} onClick={ReturnToMyProfile}>
           Profile
         </NavLink>
         <NavLink to="friends" className={setActive}>

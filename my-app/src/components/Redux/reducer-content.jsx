@@ -68,6 +68,7 @@ export const GetUserProfileTHC =(userId)=>{
   return(dispatch)=>{
     GetNewProfileAndShowHim(userId).then((response) => 
         dispatch(setUserToStateFromServer(response.data)));
+        console.log(userId)
       }
 
   }

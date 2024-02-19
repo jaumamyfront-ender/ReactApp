@@ -4,17 +4,38 @@ class ProfileStatus extends React.Component {
   state = {
     editMode: true,
     textStatus: this.props.status,
+    IsMe: true,
   };
-
+  componentDidMount = async () => {
+    let userId = this.props.userId;
+    if (userId !== 2 && userId > 2) {
+      this.setState({ IsMe: false }); // Деактивируем режим редактирования
+    }
+  };
+  EditingMode() {
+    if (this.state.IsMe === true) {
+      return (
+        <div>
+          <span onDoubleClick={this.deactiveEditMode.bind(this)}>
+            {this.props.status || "-------"}
+          </span>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <span>{this.props.status || "-------"}</span>
+        </div>
+      );
+    }
+  }
   activeEditMode() {
     this.setState({ editMode: true });
-     this.props.updateStatus(this.state.textStatus);
-   
+    this.props.updateStatus(this.state.textStatus);
   }
 
   deactiveEditMode() {
     this.setState({ editMode: false });
-    
   }
 
   setTextStatus(event) {
@@ -26,11 +47,7 @@ class ProfileStatus extends React.Component {
     return (
       <div>
         {this.state.editMode && (
-          <div>
-            <span onDoubleClick={this.deactiveEditMode.bind(this)}>
-              {this.props.status|| "-------"}
-            </span>
-          </div>
+         this.EditingMode()
         )}
         {!this.state.editMode && (
           <div>
@@ -50,7 +67,6 @@ class ProfileStatus extends React.Component {
 }
 
 export default ProfileStatus;
-//correct the put request
-//create lock editing input  if user is not me if the user is a stranger
-//create redirect to my profile if was downloaded another profile user
+
+
 //ecd the local state learing but first end up the rewrite that code to functional
