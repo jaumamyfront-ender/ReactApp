@@ -19,7 +19,7 @@ const ReducerMessage = (state = initialState, action) => {
         draft.dialogsDataUsersMessage.push({
           messages: action.newobjectmessage,
         });
-        draft.NewMessageBody[0].message = "";
+        // draft.NewMessageBody[0].message = "";
         break;
       case UpdateNewMessageText:
         draft.NewMessageBody[0].message = action.newobjectmessage;

@@ -15,21 +15,21 @@ export default function DialogsLogic() {
   const dataFromReduxTextAreaRefreshFromState = useSelector(
     (state) => state.MessagesPage.NewMessageBody[0].message
   );
-  let newValueFromStatetoTextArea = dataFromReduxTextAreaRefreshFromState;
+ 
 
   const dataFromReduxUsersList = useSelector(
     (state) => state.MessagesPage.dialogsDataUsersList
   );
 
-  const dispatch = useDispatch();
-
   let dialogsdataelements = dataFromReduxUsersList.map((dialog) => (
     <Dialogitems name={dialog.name} id={dialog.id} pathname={pathname} />
   ));
 
-  let onSendMessageClick = () => {
-    let newobjectmessage = GetValueFromRef.current.value;
-    dispatch(ActionCreatorAddMessage(newobjectmessage));
+ const dispatch = useDispatch();
+  let onSendMessageClick = (value) => {
+    // let newobjectmessage = GetValueFromRef.current.value;
+    dispatch(ActionCreatorAddMessage(value));
+    
   };
 
   let onNewMessageChange = () => {
@@ -38,11 +38,11 @@ export default function DialogsLogic() {
   };
 
   return {
-    dialogsdataelements,
-    newValueFromStatetoTextArea,
     GetValueFromRef,
+    dataFromReduxTextAreaRefreshFromState,
     onNewMessageChange,
     onSendMessageClick,
+    dialogsdataelements,
   };
 }
 //return links users and color onchange

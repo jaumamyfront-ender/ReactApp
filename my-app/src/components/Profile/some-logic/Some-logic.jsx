@@ -16,9 +16,9 @@ function Logic(props) {
 
   const TextAreaNewValuefromState = TextAreaValueContent;
 
-  let addPost = () => {
-    let valueelement = GetValueFromRef.current.value;
-    dispatch(ActionCreatorAdd(valueelement));
+  let addPost = (value) => {
+    // let valueelement = GetValueFromRef.current.value;
+    dispatch(ActionCreatorAdd(value));
   };
 
   let onPostChange = () => {

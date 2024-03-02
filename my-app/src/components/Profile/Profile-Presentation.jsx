@@ -3,6 +3,7 @@ import profile from "../../assets/profile.jpeg";
 import profileImage from "../../assets/profileImage.jpg";
 import Logic from "./some-logic/Some-logic";
 import { useSelector } from "react-redux";
+import ProfileReduxForm from "./Profile-Form";
 
 
 const Profile = (props) => {
@@ -30,22 +31,7 @@ const Profile = (props) => {
         <div className="my__posts">
           <p>My Post</p>
         </div>
-        <div className="my__poststextarea">
-          <textarea
-            name=""
-            id=""
-            cols="10"
-            rows="5"
-            value={TextAreaNewValuefromState}
-            ref={GetValueFromRef}
-            onChange={onPostChange}
-          >
-            .
-          </textarea>
-        </div>
-        <div className="my__postssendbutton">
-          <button onClick={addPost}>Send</button>
-        </div>
+<ProfileReduxForm save={addPost}/>
       </div>
       <ContentFooter />
     </div>

@@ -17,12 +17,10 @@ let Userbox = (props) => {
     <div className={`${classes.rightwrapper__items} ${classes.friend}`}>
       <div className={classes.user__info}>
         <div className={classes.user__picture}></div>
-
         <div className={classes.user__name}>
-          <p></p>
+          <p>userprofilenamemessage</p>
         </div>
       </div>
-
       <div className={classes.user__message}>
         <p>{props.object}</p>
       </div>
