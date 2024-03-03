@@ -1,37 +1,35 @@
 import React from "react";
 import profile from "../../assets/profile.jpeg";
 import profileImage from "../../assets/profileImage.jpg";
-import Logic from "./some-logic/Some-logic";
+import Logic from "./some-logic/util.logic";
 import { useSelector } from "react-redux";
 import ProfileReduxForm from "./Profile-Form";
-
+import classes from "./profile.module.css";
 
 const Profile = (props) => {
-  let {TextAreaNewValuefromState,GetValueFromRef,addPost,onPostChange} = Logic()
+  let { addPost } = Logic();
+
   return (
-    <div className="content">
-      <div className="content__preview">
+    <div className={classes.content}>
+      <div className={classes.content__preview}>
         <img src={profile} alt="/#" />
       </div>
-      <div className="content__profile">
-        <div className="profile__image">
+      <div className={classes.content__profile}>
+        <div className={classes.profile__image}>
           <img src={props.profile.photos.large} alt={profileImage} />
         </div>
-        <div className="profile__description">
+        <div className={classes.profile__description}>
           <p>{props.profile.fullName}</p>
-          <p>
-            Date of Birth: 2 january City: Minsk Education: BSU '11 Web Site:
-            https://samuraijs.com
-          </p>
+          <p>aboutMe- {props.profile.aboutMe} </p>
+          <p>looking for a job- {props.profile.lookingForAJobDescription}</p>
           {props.UserStatus}
         </div>
-      
       </div>
-      <div className="content__posts">
-        <div className="my__posts">
+      <div className={classes.content__posts}>
+        <div className={classes.my__posts}>
           <p>My Post</p>
         </div>
-<ProfileReduxForm save={addPost}/>
+        <ProfileReduxForm save={addPost} />
       </div>
       <ContentFooter />
     </div>
@@ -49,10 +47,12 @@ const ContentFooter = (props) => {
 };
 const PostItems = (props) => {
   return (
-    <div className="content__footer">
-      <div className="item__one">
-        <div className="item__one__image">{/* <img src="" alt="/#" /> */}</div>
-        <div className="item__one__comment">
+    <div className={classes.content__footer}>
+      <div className={classes.item__one}>
+        <div className={classes.item__one__image}>
+          {/* <img src="" alt="/#" /> */}
+        </div>
+        <div className={classes.item__one__comment}>
           <span>{props.mycomment}</span>
         </div>
       </div>

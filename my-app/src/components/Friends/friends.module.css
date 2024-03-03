@@ -25,7 +25,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 600px;
+  max-width: 650px;
   margin-bottom: 3%;
 }
 .followUsers {
@@ -120,7 +120,8 @@
 .PagesSize {
   background-color: #47525e;
   width: 50px;
-  height: 50px;
+  height: 30px;
+  margin-bottom: 10%;
 }
 .selectedPage {
   width: 10px;

@@ -35,7 +35,7 @@ class ProfileStatus extends React.Component {
   }
 
   deactiveEditMode() {
-    this.setState({ editMode: false,textStatus:this.props.status });
+    this.setState({ editMode: false, textStatus: this.props.status });
   }
 
   setTextStatus(event) {
@@ -46,9 +46,7 @@ class ProfileStatus extends React.Component {
   render() {
     return (
       <div>
-        {this.state.editMode && (
-         this.EditingMode()
-        )}
+        {this.state.editMode && this.EditingMode()}
         {!this.state.editMode && (
           <div>
             <input
@@ -67,6 +65,5 @@ class ProfileStatus extends React.Component {
 }
 
 export default ProfileStatus;
-
 
 //ecd the local state learing but first end up the rewrite that code to functional

@@ -31,11 +31,11 @@ class UsersAPI extends Component {
         )}
         <UsersPresentationComponent
           users={this.props.users} //user for UI
-          pages={this.props.Pages} //Properties for UI
-          count={this.props.Count} //
-          current={this.props.Current} //
+          pages={this.props.Pages} //-->for logic component
+          count={this.props.Count} //-->for logic component
+          current={this.props.Current} //-->color on page changed
           ButtonDisabler={this.props.ButtonDisabler} //BUTTON DISABLER
-          onPageChanged={this.props.getUsersOnNewPageThunkCreator} //get users(page changed)
+          onPageChanged={this.props.getUsersOnNewPageThunkCreator} //get users(page changed)-->select page logic
           DisabledFollow={this.props.DisabledFollow} //subscribe to user(bll-dal-apiSer)
           DisabledUnfollow={this.props.DisabledUnfollow} //subscribe
         

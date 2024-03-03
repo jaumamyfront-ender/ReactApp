@@ -1,4 +1,5 @@
 export default function Pages(props) {
+  console.log(props)
   let PagesCount = Math.ceil(props.count / props.pages);
   let pages = [];
   let i = 1;

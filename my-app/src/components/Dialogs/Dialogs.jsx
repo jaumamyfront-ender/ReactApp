@@ -1,14 +1,11 @@
 import React from "react";
 import classes from "./dialogs.module.css";
 import UserMessage from "./UserMessage";
-import DialogsLogic from "./some-logic-code/Dialogs-SomeLogic-1";
+import DialogsLogic from "./some-logic-code/util.logic";
 import DialogReduxForm from "./Form-Dialogs";
 
 export default function Dialogs(props) {
   let {
-    GetValueFromRef,
-    dataFromReduxTextAreaRefreshFromState,
-    onNewMessageChange,
     onSendMessageClick,
     dialogsdataelements,
   } = DialogsLogic();
