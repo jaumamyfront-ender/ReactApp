@@ -1,33 +1,15 @@
 import classes from "./friends.module.css";
 import UserUndefined from "../../assets/userUndefined.png";
 import React from "react";
-import { NavLink, Navigate } from "react-router-dom";
-import Pages from "./some-logic/Page-Counter";
+import { NavLink } from "react-router-dom";
 import useGetID from "./some-logic/GetID";
 
-// import { useDispatch } from "react-redux";
-// import { getUserAC } from "../Redux/reducer-friends";
-
 export default function UsersPresentationComponent(props) {
-  let { pages } = Pages(props);
   const GetID = useGetID();
+  console.log(props);
 
   return props.users.map((u) => (
     <div key={u.id} className={classes.BlockDialogsWrapper}>
-      <div className={classes.PagesSize}>
-        {pages.map((p) => {
-          return (
-            <span
-              onClick={(e) => {
-                props.onPageChanged(p);
-              }}
-              className={props.current === p ? classes.selectedPage : ""}
-            >
-              {p}
-            </span>
-          );
-        })}
-      </div>
       <div className={classes.followUsers}>
         <div className={classes.followUserImage}>
           <NavLink
@@ -71,8 +53,8 @@ export default function UsersPresentationComponent(props) {
         </div>
         <div className={classes.info__container}>
           <div className={classes.info__card}>
-            <p>{"u.location.country"}</p>
-            <p>{"u.location.city"}</p>
+            <p>{"country"}</p>
+            <p>{"city"}</p>
           </div>
         </div>
       </div>

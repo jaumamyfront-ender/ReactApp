@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./friends.module.css";
-
+import PageCounter from "./some-logic/Page-Counter";
 import Container from "./firends-container";
 
 const Friends = () => {
@@ -10,6 +10,7 @@ const Friends = () => {
         <p>Users</p>
       </div>
       <div className={classes.ContainerMessages}>
+        <PageCounter />
         <Container />
       </div>
     </div>
