@@ -22,4 +22,4 @@ let store = configureStore({ reducer }, applyMiddleware(thunk));
 window.store = store;
 export default store;
 
-console.log("Current State:", store.getState());
+// console.log("Current State:", store.getState());

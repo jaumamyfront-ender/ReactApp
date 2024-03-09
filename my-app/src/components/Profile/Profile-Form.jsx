@@ -1,26 +1,36 @@
 import React from "react";
-import c from "././../Login/login.module.css"
+import style from "./profile-form.module.css";
 import { reduxForm, Field } from "redux-form";
+import { required, maxLenghtCreator } from "../utilities/validator";
+
 
 const ProfileForm = (props) => {
-  const onSubmit = (formData) => {
-    props.save(formData.mypost)
-   
+  const onSubmit = (object) => {
+    props.save(object.mypost);
+    console.log(object)
   };
 
+
+ let a = true
+ let gm =(c)=>{
+  console.log(c)
+ }
+ 
   return (
-    <div className={c.my__poststextarea}>
+    <div className={a ? style.formControl : ""}>
       <form onSubmit={props.handleSubmit(onSubmit)}>
         <div>
           <Field
             placeholder={"my-post add"}
-            component={"input"}
+            component="textarea"
             name={"mypost"}
+            validate={[required, maxLenghtCreator(10)]}
+            ref={gm}
+           
           />
         </div>
         <div>
-          
-          <button type="submit" className={c.my__postssendbutton}>
+          <button type="submit" className={style.my__postssendbutton}>
             Submit
           </button>
         </div>
@@ -30,7 +40,7 @@ const ProfileForm = (props) => {
 };
 
 const ProfileReduxForm = reduxForm({
-  form: "login",
+  form: "myPost",
 })(ProfileForm);
 
-export default ProfileReduxForm
+export default ProfileReduxForm;

@@ -1455,3 +1455,60 @@
 //   ));
 // };
 // export default FriendsElements;
+// import React from "react";
+// const Textarea =({meta,input, ...props}) =>{
+//     console.log(meta,input,props)
+//     return(
+//         <div>
+//             <textarea name="" id="" cols="20" rows="60" {...input}{...props}></textarea>
+//         </div>
+//     )
+// }
+// export default Textarea
+// .formControl input,
+// textarea {
+//   border: 10px solid red;
+// }
+// const color = (value) => {
+//    if (value === undefined || value.length === 0) {
+//      return true;
+//    } else {
+//     console.log(value)
+//      return true;
+//    }
+//  };
+//   var val = "";
+//   var c = color(props.value);
+      //  <div className={a ? style.formControl : ""}>
+//       export const Usecolor = () => {
+//    const dfrf = useSelector(
+//      (state) => state.form.myPost.values.mypost
+//    );
+//    const dfrffi = useSelector(
+//      (state) => state.form.myPost.syncErrors.mypost
+//    );
+//   if (dfrf.length === 0 || dfrffi.length === 17 || dfrf === undefined || dfrffi === undefined) {
+//     return true;
+//   } else {
+    
+//     return true;
+//   }
+// };
+// import React from "react";
+
+// const Textarea = ({ meta, input, ...props }) => {
+//   return (
+//     <div> 
+//       <textarea
+//         name=""
+//         id=""
+//         cols="20"
+//         rows="60"
+//         {...input}
+//         {...props}
+//       ></textarea>
+//     </div>
+//   );
+// };
+// export default Textarea;
+

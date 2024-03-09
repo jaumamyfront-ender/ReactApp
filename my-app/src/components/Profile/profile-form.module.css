@@ -1,0 +1,17 @@
+.my__postssendbutton {
+  align-self: flex-end;
+  background-color: #b60c0c;
+  width: 162px;
+  height: 36px;
+    color: #ffffff;
+  font-family: Lato;
+  font-size: 26px;
+  line-height: 33px;
+  background-color: #0cb658;
+  margin-left: 35%;
+  border-radius:10px;
+  margin-top: 10px;
+}
+.formControl textarea{
+    border: 3px solid red;
+}
