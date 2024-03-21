@@ -3,21 +3,17 @@ import style from "./profile-form.module.css";
 import { reduxForm, Field } from "redux-form";
 import { required, maxLenghtCreator } from "../utilities/validator";
 
-
 const ProfileForm = (props) => {
   const onSubmit = (object) => {
     props.save(object.mypost);
-    console.log(object)
+    console.log(object);
+    console.log(props)
+    props.clearFields(false,false,"mypost")
   };
+  let a = true
 
-
- let a = true
- let gm =(c)=>{
-  console.log(c)
- }
- 
   return (
-    <div className={a ? style.formControl : ""}>
+    <div className={props.dirty ? style.formControl : ""}>
       <form onSubmit={props.handleSubmit(onSubmit)}>
         <div>
           <Field
@@ -25,7 +21,6 @@ const ProfileForm = (props) => {
             component="textarea"
             name={"mypost"}
             validate={[required, maxLenghtCreator(10)]}
-            ref={gm}
            
           />
         </div>
