@@ -1567,5 +1567,44 @@
 //   console.log(email, password, remeberMe);
 //   return await instance.post(`auth/login`);
 // };
-   
+=======================================================================================both SyntaxError
+// export const LoginTHC = (email, password, rememberMe) => {
+//   return (dispatch) => {
+//     console.log("meeeee");
+//     LoginAPI.Login(email, password, rememberMe).then((response) => {
+//       if (response.data.resultCode === 0) {
+//         LoginAPI.HeaderLogIn().then((response) => {
+//           let { id, login, email } = response.data.data;
 
+//           if (response.data.resultCode === 0) {
+//             dispatch(setUserAuthAC(id, login, email));
+//           }
+//         });
+//       }
+//     });
+//   };
+// };
+// export const LoginTHC = (email, password, rememberMe) => {
+//   return async (dispatch) => {
+//     console.log("meeeee");
+//     try {
+//       const loginResponse = await LoginAPI.Login(email, password, rememberMe);
+//       if (loginResponse.data.resultCode === 0) {
+//         const headerResponse = await LoginAPI.HeaderLogIn();
+//         const { id, login, email: userEmail } = headerResponse.data.data;
+//         if (headerResponse.data.resultCode === 0) {
+//           dispatch(setUserAuthAC(id, login, userEmail));
+//         }
+//       }
+//     } catch (error) {
+//       // Обработка ошибок
+//       console.error("Ошибка входа:", error);
+//     }
+//   };
+// };
+   
+-----------------
+// `auth/login/email=${email}&password=${password}&rememberMe=${rememberMe}================================================================type of syntax
+//  `auth/login/`{email:email,password:password,rememberMe:rememberMe}
+//  `auth/login/email=${email,password=${password},rememberMe={rememberMe}
+//  `auth/login/,{email,password,rememberMe}

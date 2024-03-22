@@ -59,12 +59,13 @@ export const LoginAPI = {
   },
 
   Login(email, password, rememberMe) {
-    console.log(email, password, rememberMe);
-    console.log("its me");
-    return instance.post(`auth/login/,${(email, password, rememberMe)}`);
+    return instance.post(`auth/login/`, {
+      email: email,
+      password: password,
+      rememberMe: rememberMe,
+    });
   },
   logout() {
-   
     return instance.delete(`auth/login}`);
   },
 };

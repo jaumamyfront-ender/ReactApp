@@ -1,5 +1,3 @@
-// import { HeaderLogIn } from "../../api/api";
-// import { Login } from "../../api/api";
 import { LoginAPI } from "../../api/api";
 let initialState = {
   Id: null,
@@ -41,7 +39,6 @@ export const AuthTHC = () => {
 
 export const LoginTHC = (email, password, rememberMe) => {
   return (dispatch) => {
-    console.log("meeeee");
     LoginAPI.Login(email, password, rememberMe).then((response) => {
       if (response.data.resultCode === 0) {
         LoginAPI.HeaderLogIn().then((response) => {
@@ -55,10 +52,11 @@ export const LoginTHC = (email, password, rememberMe) => {
     });
   };
 };
-export const logoutTHC =()=>(dispatch)=>{
-  LoginAPI.logout().then(response =>{
-    if(response.data.resultCode === 0){
-      dispatch(setUserAuthAC(null,null,null,false))
+
+export const logoutTHC = () => (dispatch) => {
+  LoginAPI.logout().then((response) => {
+    if (response.data.resultCode === 0) {
+      dispatch(setUserAuthAC(null, null, null, false));
     }
-  })
-}
+  });
+};
