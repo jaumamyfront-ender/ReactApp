@@ -15,3 +15,9 @@
 .formControl textarea{
     border: 3px solid red;
 }
+.errormessage{
+  color: rgb(234, 28, 28);
+  font-weight: 500;
+  font-size: 25px;
+  margin-top: 3%;
+}

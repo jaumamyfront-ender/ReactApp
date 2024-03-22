@@ -76,6 +76,7 @@ export const GetUserProfileTHC =(userId)=>{
   };
   export const UpdateUserStatusTHC = (status) => {
     return (dispatch) => {
+      console.log(status)
       ProfileAPI.putStatus(status).then((response) =>{
         if(response.data.resultCode === 0)
         dispatch(setUserStatus(status))
