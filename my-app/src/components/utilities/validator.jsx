@@ -8,14 +8,6 @@ export const maxLenghtCreator = (maxLenght) => (value) => {
   return undefined;
 };
 
- export const color = (value) => {
-   if (value === undefined || value.length === 0) {
-     return true;
-   } else {
-    console.log(value)
-     return true;
-   }
- };
 
 
 

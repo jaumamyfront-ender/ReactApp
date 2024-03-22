@@ -1,13 +1,13 @@
-
 import React from "react";
 import c from "./login.module.css";
 import { reduxForm, Field } from "redux-form";
+import { LoginTHC } from "../Redux/reducer-auth";
 
 const LoginForm = (props) => {
   const onSubmit = (formData) => {
     console.log(formData);
-    console.log(props)
- 
+    console.log(props);
+    LoginTHC(formData);
   };
 
   return (
@@ -27,7 +27,7 @@ const LoginForm = (props) => {
           <Field type={"checkbox"} component={"input"} name={"remeberMe"} />
           <span>Remember me</span>
         </div>
-        <button type="ssubmit">Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

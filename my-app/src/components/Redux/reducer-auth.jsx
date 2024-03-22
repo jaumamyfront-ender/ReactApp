@@ -1,4 +1,6 @@
-import { HeaderLogIn } from "../../api/api";
+// import { HeaderLogIn } from "../../api/api";
+// import { Login } from "../../api/api";
+import { LoginAPI } from "../../api/api";
 let initialState = {
   Id: null,
   email: null,
@@ -27,7 +29,7 @@ export default Auth;
 
 export const AuthTHC = () => {
   return (dispatch) => {
-    HeaderLogIn().then((response) => {
+    LoginAPI.HeaderLogIn().then((response) => {
       let { id, login, email } = response.data.data;
 
       if (response.data.resultCode === 0) {
@@ -36,3 +38,27 @@ export const AuthTHC = () => {
     });
   };
 };
+
+export const LoginTHC = (email, password, rememberMe) => {
+  return (dispatch) => {
+    console.log("meeeee");
+    LoginAPI.Login(email, password, rememberMe).then((response) => {
+      if (response.data.resultCode === 0) {
+        LoginAPI.HeaderLogIn().then((response) => {
+          let { id, login, email } = response.data.data;
+
+          if (response.data.resultCode === 0) {
+            dispatch(setUserAuthAC(id, login, email));
+          }
+        });
+      }
+    });
+  };
+};
+export const logoutTHC =()=>(dispatch)=>{
+  LoginAPI.logout().then(response =>{
+    if(response.data.resultCode === 0){
+      dispatch(setUserAuthAC(null,null,null,false))
+    }
+  })
+}

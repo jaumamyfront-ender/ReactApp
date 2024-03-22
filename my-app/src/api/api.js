@@ -35,17 +35,36 @@ export let HeaderLogIn = async () => {
   return await instance.get(`auth/me`);
 };
 
+export let Login = async (email, password, remeberMe) => {
+  console.log(email, password, remeberMe);
+  return await instance.post(`auth/login`);
+};
+
 export let GetNewProfileAndShowHim = async (userId) => {
   // console.warn("obsolete method,please use profileAPI object");
   return instance.get(`profile/${userId}`);
 };
 export const ProfileAPI = {
   getStatus(userId) {
-    // console.log(userId);
     return instance.get(`profile/status/${userId}`);
   },
   putStatus(status) {
-    // console.log(status);
     return instance.put(`profile/status/`, { status: status });
+  },
+};
+
+export const LoginAPI = {
+  HeaderLogIn() {
+    return instance.get(`auth/me`);
+  },
+
+  Login(email, password, rememberMe) {
+    console.log(email, password, rememberMe);
+    console.log("its me");
+    return instance.post(`auth/login/,${(email, password, rememberMe)}`);
+  },
+  logout() {
+   
+    return instance.delete(`auth/login}`);
   },
 };
