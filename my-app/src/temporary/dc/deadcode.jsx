@@ -1667,3 +1667,22 @@
 
 //     return WithAuthComponent;
 // };
+=================
+// export const LoginTHC = (email, password, rememberMe) => {
+//   return (dispatch) => {
+//     LoginAPI.Login(email, password, rememberMe).then((response) => {
+//       console.log(response)
+//       if (response.data.resultCode === 0) {
+//         LoginAPI.HeaderLogIn().then((response) => {
+//        let { id, login, email } = response.data.data;
+//          if (response.data.resultCode === 0) {
+//             dispatch(setUserAuthAC(id, login, email));
+//           }
+//           if(response.data.resultCode === 1){
+//             dispatch(responseFromSr(response.data.messages))
+//           }
+//         });
+//       }
+//     });
+//   };
+// };

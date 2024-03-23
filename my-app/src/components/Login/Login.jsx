@@ -2,10 +2,11 @@ import React from "react";
 import c from "./login.module.css";
 import { reduxForm, Field } from "redux-form";
 import { LoginTHC } from "../Redux/reducer-auth";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 const LoginForm = (props) => {
+const responseMessage = useSelector((state)=> state.Auth.whichResponse)
   return (
     <div className={c.wrapper__form}>
       <form onSubmit={props.handleSubmit}>
@@ -19,11 +20,12 @@ const LoginForm = (props) => {
             name={"password"}
           />
         </div>
+        <div>{responseMessage ? <p className={c.information}>{responseMessage} !!</p>: "you are authorized" }</div>
         <div className={c.last__Field}>
-          <Field type={"checkbox"} component={"input"} name={"rememberMe"} />
-          <span>Remember me</span>
+          <Field type={"checkbox"} component={"input"} name={"rememberMe"} placeholder={"rememberMe"}/>
+         
         </div>
-        <button>Submit </button>
+        <button className={c.button}>Submit </button>
       </form>
     </div>
   );

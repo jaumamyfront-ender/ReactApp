@@ -4,17 +4,27 @@ let initialState = {
   email: null,
   login: null,
   isAuth: false,
+  whichResponse: "",
 };
+
 const setUserAuth = "setUserAuth";
-const unsetAuth = "unsetAuth"
+const unsetAuth = "unsetAuth";
+const responseFromServer = "responseFromServer";
+
 export let setUserAuthAC = (Id, email, login) => ({
   type: setUserAuth,
   authData: { Id, email, login },
 });
-export let unsetAuthAC = ()=>({
-  type:unsetAuth,
-  isAuth:false
-})
+
+export let unsetAuthAC = () => ({
+  type: unsetAuth,
+  isAuth: false,
+});
+
+export let responseFromSr = (messages) => ({
+  type: responseFromServer,
+  response: messages,
+});
 
 const Auth = (state = initialState, action) => {
   switch (action.type) {
@@ -24,14 +34,20 @@ const Auth = (state = initialState, action) => {
         ...action.authData,
         isAuth: true,
       };
+
+    case unsetAuth:
+      return {
+        ...state,
+        isAuth: false,
+      };
+
+    case responseFromServer:
+      return {
+        ...state,
+        whichResponse: action.response,
+      };
     default:
       return state;
-      case unsetAuth:
-        return{
-          ...state,
-          isAuth:false
-        
-        }
   }
 };
 export default Auth;
@@ -44,6 +60,10 @@ export const AuthTHC = () => {
       if (response.data.resultCode === 0) {
         dispatch(setUserAuthAC(id, login, email));
       }
+      if (response.data.resultCode === 1) {
+        console.log(response.data.messages);
+        dispatch(responseFromSr(response.data.messages));
+      }
     });
   };
 };
@@ -54,11 +74,11 @@ export const LoginTHC = (email, password, rememberMe) => {
       if (response.data.resultCode === 0) {
         LoginAPI.HeaderLogIn().then((response) => {
           let { id, login, email } = response.data.data;
-
-          if (response.data.resultCode === 0) {
-            dispatch(setUserAuthAC(id, login, email));
-          }
+          dispatch(setUserAuthAC(id, login, email));
         });
+      }
+      if (response.data.resultCode === 1) {
+        dispatch(responseFromSr(response.data.messages));
       }
     });
   };
@@ -66,11 +86,9 @@ export const LoginTHC = (email, password, rememberMe) => {
 
 export const logoutTHC = () => (dispatch) => {
   LoginAPI.logout().then((response) => {
- 
     if (response.data.resultCode === 0) {
-      console.log(response)
       dispatch(setUserAuthAC(null, null, null));
-      dispatch(unsetAuthAC())
+      dispatch(unsetAuthAC());
     }
   });
 };

@@ -6,7 +6,6 @@
   grid-area: sidebar;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  
 }
 .sidebar__list {
   display: grid;
@@ -16,13 +15,12 @@
 }
 .sidebar__list a {
   font-size: 40px;
-  font-weight: 400;
- 
+  font-weight: 500;
 }
 
-.sidebar__list a:last-child {
+/* .sidebar__list a:last-child {
   margin-top: 50px;
-}
+} */
 .sidebar__friends {
   display: grid;
   grid-template-rows: 80px 90px 25px;
