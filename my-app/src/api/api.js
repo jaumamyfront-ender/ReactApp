@@ -66,6 +66,6 @@ export const LoginAPI = {
     });
   },
   logout() {
-    return instance.delete(`auth/login}`);
+    return instance.delete(`auth/login`);
   },
 };

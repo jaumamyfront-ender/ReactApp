@@ -6,10 +6,15 @@ let initialState = {
   isAuth: false,
 };
 const setUserAuth = "setUserAuth";
+const unsetAuth = "unsetAuth"
 export let setUserAuthAC = (Id, email, login) => ({
   type: setUserAuth,
   authData: { Id, email, login },
 });
+export let unsetAuthAC = ()=>({
+  type:unsetAuth,
+  isAuth:false
+})
 
 const Auth = (state = initialState, action) => {
   switch (action.type) {
@@ -21,6 +26,12 @@ const Auth = (state = initialState, action) => {
       };
     default:
       return state;
+      case unsetAuth:
+        return{
+          ...state,
+          isAuth:false
+        
+        }
   }
 };
 export default Auth;
@@ -55,8 +66,11 @@ export const LoginTHC = (email, password, rememberMe) => {
 
 export const logoutTHC = () => (dispatch) => {
   LoginAPI.logout().then((response) => {
+ 
     if (response.data.resultCode === 0) {
-      dispatch(setUserAuthAC(null, null, null, false));
+      console.log(response)
+      dispatch(setUserAuthAC(null, null, null));
+      dispatch(unsetAuthAC())
     }
   });
 };

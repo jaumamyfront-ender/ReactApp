@@ -1,8 +1,10 @@
 import React from "react";
 import Profile from "./Profile-Presentation";
+import Status from "./Status"
 import { connect } from "react-redux";
 import { GetUserProfileTHC,GetUserStatusTHC,UpdateUserStatusTHC } from "../Redux/reducer-content";
-import Status from "./Status"
+import { compose } from "redux";
+import { WithAuthRedirect } from "../../highOrderComponent/WithAuthRedirect";
 
 class ProfileContainer extends React.Component {
   componentDidMount = async () => {
@@ -12,7 +14,11 @@ class ProfileContainer extends React.Component {
     }
     this.props.GetUserProfileTHC(userId);
     this.props.GetUserStatusTHC(userId);
+
   };
+
+ 
+
 
   render() {
     return (
@@ -33,12 +39,15 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => ({
   UserImage: state.Profile.Profile,
   userId: state.Friends.userId,
-  status:state.Profile.status
+  status:state.Profile.status,
+  isAuth: state.Auth.isAuth,
 });
 
-export default connect(mapStateToProps, {
-  GetUserProfileTHC,
-  GetUserStatusTHC,
-  UpdateUserStatusTHC,
-})(ProfileContainer);
+
+export default compose(
+connect(mapStateToProps, {  GetUserProfileTHC,
+GetUserStatusTHC,
+UpdateUserStatusTHC,}),
+WithAuthRedirect
+)(ProfileContainer);
 

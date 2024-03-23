@@ -3,6 +3,7 @@ import c from "./login.module.css";
 import { reduxForm, Field } from "redux-form";
 import { LoginTHC } from "../Redux/reducer-auth";
 import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 const LoginForm = (props) => {
   return (
@@ -35,8 +36,11 @@ const LoginReduxForm = reduxForm({
 const Login = (props) => {
   const onSubmit = (formData) => {
     props.LoginTHC(formData.email, formData.password, formData.rememberMe);
-    console.log(formData);
+   
   };
+  if (props.isAuth === true) {
+    return <Navigate to={"/profile"}/>
+  }
   return (
     <div className="yoooo">
       <h1 className={c.style}>Login me</h1>
@@ -44,7 +48,10 @@ const Login = (props) => {
     </div>
   );
 };
+const mapStateToProps = (state) => ({
+  isAuth: state.Auth.isAuth,
+});
 
-export default connect(null, { LoginTHC })(Login);
+export default connect(mapStateToProps, { LoginTHC })(Login);
 
 // connect<--login<--LoginReduxForm<--reduxform<--LoginForm

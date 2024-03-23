@@ -1,16 +1,17 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export  const WithAuthRedirect =(Component) =>{
+export const WithAuthRedirect = (Component) => {
+    const WithAuthComponent = (props) => {
+        const isAuth = useSelector((state) => state.Auth.isAuth);
 
-    class RedirectComponent extends React.Component{
-      
-        render(){
-           let getAuthStatus = this.props.isAuth
-            if (!getAuthStatus) return <Navigate to={"/login/"} />;
-            return <Component{...this.props}/>
+        if (isAuth) {
+            return <Component {...props} />;
+        } else {
+            return <Navigate to="/login/" />;
         }
-    }
-    return RedirectComponent
+    };
 
-}
+    return WithAuthComponent;
+};

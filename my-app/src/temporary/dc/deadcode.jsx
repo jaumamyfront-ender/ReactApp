@@ -1608,3 +1608,62 @@
 //  `auth/login/`{email:email,password:password,rememberMe:rememberMe}
 //  `auth/login/email=${email,password=${password},rememberMe={rememberMe}
 //  `auth/login/,{email,password,rememberMe}
+
+// export default connect(mapStateToProps, {================================================================================================compose and connect
+//   GetUserProfileTHC,
+//   GetUserStatusTHC,
+//   UpdateUserStatusTHC,
+// })(ProfileContainer);
+
+
+// export default compose(
+// connect(mapStateToProps, {  GetUserProfileTHC,
+// GetUserStatusTHC,
+// UpdateUserStatusTHC,}),
+// WithAuthRedirect
+// )(ProfileContainer);
+//    render(){
+//            let getAuthStatus = this.props.isAuth
+//             if (!getAuthStatus) return <Navigate to={"/login/"} />;
+//             return <Component{...this.props}/>
+=======================
+===========================================================================================================================================//trying rewrite class to function compo//
+// import React from "react";
+// import { Navigate } from "react-router-dom";
+// import { useSelector } from "react-redux";
+
+// export  const WithAuthRedirect =(Component) =>{-----------------------class component style
+
+//     class RedirectComponent extends React.Component{
+      
+//         render(){
+//          if (this.props.isAuth) return <Component{...this.props}/>
+//             return <Navigate to={"/login/"} />;
+//         }
+//     }
+//     return RedirectComponent
+
+// }
+// export const WithAuthRedirect =(Component)=>{-----------------------not working
+//       const isAuth = useSelector((state) => ({
+//          isAuth: state.Auth.isAuth,
+
+//   }));
+
+// if(isAuth) return <Component/>
+// return  <Navigate to={"/login/"} />;
+
+// }
+// export const WithAuthRedirect = (Component) => {----------------r version
+//     const WithAuthComponent = (props) => {
+//         const isAuth = useSelector((state) => state.Auth.isAuth);
+
+//         if (isAuth) {
+//             return <Component {...props} />;
+//         } else {
+//             return <Navigate to="/login/" />;
+//         }
+//     };
+
+//     return WithAuthComponent;
+// };
