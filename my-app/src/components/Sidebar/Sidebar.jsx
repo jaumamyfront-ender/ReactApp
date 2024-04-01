@@ -6,17 +6,15 @@ import { useDispatch } from "react-redux";
 
 const setActive = ({ isActive }) => (isActive ? "active__link" : "unactive__link");
 
-
-
-
 const Sidebar = () => {
-  const ReturnToMyProfile =()=>{
-    let userId = 2
-      const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const ReturnToMyProfile = () => {
+    let userId = 2;
+
     dispatch(GetUserProfileTHC(userId));
-    console.log("yes you click on me")
-  }
- 
+    console.log("yes you click on me");
+  };
+
   return (
     <div className={classes.sidebar}>
       <div className={classes.sidebar__list}>
