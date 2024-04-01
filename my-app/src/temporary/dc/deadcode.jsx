@@ -1686,3 +1686,25 @@
 //     });
 //   };
 // };
+
+========
+// function App(props) {
+//   let isAuth = useSelector((state)=>state.Auth.isAuth)
+//   return (
+//     <div className="container">
+//       {!isAuth ? (
+//         <Login />
+//       ) : (
+//         <div className="container">
+//           <Header />
+//           <Sidebar />
+//           <MainRoutes />
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+============
+//  componentDidMount = async () => {
+//    this.props.AuthTHC();
+//  };
