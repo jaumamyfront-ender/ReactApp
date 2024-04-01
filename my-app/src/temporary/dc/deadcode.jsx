@@ -1708,3 +1708,32 @@
 //  componentDidMount = async () => {
 //    this.props.AuthTHC();
 //  };
+
+// import React from "react";
+// import "./App.css";
+// import Header from "../src/components/Header/header-container";
+// import Sidebar from "./components/Sidebar/Sidebar";
+// import MainRoutes from "./components/Routes/Routes";
+// import Login from "./components/Login/Login";
+// import { useDispatch, useSelector } from "react-redux";
+// import { AuthTHC } from "./components/Redux/reducer-auth";
+
+// function App(props) {
+//   let isAuth = useSelector((state) => state.Auth.isAuth);
+//   let downloadCookieLocal = useDispatch();
+//   downloadCookieLocal(AuthTHC());
+
+//   return (
+//     <div>
+//       {!isAuth ? (
+//         <Login />
+//       ) : (
+//         <div className="container">
+//           <Header />
+//           <Sidebar />
+//           <MainRoutes />
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
