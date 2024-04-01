@@ -5,11 +5,15 @@ let initialState = {
   login: null,
   isAuth: false,
   whichResponse: "",
+  initialized: false,
+  redirectToLogin: false,
 };
 
 const setUserAuth = "setUserAuth";
 const unsetAuth = "unsetAuth";
 const responseFromServer = "responseFromServer";
+const succsessfullInit = "succsessfullInit";
+const unsuccsessfullInit = "unsuccsessfullInit";
 
 export let setUserAuthAC = (Id, email, login) => ({
   type: setUserAuth,
@@ -25,6 +29,8 @@ export let responseFromSr = (messages) => ({
   type: responseFromServer,
   response: messages,
 });
+export let succsessfullInitilization = () => ({ type: succsessfullInit });
+export let RedirectToLogin = (response) => ({ type: unsuccsessfullInit, response: response });
 
 const Auth = (state = initialState, action) => {
   switch (action.type) {
@@ -46,6 +52,18 @@ const Auth = (state = initialState, action) => {
         ...state,
         whichResponse: action.response,
       };
+    case succsessfullInit:
+      return {
+        ...state,
+        initialized: true,
+      };
+    case unsuccsessfullInit:
+      return {
+        ...state,
+        redirectToLogin: action.response,
+        initialized: true,
+      };
+
     default:
       return state;
   }
@@ -59,10 +77,12 @@ export const AuthTHC = () => {
 
       if (response.data.resultCode === 0) {
         dispatch(setUserAuthAC(id, login, email));
+        dispatch(succsessfullInitilization());
       }
       if (response.data.resultCode === 1) {
         console.log(response.data.messages);
         dispatch(responseFromSr(response.data.messages));
+        dispatch(RedirectToLogin(true));
       }
     });
   };
@@ -75,6 +95,7 @@ export const LoginTHC = (email, password, rememberMe) => {
         LoginAPI.HeaderLogIn().then((response) => {
           let { id, login, email } = response.data.data;
           dispatch(setUserAuthAC(id, login, email));
+          dispatch(RedirectToLogin(false));
         });
       }
       if (response.data.resultCode === 1) {

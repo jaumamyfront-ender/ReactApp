@@ -2,6 +2,7 @@ import { LoginAPI } from "../../api/api";
 import { AuthTHC } from "./reducer-auth";
 let initialState = {
   initialized: false,
+  
 };
 
 const successInitialized = "successInitialized";
@@ -15,7 +16,7 @@ const AppInitialized = (state = initialState, action) => {
     case successInitialized:
       return {
         ...state,
-        initialized: true,
+
       };
 
     default:
@@ -26,9 +27,7 @@ export default AppInitialized;
 
 export const InitializedTHC = () => {
   return (dispatch) => {
-    let promise = dispatch(AuthTHC());
-    Promise.all([promise]).then(() => {
-      dispatch(initializedSuccess());
-    });
+dispatch(AuthTHC())
+
   };
 };

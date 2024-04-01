@@ -1737,3 +1737,7 @@
 //     </div>
 //   );
 // }
+    // let promise = dispatch(AuthTHC());
+    // Promise.all([promise]).then(() => {----------------------------------------------------------------------
+    //   dispatch(initializedSuccess());
+    // });

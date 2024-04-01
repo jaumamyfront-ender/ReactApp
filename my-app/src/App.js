@@ -9,16 +9,19 @@ import { AuthTHC } from "./components/Redux/reducer-auth";
 import Preloader from "./components/Preloader/Preloader";
 import { compose } from "redux";
 import { InitializedTHC } from "./components/Redux/reducer.app";
+import { WithAuthRedirect } from "./highOrderComponent/WithAuthRedirect";
 
 class App extends React.Component {
   componentDidMount() {
     this.props.InitializedTHC();
-    console.log(this.props.initialized);
   }
   render() {
-    if (!this.props.initialized) {
+    if (this.props.initialized === false ) {
       return <Preloader />;
+    } else if (this.props.redirectToLogin === true) {
+      return <Login />;
     }
+
     return (
       <div className="container">
         <Header />
@@ -28,8 +31,10 @@ class App extends React.Component {
     );
   }
 }
+
 let mapStateToProps = (state) => ({
-  initialized: state.app.initialized,
+  initialized: state.Auth.initialized,
+  redirectToLogin: state.Auth.redirectToLogin,
 });
 
 export default compose(connect(mapStateToProps, { InitializedTHC }))(App);
