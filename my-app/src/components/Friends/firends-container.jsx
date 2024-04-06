@@ -10,6 +10,7 @@ import UsersPresentationComponent from "./friends-presentation";
 import Preloader from "../Preloader/Preloader";
 import { WithAuthRedirect } from "../../highOrderComponent/WithAuthRedirect";
 import { compose } from "redux";
+import { superSelectorUsers } from "../reselect/reselector";
 
 class UsersAPI extends Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class UsersAPI extends Component {
   }
 
   render() {
+    console.log("render")
     return (
       <>
         {this.props.isFetching ? (
@@ -40,7 +42,8 @@ class UsersAPI extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  users: state.Friends.users,
+  // users: state.Friends.users,
+  users: superSelectorUsers(state),
   isFetching: state.Friends.isFetching,
   ButtonDisabler: state.Friends.isButtonDisabled,
   isAuth: state.Auth.isAuth,

@@ -46,13 +46,14 @@ class ProfileStatus extends React.Component {
   render() {
     return (
       <div>
-        {this.state.editMode && this.EditingMode()}
+        {this.state.editMode && this.EditingMode()} 
         {!this.state.editMode && (
           <div>
             <input
               type="text"
               onBlur={() => {
                 this.activeEditMode();
+                this.props.updateStatus(this.state.textStatus)
               }}
               onChange={this.setTextStatus.bind(this)}
               value={this.state.textStatus} // Добавляем значение из состояния в input
@@ -62,8 +63,12 @@ class ProfileStatus extends React.Component {
       </div>
     );
   }
-}
+}//componentdidmount-->is me-->editing mode -->edit span or no edit span
+
+//if isMe:true-->span-onClick-->deactiveeditmode-->edit mode:false-->return-->input Onblur()(for  editing info coz edit mode return only simple span)
+
+//Mount(if userId-->set_isME on state)-->span(deactive)-->return input or isMe:false-->span(htis.props.status)-->no edit mode
 
 export default ProfileStatus;
 
-//ecd the local state learing but first end up the rewrite that code to functional
+
