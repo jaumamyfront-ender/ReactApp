@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./profile-form.module.css";
 import { reduxForm, Field } from "redux-form";
-import { required, maxLenghtCreator } from "../utilities/validator";
+import { required, maxLenghtCreator } from "../utilities/validators/validator";
 
 const ProfileForm = (props) => {
   const onSubmit = (object) => {

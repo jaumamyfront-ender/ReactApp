@@ -1,7 +1,7 @@
 import React from "react";
 import { reduxForm, Field } from "redux-form";
 import classes from "./dialogs.module.css";
-import { required, maxLenghtCreator } from "../utilities/validator";
+import { required, maxLenghtCreator } from "../utilities/validators/validator"
 
 
 const DialogsForm = (props) => {

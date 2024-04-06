@@ -8,9 +8,9 @@ import {
 } from "../Redux/reducer-friends";
 import UsersPresentationComponent from "./friends-presentation";
 import Preloader from "../Preloader/Preloader";
-import { WithAuthRedirect } from "../../highOrderComponent/WithAuthRedirect";
+import { WithAuthRedirect } from "../../HighOrderComponent/WithAuthRedirect"
 import { compose } from "redux";
-import { superSelectorUsers } from "../reselect/reselector";
+import { superSelectorUsers } from "../utilities/selectors/reselector";
 
 class UsersAPI extends Component {
   componentDidMount() {

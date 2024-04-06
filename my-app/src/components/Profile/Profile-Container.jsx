@@ -4,7 +4,7 @@ import Status from "./Status"
 import { connect } from "react-redux";
 import { GetUserProfileTHC,GetUserStatusTHC,UpdateUserStatusTHC } from "../Redux/reducer-content";
 import { compose } from "redux";
-import { WithAuthRedirect } from "../../highOrderComponent/WithAuthRedirect";
+import { WithAuthRedirect } from "../../HighOrderComponent/WithAuthRedirect";
 
 class ProfileContainer extends React.Component {
   componentDidMount = async () => {
