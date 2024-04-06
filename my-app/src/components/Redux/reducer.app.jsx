@@ -31,3 +31,5 @@ dispatch(AuthTHC())
 
   };
 };
+
+//this component not work generaly(all logic is into Auth Component)
