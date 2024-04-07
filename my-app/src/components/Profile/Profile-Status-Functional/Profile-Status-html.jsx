@@ -1,6 +1,5 @@
 import React from "react";
-import { UpdateUserStatusTHC } from "../../Redux/reducer-content";
-import { useDispatch } from "react-redux";
+
 
 export const spanEdit = ({ activateEditMode, status }) => {
   return (
@@ -18,16 +17,16 @@ export const spanNoEdit = (status) => {
   );
 };
 
-export const InputEdit = ({ deactivateEditMode, setTextStatus, status }) => {
-  const dispatch = useDispatch();
-  dispatch(UpdateUserStatusTHC(status));
+export const InputEdit = ({ deactivateEditMode, setTextStatus, status,sendStatus }) => {
+
   return (
     <div>
       <input
         type="text"
         onBlur={() => {
           deactivateEditMode();
-          dispatch();
+          sendStatus(status)
+         
         }}
         onChange={(e) => setTextStatus(e)}
         value={status}
@@ -35,3 +34,5 @@ export const InputEdit = ({ deactivateEditMode, setTextStatus, status }) => {
     </div>
   );
 };
+   
+     

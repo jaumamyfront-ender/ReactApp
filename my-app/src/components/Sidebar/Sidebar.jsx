@@ -12,7 +12,7 @@ const Sidebar = () => {
     let userId = 2;
 
     dispatch(GetUserProfileTHC(userId));
-    console.log("yes you click on me");
+  
   };
 
   return (

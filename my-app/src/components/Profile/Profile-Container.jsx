@@ -23,7 +23,7 @@ class ProfileContainer extends React.Component {
 }
 let mapStateToProps = (state) => ({
   UserImage: state.Profile.Profile,
-
+userId:state.Friends.userId,
   isAuth: state.Auth.isAuth,
 });
 
