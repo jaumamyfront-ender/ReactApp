@@ -46,14 +46,14 @@ class ProfileStatus extends React.Component {
   render() {
     return (
       <div>
-        {this.state.editMode && this.EditingMode()} 
+        {this.state.editMode && this.EditingMode()}
         {!this.state.editMode && (
           <div>
             <input
               type="text"
               onBlur={() => {
                 this.activeEditMode();
-                this.props.updateStatus(this.state.textStatus)
+                this.props.updateStatus(this.state.textStatus);
               }}
               onChange={this.setTextStatus.bind(this)}
               value={this.state.textStatus} // Добавляем значение из состояния в input

@@ -1,8 +1,9 @@
 import React from "react";
 import Profile from "./Profile-Presentation";
-import Status from "./Status"
+// import Status from "./Status"
+import Status from "./Profile-Status-Functional/Profile-Status-Logic";
 import { connect } from "react-redux";
-import { GetUserProfileTHC,GetUserStatusTHC,UpdateUserStatusTHC } from "../Redux/reducer-content";
+import { GetUserProfileTHC, GetUserStatusTHC, UpdateUserStatusTHC } from "../Redux/reducer-content";
 import { compose } from "redux";
 import { WithAuthRedirect } from "../../HighOrderComponent/WithAuthRedirect";
 
@@ -14,40 +15,16 @@ class ProfileContainer extends React.Component {
     }
     this.props.GetUserProfileTHC(userId);
     this.props.GetUserStatusTHC(userId);
-
   };
 
- 
-
-
   render() {
-    return (
-      <Profile
-        profile={this.props.UserImage}
-      
-        UserStatus={
-          <Status
-            status={this.props.status}
-            updateStatus={this.props.UpdateUserStatusTHC}
-            userId={this.props.userId}
-          />
-        }
-      />
-    );
+    return <Profile profile={this.props.UserImage} UserStatus={<Status />} />;
   }
 }
 let mapStateToProps = (state) => ({
   UserImage: state.Profile.Profile,
-  userId: state.Friends.userId,
-  status:state.Profile.status,
+
   isAuth: state.Auth.isAuth,
 });
 
-
-export default compose(
-connect(mapStateToProps, {  GetUserProfileTHC,
-GetUserStatusTHC,
-UpdateUserStatusTHC,}),
-WithAuthRedirect
-)(ProfileContainer);
-
+export default compose(connect(mapStateToProps, { GetUserProfileTHC, GetUserStatusTHC, UpdateUserStatusTHC }), WithAuthRedirect)(ProfileContainer);

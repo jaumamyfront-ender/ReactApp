@@ -49,6 +49,7 @@ export const ProfileAPI = {
     return instance.get(`profile/status/${userId}`);
   },
   putStatus(status) {
+    console.log(status)
     return instance.put(`profile/status/`, { status: status });
   },
 };
