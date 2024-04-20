@@ -1,10 +1,5 @@
-import { produce } from "immer";
-import {
-  GetUsersForPageChanged,
-  GetUsers,
-  PushUserOnButtonDisabledFollow,
-  DeleteUserOnButtonDisabledUnfollow,
-} from "../../api/api";
+import { GetUsersForPageChanged, GetUsers, PushUserOnButtonDisabledFollow, DeleteUserOnButtonDisabledUnfollow } from "../../api/api";
+import { updateObjectinArray } from "../utilities/helpers(redux-reducers)/helper";
 let initialState = {
   users: [],
   PagesSize: 10,
@@ -15,14 +10,15 @@ let initialState = {
   isButtonDisabled: [],
 };
 
-const followw = "follow";
-const unfolloww = "unfollow";
-const setUserss = "pushUsers";
-const setCurrentPagee = "currentPage";
-const setUsersTotalCountt = "userTotalCount";
-const toggleFetchingg = "toggleFetching";
-const getId = "getId";
-const buttonSwitchDisabler = "buttonSwitchDisabler";
+const followw = "users/follow";
+const unfolloww = "users/unfollow";
+const setUserss = "users/pushUsers";
+const setCurrentPagee = "users/currentPage";
+const setUsersTotalCountt = "users/userTotalCount";
+const getId = "users/getId";
+
+const toggleFetchingg = "users/toggleFetching"; //to show a preloader if users is loading from server
+const buttonSwitchDisabler = "users/buttonSwitchDisabler"; //disabler button when we click on button ana wait foe response from server
 
 export let follow = (userID) => ({ type: followw, userId: userID });
 export const unfollow = (userID) => ({ type: unfolloww, userId: userID });
@@ -51,19 +47,15 @@ const friendReducers = (state = initialState, action) => {
     case followw:
       return {
         ...state,
-        users: state.users.map((u) => {
-          if (u.id === action.userId) {
-            return { ...u, followed: true };
-          }
-          return u;
-        }),
+        users: updateObjectinArray(state.users, action.userId, "id", { followed: true }),
+
       };
     case unfolloww:
       return {
         ...state,
         users: state.users.map((u) => {
           if (u.id === action.userId) {
-            return { ...u, followed: false };
+            return { ...u, followed: false }; //value followed is to show you a type of uiButton
           }
           return u;
         }),
@@ -83,22 +75,21 @@ const friendReducers = (state = initialState, action) => {
         ...state,
         TotalCount: action.totalCount,
       };
-    case toggleFetchingg:
-      return {
-        ...state,
-        isFetching: action.fetchingResult,
-      };
     case getId:
       return {
         ...state,
         userId: action.newId,
       };
+    case toggleFetchingg:
+      return {
+        ...state,
+        isFetching: action.fetchingResult,
+      };
+
     case buttonSwitchDisabler:
       return {
         ...state,
-        isButtonDisabled: action.FetchingButton
-          ? [...state.isButtonDisabled, action.userid]
-          : state.isButtonDisabled.filter((id) => id != action.userid),
+        isButtonDisabled: action.FetchingButton ? [...state.isButtonDisabled, action.userid] : state.isButtonDisabled.filter((id) => id != action.userid),
       };
     default:
       return state;
@@ -107,48 +98,45 @@ const friendReducers = (state = initialState, action) => {
 export default friendReducers;
 
 export const getUsersFromServerThunkCreator = (Pages, Current) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(setFetching(true));
-    GetUsers(Current, Pages).then((data) => {
-      dispatch(setUsers(data.items));
-      dispatch(setUsersTotalCount(data.totalCount));
-      dispatch(setFetching(false));
-    });
+    let data = await GetUsers(Current, Pages);
+    dispatch(setUsers(data.items));
+    dispatch(setUsersTotalCount(data.totalCount));
+    dispatch(setFetching(false));
   };
 };
 
 export const getUsersOnNewPageThunkCreator = (PageNumber, Pages) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(setCurrentPage(PageNumber));
     dispatch(setFetching(true));
 
-    GetUsersForPageChanged(PageNumber, Pages)
-      .then((data1) => {
-        dispatch(setUsers(data1.items));
-      })
-      .then(() => dispatch(setFetching(false)))
-      .catch((error) => console.error("Error fetching user data:", error));
+    let data = await GetUsersForPageChanged(PageNumber, Pages);
+    if (data) {
+      dispatch(setUsers(data.items));
+      dispatch(setFetching(false));
+    }
   };
 };
 export const DisabledFollow = (userId) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(isFetchingButton(true, userId));
-    PushUserOnButtonDisabledFollow(userId).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(follow(userId));
-      }
+    let data = await PushUserOnButtonDisabledFollow(userId);
+    if (data.data.resultCode === 0) {
+      dispatch(follow(userId));
       dispatch(isFetchingButton(false, userId));
-    });
+    }
   };
 };
+
 export const DisabledUnfollow = (userId) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(isFetchingButton(true, userId));
-    DeleteUserOnButtonDisabledUnfollow(userId).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(unfollow(userId));
-      }
-      dispatch(isFetchingButton(false, userId));
-    });
+    const response = await DeleteUserOnButtonDisabledUnfollow(userId);
+    if (response.data.resultCode === 0) {
+      dispatch(unfollow(userId));
+    }
+    dispatch(isFetchingButton(false, userId));
   };
 };

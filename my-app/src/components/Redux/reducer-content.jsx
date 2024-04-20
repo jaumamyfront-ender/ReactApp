@@ -1,9 +1,10 @@
 // export default ProfileContentReducer;
 import { produce } from "immer";
 import { GetNewProfileAndShowHim, ProfileAPI } from "../../api/api";
-const ADD_POST = "ADD-POST";
-const UPDATE_USER = "UPDATE_USER";
-const SET_STATUS = "SET_STATUS";
+const ADD_POST = "content/ADD-POST";
+const UPDATE_USER = "content/UPDATE_USER";
+const SET_STATUS = "content/SET_STATUS";
+
 export const ActionCreatorAdd = (valueelement) => {
   return {
     type: ADD_POST,
@@ -52,12 +53,12 @@ const ProfileContentReducer = (state = initialState, action) => {
 
 export default ProfileContentReducer;
 
-export const GetUserProfileTHC = (userId) => {
-  return (dispatch) => {
-    GetNewProfileAndShowHim(userId).then((response) => dispatch(setUserToStateFromServer(response.data)));
-    dispatch(GetUserStatusTHC(userId));
-  };
+export const GetUserProfileTHC = (userId) => async (dispatch) => {
+  const response = await GetNewProfileAndShowHim(userId);
+  dispatch(setUserToStateFromServer(response.data));
+  dispatch(GetUserStatusTHC(userId));
 };
+
 export const GetUserStatusTHC = (userId) => {
   return (dispatch) => {
     ProfileAPI.getStatus(userId).then((response) => dispatch(setUserStatus(response.data)));

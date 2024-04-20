@@ -83,6 +83,7 @@
 //     </div>
 //   );
 // };
+==========================================================//wrong syntax component
 
         // UserStatus={
         //   <Status
@@ -94,3 +95,10 @@
 
   //         userId: state.Friends.userId,
   // status:state.Profile.status,
+
+          // users: state.users.map((u) => {
+        //   if (u.id === action.userId) {
+        //     return { ...u, followed: true };
+        //   }
+        //   return u;
+        // }),

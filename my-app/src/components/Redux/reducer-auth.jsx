@@ -9,11 +9,11 @@ let initialState = {
   redirectToLogin: false,
 };
 
-const setUserAuth = "setUserAuth";
-const unsetAuth = "unsetAuth";
-const responseFromServer = "responseFromServer";
-const succsessfullInit = "succsessfullInit";
-const unsuccsessfullInit = "unsuccsessfullInit";
+const setUserAuth = "auth/setUserAuth";
+const unsetAuth = "auth/unsetAuth";
+const responseFromServer = "auth/responseFromServer";
+const succsessfullInit = "auth/succsessfullInit";
+const unsuccsessfullInit = "auth/unsuccsessfullInit";
 
 export let setUserAuthAC = (Id, email, login) => ({
   type: setUserAuth,
@@ -70,39 +70,33 @@ const Auth = (state = initialState, action) => {
 };
 export default Auth;
 
-export const AuthTHC = () => {
-  return (dispatch) => {
-    LoginAPI.HeaderLogIn().then((response) => {
-      let { id, login, email } = response.data.data;
+export const AuthTHC = () => async (dispatch) => {
+  let response = await LoginAPI.HeaderLogIn();
+  const { id, login, email } = response.data.data;
 
-      if (response.data.resultCode === 0) {
-        dispatch(setUserAuthAC(id, login, email));
-        dispatch(succsessfullInitilization());
-      }
-      if (response.data.resultCode === 1) {
-        console.log(response.data.messages);
-        dispatch(responseFromSr(response.data.messages));
-        dispatch(RedirectToLogin(true));
-      }
-    });
-  };
+  if (response.data.resultCode === 0) {
+    dispatch(setUserAuthAC(id, login, email));
+    dispatch(succsessfullInitilization());
+  }
+  if (response.data.resultCode === 1) {
+    dispatch(responseFromSr(response.data.messages));
+    dispatch(RedirectToLogin(true));
+  }
 };
 
-export const LoginTHC = (email, password, rememberMe) => {
-  return (dispatch) => {
-    LoginAPI.Login(email, password, rememberMe).then((response) => {
-      if (response.data.resultCode === 0) {
-        LoginAPI.HeaderLogIn().then((response) => {
-          let { id, login, email } = response.data.data;
-          dispatch(setUserAuthAC(id, login, email));
-          dispatch(RedirectToLogin(false));
-        });
-      }
-      if (response.data.resultCode === 1) {
-        dispatch(responseFromSr(response.data.messages));
-      }
-    });
-  };
+export const LoginTHC = (email, password, rememberMe) => async (dispatch) => {
+  const response = await LoginAPI.Login(email, password, rememberMe);
+
+  if (response.data.resultCode === 0) {
+    const response = await LoginAPI.HeaderLogIn();
+    let { id, login, email } = response.data.data;
+    dispatch(setUserAuthAC(id, login, email));
+    dispatch(RedirectToLogin(false));
+  }
+
+  if (response.data.resultCode === 1) {
+    dispatch(responseFromSr(response.data.messages));
+  }
 };
 
 export const logoutTHC = () => (dispatch) => {
