@@ -11,6 +11,7 @@ export let GetUsers = async (Current, Pages) => {
   return await instance
     .get(`users?page=${Current}&count=${Pages}`)
     .then((response) => {
+
       return response.data;
     });
 };
